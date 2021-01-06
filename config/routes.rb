@@ -6,8 +6,10 @@ Rails.application.routes.draw do
 
   get '/users/:id', to: 'users#show', as: 'user'
 
-  # この行を編集する
   resources :posts, only: %i(index new create show destroy) do
     resources :photos, only: %i(create)
+
+    # この行を追加する
+    resources :likes, only: %i(create destroy)
   end
 end
