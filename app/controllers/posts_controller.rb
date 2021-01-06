@@ -7,7 +7,6 @@ class PostsController < ApplicationController
     @post.photos.build
   end
 
-  # ==========ここから追加する==========
   def create
     @post = Post.new(post_params)
     if @post.photos.present?
@@ -20,10 +19,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # ==========ここから追加する==========
+  def index
+    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
+  end
+  # ==========ここまで追加する==========
+
   private
+
     def post_params
       params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
     end
-  # ==========ここまで追加する==========
 
 end
