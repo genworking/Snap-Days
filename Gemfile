@@ -11,8 +11,8 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
-gem 'carrierwave', '~> 2.0' # 画像加工
-gem "mini_magick" # 画像加工
+gem 'carrierwave', '~> 2.0' # 画像アップロード
+gem "mini_magick" # 画像リサイズ
 gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
 
