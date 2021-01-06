@@ -23,8 +23,17 @@
         background-size: 22px !important;
         background-repeat: no-repeat;
       }
+      .home-icon {
+        background-image: url("~home-icon.png");
+      }
+      .photo-icon {
+        background-image: url("~photo-icon.png");
+      }
       .profile-icon {
-        background-image: url("~parts3.png");
+        background-image: url("~profile-icon.png");
+      }
+      .logout-icon {
+        background-image: url("~logout-icon.png");
       }
     }
   }

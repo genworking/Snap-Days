@@ -15,6 +15,11 @@
         <li>
           <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
         </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "", destroy_user_session_path, class: "nav-link commonNavIcon logout-icon", method: :delete %>
+          <% end %>
+        </li>
       </ul>
     </div>
   </div>
