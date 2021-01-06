@@ -5,6 +5,7 @@
 @import "common";
 
 @import "users/devise";
+@import "users/show";
 
 /* ここの行を追加する */
-@import "users/show";
+@import "users/edit";
