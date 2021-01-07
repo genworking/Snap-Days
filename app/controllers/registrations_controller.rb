@@ -2,21 +2,18 @@ class RegistrationsController < Devise::RegistrationsController
 
   # ログイン後、表示
   def after_sign_up_path_for(resource)
-    user_path
+    user_path(current_user)
   end
 
   def after_update_path_for(resource)
-    user_path
+    user_path(current_user)
   end
 
-protected
 
-  def update_resource(resource, params)
-    resource.update_without_current_password(params)
-  end
+  protected
 
-  def after_update_path_for(resource)
-    user_path(resource)
-  end
+    def update_resource(resource, params)
+      resource.update_without_current_password(params)
+    end
 
 end
