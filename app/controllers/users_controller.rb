@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def show
-    @user = User.find_by(id: params[:id])
+    @user = User.find_by(name: params[:id])
   end
 
   # 退会確認ページ
