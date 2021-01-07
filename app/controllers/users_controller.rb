@@ -4,6 +4,11 @@ class UsersController < ApplicationController
     @user = User.find_by(name: params[:id])
   end
 
+  # パスワード変更ページ
+  def mypassword
+    @user = User.find_by(name: params[:name])
+  end
+
   # 退会確認ページ
   def unsubscribe
     @user = User.find_by(name: params[:name])

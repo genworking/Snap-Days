@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   devise_for :users,controllers: {
     registrations: 'registrations'
     }
@@ -10,14 +9,22 @@ Rails.application.routes.draw do
   get 'legal/privacy'
   get 'relationships/create'
   get 'relationships/destroy'
-  get 'mypassword/:name' => 'users#mypassword', as: 'user_mypassword'
   get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
   delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
 
   resources :users
-  
+
   # リンク先name指定
   resources :users, param: :name
+
+  # パスワード変更用
+  resource :account, :only => [:show] do
+        resource :name, :only => [:edit, :update], module: "accounts"
+        resource :avatar, :only => [:edit, :update], module: "accounts"
+        resource :username, :only => [:edit, :update], module: "accounts"
+        resource :email, :only => [:edit, :update], module: "accounts"
+        resource :password, :only => [:edit, :update], module: "accounts"
+  end
 
   # フォロー、フォロワー
   resources :users do

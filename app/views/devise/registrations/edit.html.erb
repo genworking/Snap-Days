@@ -28,9 +28,9 @@
           <%= f.submit "変更する", class: "btn btn-primary" %>
         <% end %>
       </div>
-
-      <!-- <p>パスワード変更は <%#=link_to "こちら", user_mypassword_path(@user) %></p> -->
-      <%= link_to "退会する", confirm_unsubscribe_path(@user), class: "text-right" %>
+      <br />
+      <p>パスワード変更は <%=link_to "こちら", edit_account_password_path(current_user) %></p>
+      <p>退会する場合は <a class="text-right" href="<%= confirm_unsubscribe_path(@user) %>">こちら</a></p>
     </div>
   </div>
 </div>
