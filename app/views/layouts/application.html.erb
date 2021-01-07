@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Techpitgram</title>
+    <title>insta_clone5</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%# ここの1行も追加 %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="description" content="インスタクローンアプリです"><!-- スマホ考慮すると90文字程度 -->
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -15,8 +13,11 @@
 
   <body>
     <div id="wrapper">
+      
+      <!-- header -->
       <%= render 'partial/navbar' if current_user %>
 
+      <!-- flash -->
       <% if flash[:notice] %>
         <div class="alert alert-info">
           <%= flash[:notice] %>
@@ -28,12 +29,12 @@
         </div>
       <% end %>
 
-      <%# ==========ここにcontainerクラスを追加する========== %>
+      <!-- content -->
       <div class="container">
         <%= yield %>
       </div>
-      <%# ==========divの閉じタグを追加========== %>
 
+      <!-- footer -->
       <%= render 'partial/footer' %>
     </div>
   </body>
