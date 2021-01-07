@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'legal/terms'
-  get 'legal/privacy'
+
   devise_for :users,controllers: {
     registrations: 'registrations'
     }
@@ -8,8 +7,7 @@ Rails.application.routes.draw do
   root 'posts#index'
   get '/users/:id', to: 'users#show', as: 'user'
   get 'legal/terms'
-  get 'legal/terms', to: 'users#terms'
-  get 'legal/privacy' => 'legal#privacy'
+  get 'legal/privacy'
   get 'relationships/create'
   get 'relationships/destroy'
   get 'mypassword/:name' => 'users#mypassword', as: 'user_mypassword'
@@ -17,7 +15,6 @@ Rails.application.routes.draw do
 
   # リンク先name指定
   resources :users, param: :name
-
 
   # フォロー、フォロワー
   resources :users do
@@ -33,6 +30,4 @@ Rails.application.routes.draw do
     resources :likes, only: %i(create destroy)
     resources :comments, only: %i(create destroy)
   end
-
-
 end
