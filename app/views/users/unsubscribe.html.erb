@@ -1,0 +1,13 @@
+<div>
+  <h2>本当に退会しますか？</h2>
+  <div>
+    <p>※　退会した場合、ログインができなくなります</p>
+    <p>退会する場合は、『退会する』をクリックしてください。</p>
+  </div>
+  <div>
+    <a><%= link_to '退会しない', user_path(@user) %></a>
+    <a  style="margin-left: 30px;">
+      <%= link_to "退会する", user_destroy_path(@user), method: :delete if current_user %>
+    </a>
+  </div>
+</div>

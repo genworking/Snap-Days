@@ -9,6 +9,13 @@ class UsersController < ApplicationController
     @user = User.find_by(name: params[:name])
   end
 
+  # 退会処理
+  def destroy
+    @user = User.find_by(name: params[:name])
+    @user.destroy
+    redirect_to root_path
+  end
+
   # フォロー
   def following
       @user  = User.find(params[:id])
@@ -22,5 +29,4 @@ class UsersController < ApplicationController
     @users = @user.followers
     render 'show_follower'
   end
-
 end

@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   get 'mypassword/:name' => 'users#mypassword', as: 'user_mypassword'
   get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
 
+  resources :users
+  
   # リンク先name指定
   resources :users, param: :name
 
