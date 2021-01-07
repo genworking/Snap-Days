@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users,
-    controllers: { registrations: 'registrations' }
+  devise_for :users,controllers: {
+    registrations: 'registrations'
+    }
 
   root 'posts#index'
 
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
     resources :photos, only: %i(create)
     resources :likes, only: %i(create destroy)
 
-    # ここに追加する
     resources :comments, only: %i(create destroy)
   end
 end

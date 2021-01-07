@@ -6,11 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-md-auto align-items-center">
+        <!-- <li>
+          <%#= form_with url: search_photos_path, local: true, method: :get do |form| %>
+            <%#= form.text_field :keyword %>
+            <%#= form.submit "検索" %>
+          <%# end %>
+        </li> -->
         <li>
-
-          <%# =====この行を編集する===== %>
-          <%= link_to "投稿", new_post_path, class: "btn btn-primary" %>
-
+          <%= link_to "", root_path, class: "nav-link commonNavIcon home-icon" %>
+        </li>
+        <li>
+          <%= link_to "", new_post_path, class: "nav-link commonNavIcon photo-icon" %>
         </li>
         <li>
           <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
