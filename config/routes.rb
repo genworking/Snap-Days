@@ -19,10 +19,6 @@ Rails.application.routes.draw do
 
   # パスワード変更用
   resource :account, :only => [:show] do
-        resource :name, :only => [:edit, :update], module: "accounts"
-        resource :avatar, :only => [:edit, :update], module: "accounts"
-        resource :username, :only => [:edit, :update], module: "accounts"
-        resource :email, :only => [:edit, :update], module: "accounts"
         resource :password, :only => [:edit, :update], module: "accounts"
   end
 
