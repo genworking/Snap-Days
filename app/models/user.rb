@@ -13,7 +13,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :username, presence: true, uniqueness: true
 
-  # mount_uploader :profile_photo, ProfilePhotoUploader
 
   # URL先name指定
   def to_param

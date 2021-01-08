@@ -34,4 +34,5 @@ class UsersController < ApplicationController
     @user = @user.followers
     render 'show_follower'
   end
+
 end

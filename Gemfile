@@ -13,6 +13,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise'
 gem 'carrierwave', '~> 2.0' # 画像アップロード
 gem "mini_magick" # 画像リサイズ
+gem 'rmagick'  # 画像加工
 gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
 
