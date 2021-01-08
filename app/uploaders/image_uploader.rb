@@ -41,7 +41,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # For images you might use something like this:
 
   def extension_whitelist
-    %w(jpg jpeg png)
+    %w(jpeg png)
   end
 
   # Override the filename of the uploaded files:
