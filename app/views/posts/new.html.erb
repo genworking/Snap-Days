@@ -15,11 +15,10 @@
             </div>
           </div>
           <div class="mb-3">
-
             <%= f.fields_for :photos do |i| %>
               <%= i.file_field :image %>
             <% end %>
-
+            <div class="small form-text">※ jpeg png 形式のみ投稿できます</div>
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
