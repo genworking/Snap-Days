@@ -11,7 +11,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.photos.present?
       @post.save
-      redirect_to root_path
+      redirect_to post_path(@post)
       flash[:notice] = "投稿が保存されました"
     else
       redirect_to root_path
@@ -24,6 +24,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    @post = Post.find_by(id: params[:id])
   end
 
   # @post = Post.find_by(id: params[:id]) を削除する
@@ -41,7 +42,6 @@ class PostsController < ApplicationController
       params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
     end
 
-    # set_postというメソッドを追加する
     def set_post
       @post = Post.find_by(id: params[:id])
     end
