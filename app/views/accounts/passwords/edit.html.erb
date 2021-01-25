@@ -6,13 +6,11 @@
       </div>
       <div class="profile-form-wrap">
         <%= form_with(model: current_user, url: account_password_path, method: :put, local: true) do |f| %>
-
         <div class="form-group">
           <%= f.label :current_password, "現在のパスワード", :class => "form-label" %>
           <%= f.password_field :current_password, autocomplete: "current-password", :class => "form-control" %>
           <div class="small form-text"></div>
         </div>
-
         <div class="form-group">
           <%= f.label :password, "新しいパスワード", :class => "form-label" %>
           <%= f.password_field :password, autocomplete: "new-password", :class => "form-control" %>
@@ -20,12 +18,10 @@
           <div class="small form-text text-muted">最低<%= @minimum_password_length %>文字以上</div>
           <% end %>
         </div>
-
         <div class="form-group">
           <%= f.label :password_confirmation, "新しいパスワード(確認)", :class => "form-label" %><br />
           <%= f.password_field :password_confirmation, autocomplete: "new-password", :class=>"form-control" %>
         </div>
-
         <div class="actions">
           <%= f.submit "変更する", :class => "btn btn-primary btn-block" %>
           <%= link_to "キャンセルして戻る", :back, :class => "btn btn-secondary btn-block" %>

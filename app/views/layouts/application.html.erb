@@ -18,13 +18,10 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
     <div id="wrapper">
-
       <!-- header -->
       <%= render 'partial/navbar' if current_user %>
-
       <!-- flash -->
       <% if flash[:notice] %>
         <div class="alert alert-info">
@@ -36,12 +33,10 @@
           <%= flash[:alert] %>
         </div>
       <% end %>
-
       <!-- content -->
       <div class="container">
         <%= yield %>
       </div>
-
       <!-- footer -->
       <%= render 'partial/footer' %>
     </div>
