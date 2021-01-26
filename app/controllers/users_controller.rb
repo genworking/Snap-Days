@@ -35,4 +35,9 @@ class UsersController < ApplicationController
     render 'show_follower'
   end
 
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :profile_photo)
+    end
 end
