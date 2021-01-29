@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  has_one_attached :profile_photo
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -13,8 +12,6 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :username, presence: true, uniqueness: true
-
-  mount_uploader :profile_photo, ProfilePhotoUploader
 
   # URL先name指定
   def to_param

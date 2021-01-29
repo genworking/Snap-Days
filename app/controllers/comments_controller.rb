@@ -11,7 +11,6 @@ class CommentsController < ApplicationController
     end
   end
 
-  # ==========ここから追加する==========
   def destroy
     @comment = Comment.find_by(id: params[:id])
     @post = @comment.post
@@ -21,7 +20,6 @@ class CommentsController < ApplicationController
       flash[:alert] = "コメントの削除に失敗しました"
     end
   end
-  # ==========ここまで追加する==========
 
   private
     def comment_params
