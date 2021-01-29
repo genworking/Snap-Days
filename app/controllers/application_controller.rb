@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception # クロスサイトフォージェリ対策
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?# deviseコントローラーにストロングパラメータを追加
 
   def after_sign_in_path_for(resource)
     user_path(resource)

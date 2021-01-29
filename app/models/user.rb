@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :profile_photo
   has_many :posts, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -46,5 +47,4 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
-
 end
