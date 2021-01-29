@@ -44,9 +44,9 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
     super.chomp(File.extname(super)) + '.jpg' if original_filename.present?
   end
 
-  # ファイル名を日付にするとタイミングのせいでサムネイル名がずれる
-  #ファイル名はランダムで一意になる
-  def filename
-    "#{secure_token}.#{file.extension}" if original_filename.present?
-  end
+  # # ファイル名を日付にするとタイミングのせいでサムネイル名がずれる
+  # #ファイル名はランダムで一意になる
+  # def filename
+  #   "#{secure_token}.#{file.extension}" if original_filename.present?
+  # end
 end
