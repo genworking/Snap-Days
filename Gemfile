@@ -17,6 +17,7 @@ gem "mini_magick" # 画像リサイズ
 gem 'rmagick'  # 画像加工
 gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
+gem 'omniauth-facebook'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
