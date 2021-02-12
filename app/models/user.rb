@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :followers, through: :follower_relationships
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable
+         :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :username, presence: true, uniqueness: true
