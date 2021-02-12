@@ -17,7 +17,7 @@ gem "mini_magick" # 画像リサイズ
 gem 'rmagick'  # 画像加工
 gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
-gem 'omniauth'
+gem 'omniauth', '1.9.1'
 gem 'omniauth-facebook'
 
 group :development, :test do
