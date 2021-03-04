@@ -13,7 +13,14 @@
           <%= link_to "", new_post_path, class: "nav-link commonNavIcon photo-icon" %>
         </li>
         <li>
-          <%= link_to "", notifications_path, class: "nav-link commonNavIcon notification-icon" %>
+          <%= link_to(notifications_path) do %>
+            <% if unchecked_notifications.any? %>
+              <%= link_to "", notifications_path, class: "nav-link commonNavIcon notification-icon" %>
+              <span class="notification-circle"></span>
+            <% else %>
+              <%= link_to "", notifications_path, class: "nav-link commonNavIcon notification-icon" %>
+            <% end %>
+          <% end %>
         </li>
         <li>
           <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>

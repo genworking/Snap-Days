@@ -32,6 +32,18 @@
       .notification-icon {
         background-image: url("~notification-icon.png");
       }
+      .notification-circle {
+        position: absolute;
+        top: 15px;
+        bottom: 0px;
+        margin-left: 7px;
+        display: inline-block;
+        width:7px;
+        height:7px;
+        border-radius: 50%;
+        background-color:orange;
+        z-index:10;
+      }
       .profile-icon {
         background-image: url("~profile-icon.png");
       }
