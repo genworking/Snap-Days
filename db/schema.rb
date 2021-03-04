@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_084121) do
+ActiveRecord::Schema.define(version: 2021_03_04_022504) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,21 @@ ActiveRecord::Schema.define(version: 2021_02_05_084121) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer "visitor_id", null: false
+    t.integer "visited_id", null: false
+    t.integer "post_id"
+    t.integer "comment_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["comment_id"], name: "index_notifications_on_comment_id"
+    t.index ["post_id"], name: "index_notifications_on_post_id"
+    t.index ["visited_id"], name: "index_notifications_on_visited_id"
+    t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "image", null: false
     t.integer "post_id", null: false
@@ -66,19 +81,6 @@ ActiveRecord::Schema.define(version: 2021_02_05_084121) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "profile_photos", force: :cascade do |t|
-    t.string "profile_photo"
-    t.integer "user_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_profile_photos_on_user_id"
-  end
-
-  create_table "profiles", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -107,9 +109,6 @@ ActiveRecord::Schema.define(version: 2021_02_05_084121) do
     t.string "name", null: false
     t.string "profile_photo"
     t.string "username", default: "", null: false
-    t.string "provider"
-    t.string "uid"
-    t.string "image"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -121,5 +120,4 @@ ActiveRecord::Schema.define(version: 2021_02_05_084121) do
   add_foreign_key "likes", "users"
   add_foreign_key "photos", "posts"
   add_foreign_key "posts", "users"
-  add_foreign_key "profile_photos", "users"
 end
