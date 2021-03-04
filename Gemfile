@@ -19,6 +19,7 @@ gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
 gem 'omniauth', '1.9.1'
 gem 'omniauth-facebook'
+gem 'kaminari'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
