@@ -37,17 +37,11 @@
           </div>
         </div>
         <div class="row parts">
-          <div id="like-icon-post-<%= @post.id.to_s %>"><!-- いいねボタン -->
-            <% if @post.liked_by(current_user).present? %>
-              <%= link_to "いいねを取り消す", post_like_path(@post.id, @post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
-            <% else %>
-              <%= link_to "いいね", post_likes_path(@post), method: :POST, remote: true, class: "love hide-text" %>
-            <% end %>
-          </div>
+          <%= render 'likes/like', post: @post %><!-- いいねボタン -->
           <%= render 'favorites/favorite', post: @post %><!-- お気に入りボタン -->
         </div>
         <div id="like-text-post-<%= @post.id.to_s %>"><!-- いいね履歴コメント -->
-          <%= render "like_text", { likes: @post.likes } %>
+          <%= render "like_text", likes: @post.likes %>
         </div>
         <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div><!-- 経過時間 -->
         <hr>
