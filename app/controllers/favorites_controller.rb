@@ -9,8 +9,10 @@ class FavoritesController < ApplicationController
   end
 
   def destroy
-    @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
-    @favorite.destroy
+    if @post.user_id != current_user.id   # 投稿者以外
+      @favorite = Favorite.find_by(user_id: current_user.id, post_id: @post.id)
+      @favorite.destroy
+    end
   end
 
   private

@@ -13,6 +13,11 @@ class Post < ApplicationRecord
     Like.find_by(user_id: current_user.id, post_id: id)
   end
 
+  def favorited_by(current_user)
+    # user_idが一致するfavoriteを検索する
+    Favorite.find_by(user_id: current_user.id, post_id: id)
+  end
+
   def create_notification_like!(current_user)
     # すでに「いいね」されているか検索
     temp = Notification.where(["visitor_id = ? and visited_id = ? and post_id = ? and action = ? ", current_user.id, user_id, id, 'like'])
