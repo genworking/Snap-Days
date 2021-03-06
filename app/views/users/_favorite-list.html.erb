@@ -1,6 +1,10 @@
 <% if favorite_list.present? %>
+  <p>お気に入りリスト</p>
   <% favorite_list.each do |post| %>
-    <%= post.title %>
-    <%= post.content %>
+    <%= link_to(post_path(post)) do %>
+      <%= image_tag post.photos.first.image.url(:medium), class: "favorite-list-img" %>
+    <% end %>
   <% end %>
+  <% else %>
+    <p>お気に入りは、まだありません</p>
 <% end %>

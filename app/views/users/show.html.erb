@@ -1,2 +1,4 @@
 <%= render 'users/profile-wrap', user: @user %>
-<%= render 'users/favorite-list', favorite_list: @favorite_list %>
+<% if @user == current_user %>
+  <%= render 'users/favorite-list', favorite_list: @favorite_list %>
+<% end %>

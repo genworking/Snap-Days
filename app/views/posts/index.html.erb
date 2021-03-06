@@ -3,13 +3,16 @@
     <div class="card-wrap">
       <div class="card">
         <div class="card-header align-items-center d-flex">
+          <!-- 投稿者アイコン -->
           <%= link_to user_path(post.user), class: "no-text-decoration" do %>
             <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
           <% end %>
+          <!-- 投稿者フルネーム -->
           <%= link_to user_path(post.user), class: "black-color no-text-decoration",
             title: post.user.name do %>
             <strong><%= post.user.name %></strong>
           <% end %>
+          <!-- 削除アイコン -->
           <% if post.user_id == current_user.id %>
             <%= link_to post_path(post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
               <div class="delete-post-icon">
@@ -17,11 +20,13 @@
             <% end %>
           <% end %>
         </div>
+        <!-- 投稿画像 -->
         <%= link_to(post_path(post)) do %>
           <%= image_tag post.photos.first.image.url(:medium), class: "card-img-top" %>
         <% end %>
         <div class="card-body">
           <div class="row parts">
+            <!-- いいねボタン -->
             <div id="like-icon-post-<%= post.id.to_s %>">
               <% if post.liked_by(current_user).present? %>
                 <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
@@ -29,21 +34,29 @@
                 <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "love hide-text" %>
               <% end %>
             </div>
+            <!-- コメントアイコン -->
             <%= link_to "", "#", class: "comment" %>
           </div>
+          <!-- いいね通知コメント -->
           <div id="like-text-post-<%= post.id.to_s %>">
             <%= render "like_text", { likes: post.likes } %>
           </div>
           <div>
+            <!-- コメント投稿者 -->
             <span><strong><%= post.user.name %></strong></span>
+            <!-- コメント -->
             <span><%= post.caption %></span>
+            <!-- コメント経過時間 -->
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
+            <!-- コメントリスト -->
             <div id="comment-post-<%= post.id.to_s %>">
               <%= render 'comment_list', { post: post } %>
             </div>
+            <!-- 投稿経過時間 -->
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post),
               class: "light-color post-time no-text-decoration" %>
             <hr>
+            <!-- コメント入力欄 -->
             <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
               <%= form_with model: [post, Comment.new], class: "w-100" do |f| %>
                 <%= f.hidden_field :user_id, value: current_user.id %>
