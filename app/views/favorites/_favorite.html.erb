@@ -1,13 +1,15 @@
-<div id="favorite-<%= post.id %>">
-  <% if post.favorited_by(current_user).present? %>
-    <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "favorited hide-text" do  %>
-      <i class="far fa-thumbs-up"><span>お気に入りに登録</span></i>
-      <%= post.favorites.length %>
+<% if post.user_id != current_user.id %>
+  <div id="favorite-<%= post.id %>">
+    <% if post.favorited_by(current_user).present? %>
+      <%= link_to post_favorites_path(post), method: :delete, remote: true, class: "favorited hide-text" do  %>
+        <i ><span>お気に入りに登録</span></i>
+        <%= post.favorites.length %>
+      <% end %>
+    <% else %>
+      <%= link_to post_favorites_path(post), method: :post, remote: true, class: "favorite hide-text" do  %>
+        <i ><span>お気に入りに登録</span></i>
+        <%= post.favorites.length %>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to post_favorites_path(post), method: :post, remote: true, class: "favorite hide-text" do  %>
-      <i class="far fa-thumbs-up"><span>お気に入りに登録</span></i>
-      <%= post.favorites.length %>
-    <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
