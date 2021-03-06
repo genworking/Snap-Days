@@ -38,6 +38,8 @@
             <!-- コメントアイコン -->
             <%= link_to "", post_path(post), class: "comment" %>
             <span class="comment-count"><%= post.comments.count %></span>
+            <!-- お気に入りボタン -->
+            <%= render 'favorites/favorite', post: post %>
           </div>
           <!-- いいね通知コメント -->
           <div id="like-text-post-<%= post.id.to_s %>">

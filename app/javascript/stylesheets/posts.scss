@@ -29,9 +29,8 @@
   background-size: 30px !important;
 }
 
-.favorite {
-  margin-left: 10px;
-  background-image: url("~favorite");
+.like:hover {
+  background-image: url("~like-hover");
   background-repeat: no-repeat;
   height: 30px;
   width: 30px;
@@ -48,11 +47,45 @@
   background-size: 36px !important;;
 }
 
+.comment:hover {
+  background-image: url("~comment-hover-icon");
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  padding-bottom: 10px;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;;
+}
+
 .comment-count {
   margin-left: 8px;
   padding-top: 13px;
   height: 36px;
   width: 36px;
+}
+
+.favorite {
+  background-image: url("~favorite");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+
+.favorite:hover {
+  background-image: url("~favorite-hover");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
+}
+
+.favorited {
+  background-image: url("~favorited");
+  background-repeat: no-repeat;
+  height: 36px;
+  width: 36px;
+  background-size: 36px !important;
 }
 
 .post-time {
@@ -121,15 +154,6 @@
   padding-top: 13px;
   height: 36px;
   width: 36px;
-}
-
-.favorited {
-  margin-left: 10px;
-  background-image: url("~favorited");
-  background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
-  background-size: 30px !important;
 }
 
 .hide-text {
