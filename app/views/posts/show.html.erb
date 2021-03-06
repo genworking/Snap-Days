@@ -10,13 +10,13 @@
         <div class="card-right-comment">
           <div class="card-right-name">
             <%= link_to user_path(@post.user), class: "no-text-decoration" do %>
-              <%= image_tag avatar_url(@post.user), class: "post-profile-icon" %>
+              <%= image_tag avatar_url(@post.user), class: "post-profile-icon" %><!-- 投稿者アイコン -->
             <% end %>
             <%= link_to user_path(@post.user), class: "black-color no-text-decoration post-user-name",
               title: @post.user.name do %>
-              <strong><%= @post.user.name %></strong>
+              <strong><%= @post.user.name %></strong><!-- 投稿者フルネーム -->
             <% end %>
-            <% if @post.user_id == current_user.id %>
+            <% if @post.user_id == current_user.id %><!-- 削除アイコン -->
               <%= link_to post_path(@post), method: :delete, class: "ml-auto mx-0 my-auto" do %>
                 <div class="delete-post-icon">
                 </div>
@@ -28,7 +28,7 @@
               <%= @post.caption %>
             </strong>
           </div>
-          <div class="comment-post-id">
+          <div class="comment-post-id"><!-- コメントリスト -->
             <div class="m-2">
               <div id="comment-post-<%= @post.id.to_s %>">
                 <%= render 'comment_list', post: @post %>
@@ -37,20 +37,21 @@
           </div>
         </div>
         <div class="row parts">
-          <div id="like-icon-post-<%= @post.id.to_s %>">
+          <div id="like-icon-post-<%= @post.id.to_s %>"><!-- いいねボタン -->
             <% if @post.liked_by(current_user).present? %>
               <%= link_to "いいねを取り消す", post_like_path(@post.id, @post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
             <% else %>
               <%= link_to "いいね", post_likes_path(@post), method: :POST, remote: true, class: "love hide-text" %>
             <% end %>
           </div>
+          <%= render 'favorites/favorite', post: @post %><!-- お気に入りボタン -->
         </div>
-        <div id="like-text-post-<%= @post.id.to_s %>">
+        <div id="like-text-post-<%= @post.id.to_s %>"><!-- いいね履歴コメント -->
           <%= render "like_text", { likes: @post.likes } %>
         </div>
-        <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div>
+        <div class="post-time"><%= time_ago_in_words(@post.created_at).upcase %>前</div><!-- 経過時間 -->
         <hr>
-        <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>">
+        <div class="row parts" id="comment-form-post-<%= @post.id.to_s %>"><!-- コメント欄 -->
           <%= form_with model: [@post, Comment.new],  class: "w-100" do |f| %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :post_id, value: @post.id %>

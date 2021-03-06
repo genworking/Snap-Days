@@ -22,11 +22,20 @@
 }
 
 .love {
-  background-image: url("~parts5");
+  background-image: url("~like");
   background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;
+  height: 30px;
+  width: 30px;
+  background-size: 30px !important;
+}
+
+.favorite {
+  margin-left: 10px;
+  background-image: url("~favorite");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-size: 30px !important;
 }
 
 .comment {
@@ -92,11 +101,20 @@
 }
 
 .loved {
-  background-image: url("~parts7");
+  background-image: url("~liked");
   background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;
+  height: 30px;
+  width: 30px;
+  background-size: 30px !important;
+}
+
+.favorited {
+  margin-left: 10px;
+  background-image: url("~favorited");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-size: 30px !important;
 }
 
 .hide-text {

@@ -39,4 +39,14 @@ Rails.application.routes.draw do
   end
 
   resources :notifications, only: :index
+
+  # お気に入り
+  resources :users, only: [:show, :edit, :update] do
+    get :favorites, on: :collection
+  end
+
+  # お気に入り
+  resources :posts, expect: [:index] do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
