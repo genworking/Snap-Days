@@ -2,6 +2,14 @@ class PostsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_post, only: %i(show destroy)
 
+  def index
+    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
+  end
+
+  def show
+    @post = Post.find_by(id: params[:id])
+  end
+
   def new
     @post = Post.new
     @post.photos.build
@@ -19,15 +27,6 @@ class PostsController < ApplicationController
     end
   end
 
-  def index
-    @posts = Post.limit(10).includes(:photos, :user).order('created_at DESC')
-  end
-
-  def show
-    @post = Post.find_by(id: params[:id])
-  end
-
-  # @post = Post.find_by(id: params[:id]) を削除する
   def destroy
     if @post.user == current_user
       flash[:notice] = "投稿が削除されました" if @post.destroy
@@ -38,11 +37,12 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
-    end
 
-    def set_post
-      @post = Post.find_by(id: params[:id])
-    end
+  def post_params
+    params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
+  end
+
+  def set_post
+    @post = Post.find_by(id: params[:id])
+  end
 end
