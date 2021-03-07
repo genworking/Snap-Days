@@ -1,10 +1,10 @@
 <% if post_list.present? %>
-  <p><%= user.username %> 　さんの投稿画像</p>
+  <p><span class="mr-right10"><%= user.username %></span>さんの投稿画像</p>
   <% post_list.each do |post| %>
     <%= link_to(post_path(post)) do %>
       <%= image_tag post.photos.first.image.url(:medium), class: "post-list-img" %>
     <% end %>
   <% end %>
 <% else %>
-  <p><%= user.username %> 　さんの投稿画像はまだありません</p>
+  <p><span class="mr-right10"><%= user.username %></span>さんの投稿画像はまだありません</p>
 <% end %>
