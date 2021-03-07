@@ -6,12 +6,15 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-md-auto align-items-center">
+        <!-- ホーム -->
         <li>
           <%= link_to "", root_path, class: "nav-link commonNavIcon home-icon" %>
         </li>
+        <!-- 投稿 -->
         <li>
           <%= link_to "", new_post_path, class: "nav-link commonNavIcon photo-icon" %>
         </li>
+        <!-- 通知 -->
         <li>
           <%= link_to(notifications_path) do %>
             <% if unchecked_notifications.any? %>
@@ -22,9 +25,11 @@
             <% end %>
           <% end %>
         </li>
+        <!-- プロフィール -->
         <li>
           <%= link_to "", user_path(current_user), class: "nav-link commonNavIcon profile-icon" %>
         </li>
+        <!-- ログアウト -->
         <li>
           <% if user_signed_in? %>
             <%= link_to "", destroy_user_session_path, class: "nav-link commonNavIcon logout-icon", method: :delete %>

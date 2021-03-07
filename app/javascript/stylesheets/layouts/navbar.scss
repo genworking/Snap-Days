@@ -26,11 +26,20 @@
       .home-icon {
         background-image: url("~home-icon.png");
       }
+      .home-icon:hover {
+        background-image: url("~home-hover-icon.png");
+      }
       .photo-icon {
         background-image: url("~photo-icon.png");
       }
+      .photo-icon:hover {
+        background-image: url("~photo-hover-icon.png");
+      }
       .notification-icon {
         background-image: url("~notification-icon.png");
+      }
+      .notification-icon:hover {
+        background-image: url("~notification-hover-icon.png");
       }
       .notification-circle {
         position: absolute;
@@ -49,6 +58,9 @@
       }
       .logout-icon {
         background-image: url("~logout-icon.png");
+      }
+      .logout-icon:hover {
+        background-image: url("~logout-hover-icon.png");
       }
     }
   }
