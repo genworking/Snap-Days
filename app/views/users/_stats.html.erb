@@ -4,11 +4,11 @@
   <div class="follow-info">
     <div class="followers">
       <a href="<%#= followers_user_path(@user) %>">フォロワー</a>
-      <a id="followers" class="stat"><%= @user.followers.count %></a>
+      <a id="followers" class="stat"><span class="f-bold"><%= @user.followers.count %></span></a>
     </div>
     <div class="following">
       <a href="<%#= following_user_path(@user) %>">フォロー</a>
-      <a id="following" class="stat"><%= @user.followings.count %></a>
+      <a id="following" class="stat"><span class="f-bold"><%= @user.followings.count %></span></a>
     </div>
   </div>
 </div>

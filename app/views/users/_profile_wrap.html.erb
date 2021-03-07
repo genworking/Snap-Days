@@ -9,14 +9,11 @@
           <div class="profile-username">
             <p class="username"><%= user.username %></p>
             <p class="fullname"><%= user.name %></p>
-            <a class="follow-count">
-              <%= render 'stats' %><!-- フォローカウント -->
-            </a>
+            <p>投稿<span class="f-bold"><%= user.posts.count %></span>件</p>
+            <a class="follow-count"><%= render 'stats' %></a>
           </div>
           <div class="profile-follow-btn">
-            <a class="follow-btn">
-              <%= render 'follow_form' %><!-- フォローボタン -->
-            </a>
+            <a class="follow-btn"><%= render 'follow_form' %></a>
             <% if user == current_user %>
               <a class="edit-btn">
                 <%= link_to "プロフィールを編集", edit_user_registration_path, class: "btn btn-outline-dark edit-profile-btn" %>

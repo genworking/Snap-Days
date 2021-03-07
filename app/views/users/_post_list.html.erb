@@ -1,16 +1,10 @@
 <% if post_list.present? %>
-  <h1 class="f-size16">
-    <span class="mr-right10"><%= user.username %></span>
-    さんの投稿（<%= user.posts.count %>件）
-  </h1>
+  <h1 class="f-size16"><span class="mr-right10"><%= user.username %></span>さんの投稿</h1>
   <% post_list.each do |post| %>
     <%= link_to(post_path(post)) do %>
       <%= image_tag post.photos.first.image.url(:medium), class: "post-list-img" %>
     <% end %>
   <% end %>
 <% else %>
-  <h1 class="f-size16">
-    <span class="mr-right10"><%= user.username %></span>
-    さんの投稿画像はまだありません
-  </h1>
+  <h1 class="f-size16"><span class="mr-right10"><%= user.username %></span>さんの投稿はまだありません</h1>
 <% end %>
