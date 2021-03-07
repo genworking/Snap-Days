@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(name: params[:id])
     @posts = @user.posts
+    @post_list = @user.posts.page(params[:page]).per(21).order('updated_at DESC')
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @favorite_list = Post.find(favorites)
   end
