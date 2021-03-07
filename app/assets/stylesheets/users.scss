@@ -17,6 +17,7 @@
 }
 
 .profile-fullname {}
+
 .fullname {
   font-weight: 600;
   font-size: 16px;
@@ -25,10 +26,25 @@
 
 .follow-info {
   display: flex;
+  color: black;
 }
-.follower {}
+.follow-info a:link, .follow-info a:visited, .follow-info a:hover, .follow-info a:active {
+  color: black;
+}
+
+.followers {
+}
+
+.followers a {
+  color: black;
+}
+
 .following {
   margin-left: 10px;
+}
+
+.following a {
+  color: black;
 }
 
 .profile-follow-btn {
