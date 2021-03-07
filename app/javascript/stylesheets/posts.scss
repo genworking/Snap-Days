@@ -1,3 +1,7 @@
+.mr-left15 {
+  margin-left: 15px;
+}
+
 .post-profile-icon {
   height: 40px;
   width: 40px;
@@ -22,6 +26,7 @@
 }
 
 .like {
+  margin-top: 5px;
   background-image: url("~like");
   background-repeat: no-repeat;
   height: 30px;
@@ -30,7 +35,17 @@
 }
 
 .like:hover {
+  margin-top: 5px;
   background-image: url("~like-hover");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  background-size: 30px !important;
+}
+
+.liked {
+  margin-top: 5px;
+  background-image: url("~liked");
   background-repeat: no-repeat;
   height: 30px;
   width: 30px;
@@ -139,14 +154,6 @@
   background-size: 20px !important;
   color: #262626;
   font-size: 20px;
-}
-
-.liked {
-  background-image: url("~liked");
-  background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
-  background-size: 30px !important;
 }
 
 .like-count {
