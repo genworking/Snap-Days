@@ -1,6 +1,8 @@
-<%= render 'users/profile_wrap', user: @user %>
-<div class="introduction-info">
-  <%= @user.introduction %>
+<div class="profile-wrap">
+  <%= render 'users/profile', user: @user %>
+</div>
+<div class="user-info">
+
 </div>
 <% if @user == current_user %>
   <%= render 'users/favorite_list', favorite_list: @favorite_list %>

@@ -1,6 +1,11 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+/* 共通 */
+.f-black {
+  color: black;
+}
+.f-black:link, .f-black:visited, .f-black:hover, .f-black:active {
+  color: black;
+  text-decoration: none;
+}
 
 /* プロフィール詳細ページ */
 .profile-info {
@@ -9,7 +14,14 @@
 
 .profile-name {}
 
-.profile-username {}
+.profile-username {
+  list-style: none;
+}
+
+.profile-username li:nth-child(1),
+.profile-username li:nth-child(2) {
+  display: flex;
+}
 
 .username {
   font-weight: 300;
@@ -23,6 +35,11 @@
   font-weight: 600;
   font-size: 16px;
   line-height: 24px;
+}
+
+/* フォローカウント */
+.follow-count {
+  margin-left: 40px;
 }
 
 .follow-info {
@@ -43,7 +60,7 @@
 }
 
 .following {
-  margin-left: 10px;
+  margin-left: 40px;
 }
 
 .following a {
@@ -55,6 +72,7 @@
 }
 
 .edit-btn {
+
 }
 
 /* プロフィール編集ページ */
