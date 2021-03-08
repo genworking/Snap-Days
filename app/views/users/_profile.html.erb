@@ -17,8 +17,14 @@
             <a><%= render 'users/follow_count' %></a>
           </li>
           <li class="fullname"><%= user.name %></li>
-          <li><%= @user.introduction %></li>
-          <li class="f-black" href="<%= @user.website %>" target="_blank"><%= @user.website %></li>
+          <li>
+            <a class="introduction-icon"></a>
+            <a class="f-black introduction-text"><%= safe_join(user.introduction.split("\n"),tag(:br)) %></a>
+          </li>
+          <li>
+            <a class="website-icon"></a>
+            <a href="<%= user.website %>" class="f-black website-address" target="_blank"><%= user.website %></a>
+          </li>
         </ul>
         <!-- フォローボタン -->
         <div class="profile-follow-btn">
