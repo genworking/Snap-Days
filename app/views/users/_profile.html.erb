@@ -18,8 +18,7 @@
           </li>
           <li class="fullname"><%= user.name %></li>
           <li>
-            <a class="introduction-icon"></a>
-            <a class="f-black introduction-text"><%= safe_join(user.introduction.split("\n"),tag(:br)) %></a>
+            <a class="f-black introduction-text"><%= simple_format(user.introduction) %></a>
           </li>
           <li>
             <a class="website-icon"></a>
