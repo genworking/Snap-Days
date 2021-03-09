@@ -16,6 +16,15 @@
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
           <div class="form-group">
+            <%= f.label :website, "ウェブサイト" %>
+            <%= f.text_field :website, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction, "自己紹介" %>
+            <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
+            <div class="small form-text">※ 最大160文字まで</div>
+          </div>
+          <div class="form-group">
             <%= f.label :email, "メールアドレス" %>
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
             <div class="small form-text">※ 他のユーザーには見えません</div>
@@ -32,15 +41,6 @@
             <%= f.label :女 %>
             <%= f.radio_button :sex, :woman, autofocus: true %>
             <div class="small form-text">※ 他のユーザーには見えません</div>
-          </div>
-          <div class="form-group">
-            <%= f.label :introduction, "自己紹介" %>
-            <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
-            <div class="small form-text">※ 最大160文字まで</div>
-          </div>
-          <div class="form-group">
-            <%= f.label :website, "ウェブサイト" %>
-            <%= f.text_field :website, autofocus: true, class: "form-control" %>
           </div>
           <%= f.submit "変更する", class: "btn btn-primary" %>
         <% end %>
