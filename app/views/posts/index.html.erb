@@ -40,16 +40,18 @@
             <!-- お気に入りボタン -->
             <%= render 'favorites/favorite', post: post %>
           </div>
+          <!-- いいね通知コメント -->
+          <div id="like-text-post-<%= post.id.to_s %>">
+            <%= render "like_text", { likes: post.likes } %>
+          </div>
           <div>
             <!-- 投稿者コメント -->
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>
+          </div>
+          <div>
             <!-- 投稿経過時間 -->
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
-          </div>
-          <!-- いいね通知コメント -->
-          <div id="like-text-post-<%= post.id.to_s %>">
-            <%= render "like_text", { likes: post.likes } %>
           </div>
           <div>
             <hr>

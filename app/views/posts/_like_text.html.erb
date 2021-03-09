@@ -1,15 +1,15 @@
 <strong>
   <% likes.each.with_index do |like, index| %>
     <% if likes.size == 1 %>
-      <%= like.user.name %> </strong> が「いいね！」しました
+      <%= like.user.name %></strong>さんが「いいね！」しました
     <% elsif like == likes.last %>
-      </strong>and<strong>
-      <%= + like.user.name %></strong> が「いいね！」しました
+  </strong>と<strong>
+      <%= + like.user.name %></strong>さんが「いいね！」しました
     <% elsif index > 1 %>
-      </strong><%= "and " + (likes.size-index).to_s + " 他 " %> が「いいね！」しました
+  </strong><%= "と " + (likes.size-index).to_s + " 他 " %>さんが「いいね！」しました
       <% break %>
     <% elsif index == likes.size-2 || index == 1 %>
-      <%= like.user.name %>
+      <%= like.user.name %></strong>さん
     <% else %>
       <%= like.user.name + ", " %>
     <% end %>
