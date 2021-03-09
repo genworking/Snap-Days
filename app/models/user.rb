@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :introduction, length: { maximum: 160 }
   validates :phone_number, length: { maximum: 20 }
 
+  enum sex: { man: 0, woman: 1 }
 
   mount_uploader :profile_photo, ProfilePhotoUploader
 
