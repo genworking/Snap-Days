@@ -1,6 +1,7 @@
 <div class="profile-wrap">
   <%= render 'users/profile', user: @user %>
 </div>
+<hr>
 <% if @user == current_user %>
   <%= render 'users/favorite_list', favorite_list: @favorite_list %>
 <% end %>
