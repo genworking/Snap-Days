@@ -18,11 +18,12 @@
           <div class="form-group">
             <%= f.label :email, "メールアドレス" %>
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
+            <div class="small form-text">※ 他のユーザーには見えません</div>
           </div>
           <div class="form-group">
             <%= f.label :phone_number, "電話番号" %>
             <%= f.telephone_field :phone_number, autofocus: true, class: "form-control", placeholder: "08012345678" %>
-            <div class="small form-text">※ 他の人には見えません</div>
+            <div class="small form-text">※ 他のユーザーには見えません</div>
           </div>
           <div class="form-group">
             <%= f.label :introduction, "自己紹介" %>
