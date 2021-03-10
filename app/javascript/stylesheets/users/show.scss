@@ -11,15 +11,43 @@
   font-weight: bold;
 }
 
+.calc3 {
+  width: calc(100% / 3);
+}
 /* プロフィール情報 */
 
-.profile-wrap{
+.profile-wrap {
   margin:40px 0px;
 }
 
-.post-list-img{
-  width: 295px;
-  height: 295px;
+.post-list-title {
+  text-align: center;
+}
+
+.post-list-container {
+  width: 100%;
+}
+
+.post-list-box {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-list-frame {
+  width: calc((100% - 56px) / 3);
+  margin-right: 28px;
+  margin-bottom: 28px;
+  display: block;
+}
+
+.post-list-frame:nth-child(3n)  {
+  margin-right: 0px;
+}
+
+.post-list-img {
+  width: 100%;
+  height: auto;
 }
 
 .favorite-list-img{
