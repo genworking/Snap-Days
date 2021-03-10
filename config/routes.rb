@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
+  get 'search', to: 'users#search_username', as: 'search_username'
   delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
 
   resources :users

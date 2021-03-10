@@ -39,6 +39,10 @@ class UsersController < ApplicationController
     render 'show_follower'
   end
 
+  def search_username
+    @user = User.search(params[:search])
+  end
+
   private
 
   def user_params

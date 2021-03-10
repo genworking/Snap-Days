@@ -7,6 +7,15 @@
   text-decoration: none;
 }
 
+/* 検索フォーム */
+.search-form {
+  margin-left: 25%;
+}
+
+.search-input::placeholder {
+  text-align: center;
+}
+
 /* プロフィール詳細ページ */
 .profile-info {
   display: flex;

@@ -1,0 +1,6 @@
+<div class="search-form">
+  <%= form_tag(search_username_path, class: 'nav-link', method: 'get') do %>
+    <%= text_field_tag :search, '', { class: 'search-input', placeholder: '検索' } %>
+    <%= submit_tag 'Search', username: nil %>
+  <% end %>
+</div>
