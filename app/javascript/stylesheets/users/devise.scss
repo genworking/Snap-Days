@@ -1,6 +1,19 @@
 .mr-left10 {
   margin-left: 10px;
 }
+.mr-left15 {
+  margin-left: 15px;
+}
+.mr-left30 {
+  margin-left: 30px;
+}
+.mr-topbot-auto {
+  margin: auto 0 auto 0;
+}
+
+.pd-left10 {
+  padding-left: 10px;
+}
 
 .flex {
   display: flex;
@@ -57,6 +70,38 @@
   width: 180px;
   background-size: 160px;
   background-size: 180px!important;
+}
+
+.right-arrow-img {
+  display: block;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-image: url("~right-arrow-icon.png");
+  background-repeat: no-repeat;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background-size: 30px;
+  background-size: 30px!important;
+}
+
+.edit-profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.icon-frame {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.edit-profile-icon-preview {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 .form-control {
