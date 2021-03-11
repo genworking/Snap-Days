@@ -6,7 +6,7 @@
   </div>
   <div>
     <a><%= link_to '退会しない', user_path(@user) %></a>
-    <a  style="margin-left: 30px;">
+    <a style="margin-left: 30px;">
       <%= link_to "退会する", user_destroy_path(@user), method: :delete if current_user %>
     </a>
   </div>
