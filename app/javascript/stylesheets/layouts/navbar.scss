@@ -1,4 +1,8 @@
 .navbar {
+  position: sticky;
+  position: -webkit-sticky;/* Safari用ベンダープレフィックス */
+  top: 0;
+  z-index: 100;
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, .0975);
   height: 55px;
