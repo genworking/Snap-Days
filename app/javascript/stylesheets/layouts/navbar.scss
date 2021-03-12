@@ -1,7 +1,7 @@
 .navbar {
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, .0975);
-  height: 77px;
+  height: 55px;
   &__brand {
     height: 35px;
     width: 176px;
@@ -9,6 +9,7 @@
   }
   &__mainLogo {
     background-repeat: no-repeat;
+    background-position: 50% 50%;
     background-image: url("~logo.png");
   }
   &-nav {
