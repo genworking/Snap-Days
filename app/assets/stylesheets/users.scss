@@ -133,11 +133,24 @@
 }
 
 .profilebarList {
-  text-decoration: none;
 }
-.profilebarList:hover {
-  cursor: pointer;
+
+.post-baricon {
+  width: 14px;
+  height: 14px;
+  background-size: 14px !important;
+  background-image: url("~post-list-icon.png");
+  background-repeat: no-repeat;
 }
+.favorite-baricon {
+  width: 14px;
+  height: 14px;
+  background-size: 14px !important;
+  background-image: url("~bookmark-icon.png");
+  background-repeat: no-repeat;
+}
+
 .pb-btn {
+  margin-left: 5px;
   cursor: pointer;
 }
