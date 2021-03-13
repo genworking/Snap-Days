@@ -1,10 +1,12 @@
+<!-- 保存済み一覧 -->
 <% if favorite_list.present? %>
-  <p>お気に入り登録済み</p>
-  <% favorite_list.each do |post| %>
-    <%= link_to(post_path(post)) do %>
-      <%= image_tag post.photos.first.image.url(:medium), class: "favorite-list-img" %>
+  <div class="post-list-box">
+    <% favorite_list.each do |post| %>
+      <a href="<%= post_path(post) %>" class="post-list-frame">
+        <%= image_tag post.photos.first.image.url(:medium), class: "post-list-img" %>
+      </a>
     <% end %>
-  <% end %>
+  </div>
 <% else %>
-  <p>お気に入り登録はまだありません</p>
+  <a>お気に入り登録はまだありません</a>
 <% end %>

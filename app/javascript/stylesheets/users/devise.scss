@@ -1,3 +1,4 @@
+/* 共通 */
 .mr-left10 {
   margin-left: 10px;
 }
@@ -15,10 +16,23 @@
   padding-left: 10px;
 }
 
+.mr-left-auto {
+  margin-left: auto;
+}
+
 .flex {
   display: flex;
 }
 
+/* jQuery */
+.slide {
+  display: none;
+}
+.active {
+  display: block;
+}
+
+/* container */
 .top {
   max-width: 960px;
   margin: 0 auto;

@@ -1,5 +1,5 @@
+<!-- 投稿一覧 -->
 <% if post_list.present? %>
-  <h1 class="f-size16 post-list-title"><span class="mr-right10"><%= user.username %></span>さんの投稿</h1>
   <div class="post-list-box">
     <% post_list.each do |post| %>
       <a href="<%= post_path(post) %>" class="post-list-frame">
@@ -8,5 +8,5 @@
     <% end %>
   </div>
 <% else %>
-  <h1 class="f-size16"><span class="mr-right10"><%= user.username %></span>さんの投稿はまだありません</h1>
+  <a>投稿はまだありません</a>
 <% end %>

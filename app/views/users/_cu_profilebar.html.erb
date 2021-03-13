@@ -1,0 +1,15 @@
+<div class="profilebar">
+  <a class="">
+    <span class="barIcon"></span>
+    <span class='pb-btn profilebarList'>投稿</span>
+  </a>
+  <a class="mr-left10per">
+    <span class="barIcon"></span>
+    <span class='pb-btn profilebarList'>保存済み</span>
+  </a>
+</div>
+<!-- js（pb-btn） -->
+<ul class="pb-slides">
+  <li class="slide active"><%= render 'users/post_list', user: user, post_list: post_list %></li>
+  <li class="slide"><%= render 'users/favorite_list', user: user, favorite_list: favorite_list %></li>
+</ul>

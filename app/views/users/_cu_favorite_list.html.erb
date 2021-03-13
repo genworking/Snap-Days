@@ -1,0 +1,12 @@
+<div class="profilebar">
+  <a class="">
+    <span class=""></span>
+    <span class="">投稿</span>
+  </a>
+  <a class="mr-left10per">
+    <span class=""></span>
+    <%=link_to("保存済み","users/cu_favorite_list") do %>
+    <span class="">保存済み</span>
+  </a>
+</div>
+<%= render 'users/favorite_list', user: user %>
