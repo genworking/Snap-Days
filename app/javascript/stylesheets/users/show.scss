@@ -94,3 +94,45 @@
   margin-left: 5px;
   line-height: 14px;
 }
+
+/* プロフィールバー */
+.pb-section {
+  display: flex;
+}
+
+ul.profilebar {
+  display: flex;
+  width: 50%;
+  margin: 0 auto 10px auto;
+}
+
+li.profilebarList {
+  display: flex;
+  margin: 0 auto;
+  line-height: 14px;
+}
+
+.post-baricon {
+  width: 14px;
+  height: 14px;
+  background-size: 14px !important;
+  background-position: 50% 0% ;
+  background-repeat: no-repeat;
+  background-image: url("~post-list-icon.png");
+}
+
+.favorite-baricon {
+  width: 14px;
+  height: 14px;
+  background-size: 14px !important;
+  background-image: url("~bookmark-icon.png");
+  background-repeat: no-repeat;
+}
+
+.pb-btn:hover {
+  cursor: pointer;
+}
+
+.pb-btn-txt {
+  margin-left: 5px;
+}
