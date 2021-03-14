@@ -6,9 +6,14 @@
           <div class="form-group">
             <%= f.label :profile_photo, "プロフィール画像" %><br>
             <div class="flex">
+              <!-- ユーザーアイコン -->
               <%= image_tag avatar_url(@user).to_s, class: "edit-profile-icon" %>
               <a class="mr-topbot-auto right-arrow-img"></a>
-              <%= image_tag @user.profile_photo.url, id: :img_prev, class: "mr-left10 edit-profile-icon-preview" if @user.profile_photo? %>
+              <% if @user.profile_photo? %>
+                <%= image_tag @user.profile_photo.url, id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
+              <% else %>
+                <%= image_tag "/gravatar-icon.png", id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
+              <% end %>
               <%= f.file_field :profile_photo, autofocus: true, class: "mr-left15", id: :profile_photo %>
               <script type="text/javascript">
                 $(function() {
@@ -28,18 +33,22 @@
               </script>
             </div>
           </div>
+          <!-- ユーザーネーム -->
           <div class="form-group">
             <%= f.label :username, "ユーザーネーム" %>
             <%= f.text_field :username, autofocus: true, class: "form-control" %>
           </div>
+          <!-- 名前 -->
           <div class="form-group">
             <%= f.label :name, "名前" %>
             <%= f.text_field :name, autofocus: true, class: "form-control" %>
           </div>
+          <!-- ウェブサイト -->
           <div class="form-group">
             <%= f.label :website, "ウェブサイト" %>
             <%= f.text_field :website, autofocus: true, class: "form-control" %>
           </div>
+          <!-- 自己紹介 -->
           <div class="form-group">
             <div class="flex">
               <%= f.label :introduction, "自己紹介" %>
@@ -49,6 +58,7 @@
             </div>
             <%= f.text_area :introduction, autofocus: true, class: "form-control" %>
           </div>
+          <!-- メールアドレス -->
           <div class="form-group">
             <div class="flex">
               <%= f.label :email, "メールアドレス" %>
@@ -58,6 +68,7 @@
             </div>
             <%= f.email_field :email, autofocus: true, class: "form-control" %>
           </div>
+          <!-- 電話番号 -->
           <div class="form-group">
             <div class="flex">
               <%= f.label :phone_number, "電話番号" %>
@@ -67,6 +78,7 @@
             </div>
             <%= f.telephone_field :phone_number, autofocus: true, class: "form-control", placeholder: "08012345678" %>
           </div>
+          <!-- 性別 -->
           <div class="form-group">
             <div class="flex">
               <%= f.label :性別 %>
@@ -79,6 +91,7 @@
             <%= f.label :女 %>
             <%= f.radio_button :sex, :woman, autofocus: true %>
           </div>
+          <!-- 更新 -->
           <%= f.submit "変更する", class: "btn btn-primary" %>
         <% end %>
       </div>
