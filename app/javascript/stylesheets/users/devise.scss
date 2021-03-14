@@ -1,4 +1,4 @@
-/* 共通 */
+/* 配置 */
 .mr-left10 {
   margin-left: 10px;
 }
@@ -11,17 +11,21 @@
 .mr-topbot-auto {
   margin: auto 0 auto 0;
 }
+.mr-left-auto {
+  margin-left: auto;
+}
 
 .pd-left10 {
   padding-left: 10px;
 }
 
-.mr-left-auto {
-  margin-left: auto;
-}
-
 .flex {
   display: flex;
+}
+
+/* 文字 */
+.opa05 {
+  opacity: .5;
 }
 
 /* jQuery */

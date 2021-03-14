@@ -12,3 +12,9 @@ $(function() {
     $('.slide').eq(clickedIndex).addClass('active');
   });
 });
+
+$(function(){
+  $('.pb-btn').click(function() {
+    $('.pb-btn').toggleClass('opa05');
+  });
+});
