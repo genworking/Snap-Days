@@ -12,7 +12,7 @@
               <% if @user.profile_photo? %>
                 <%= image_tag @user.profile_photo.url, id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
               <% else %>
-                <%= image_tag "/gravatar-icon.png", id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
+                <%= image_tag "/default-cyan-icon.png", id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
               <% end %>
               <%= f.file_field :profile_photo, autofocus: true, class: "mr-left15", id: :profile_photo %>
               <script type="text/javascript">
