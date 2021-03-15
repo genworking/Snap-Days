@@ -121,6 +121,37 @@
   border-radius: 50%;
 }
 
+.ff-btn {
+  display: block;
+  background-color: #228B22;
+  width: 180px;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+  border-radius: 5px;
+  padding-top: 2px;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+p::after {
+  content: "選択されていません";
+}
+p.changed::after {
+  content: "";
+}
+
+.ff-form {
+  display: none;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .preview-delete-btn {
   display: block;
   width: 14px;
