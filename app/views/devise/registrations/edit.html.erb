@@ -2,11 +2,16 @@
   <div class="row">
     <div class="col-md-8 mx-auto">
       <div class="profile-form-wrap">
+
+        <%#= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
+
+        <%# end %>
+
         <%= form_with scope: resource, as: resource_name, url: registration_path(resource_name), local: true, method: :patch do |f| %>
+          <!-- ユーザーアイコン -->
           <div class="form-group">
             <%= f.label :profile_photo, "プロフィール画像" %><br>
             <div class="flex">
-              <!-- ユーザーアイコン -->
               <%= image_tag avatar_url(@user).to_s, class: "edit-profile-icon" %>
               <a class="mr-topbot-auto right-arrow-img"></a>
               <% if @user.profile_photo? %>
@@ -15,22 +20,7 @@
                 <%= image_tag "/default-cyan-icon.png", id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
               <% end %>
               <%= f.file_field :profile_photo, autofocus: true, class: "mr-left15", id: :profile_photo %>
-              <script type="text/javascript">
-                $(function() {
-                  function readURL(input) {
-                    if (input.files && input.files[0]) {
-                      var reader = new FileReader();
-                      reader.onload = function (e) {
-                        $('#img_prev').attr('src', e.target.result);
-                      }
-                      reader.readAsDataURL(input.files[0]);
-                    }
-                  }
-                  $("#profile_photo").change(function(){
-                    readURL(this);
-                  });
-                });
-              </script>
+              <a class="preview-delete-btn">選択中の画像を削除</a>
             </div>
           </div>
           <!-- ユーザーネーム -->

@@ -5,10 +5,6 @@ class RelationshipsController < ApplicationController
     current_user.follow!(@user)
     @user.create_notification_follow!(current_user)
     redirect_to @user
-    # respond_to do |format|
-    #   format.html { redirect_to @user }
-    #   format.js
-    # end
   end
 
   def destroy
@@ -16,5 +12,4 @@ class RelationshipsController < ApplicationController
     current_user.unfollow!(@user)
     redirect_to @user
   end
-
 end
