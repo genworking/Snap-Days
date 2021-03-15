@@ -22,10 +22,10 @@ $(function() {
 });
 /* アイコンプレビュー削除 */
 $(function(){
-  $('.preview-delete-btn').click(function(){
+  $('#preview-delete').click(function(){
     $('input[type="file"]').val(null);
     var src = $('.edit-profile-icon').attr('src');
-    $('.edit-profile-icon-preview').attr("src",src);
+    $('.edit-profile-icon-preview').attr('src',src);
     return false;
   });
 });
