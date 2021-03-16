@@ -12,7 +12,6 @@
 }
 
 /* プロフィール情報 */
-
 .profile-wrap {
   margin:40px 0px;
 }
@@ -103,7 +102,7 @@
 ul.profilebar {
   display: flex;
   width: 50%;
-  margin: 0 auto 10px auto;
+  margin: 0 auto 20px auto;
 }
 
 li.profilebarList {
@@ -137,4 +136,79 @@ li.profilebarList {
   margin-left: 5px;
   font-weight: bold;
   font-size: 12px;
+}
+
+/* 未投稿時 */
+.post-list-none {
+  border-radius: 10px;
+}
+
+.list-left {
+  width: 40%;
+  display: grid;
+  grid-gap: 1px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.list-left-box {
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+
+.list-left-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: no-repeat;
+  background-size: cover !important;
+}
+.list-left .list-left-box {
+  &:nth-child(1) .list-left-img {
+    background-image: url("~postlist1.jpg");
+  }
+  &:nth-child(2) .list-left-img {
+    background-image: url("~postlist2.jpg");
+  }
+  &:nth-child(3) .list-left-img {
+    background-image: url("~postlist3.jpg");
+  }
+  &:nth-child(4) .list-left-img {
+    background-image: url("~postlist4.jpg");
+  }
+  &:nth-child(5) .list-left-img {
+    background-image: url("~postlist5.jpg");
+  }
+  &:nth-child(6) .list-left-img {
+    background-image: url("~postlist6.jpg");
+  }
+  &:nth-child(7) .list-left-img {
+    background-image: url("~postlist7.jpg");
+  }
+  &:nth-child(8) .list-left-img {
+    background-image: url("~postlist8.jpg");
+  }
+  &:nth-child(9) .list-left-img {
+    background-image: url("~postlist9.jpg");
+  }
+}
+
+.list-right {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list-right-txt {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 18px;
 }
