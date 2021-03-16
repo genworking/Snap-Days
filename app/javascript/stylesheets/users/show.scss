@@ -24,24 +24,34 @@
   width: 100%;
 }
 
+/* 投稿一覧 */
 .post-list-box {
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-gap: 3%;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .post-list-frame {
-  width: calc((100% - 56px) / 3);
-  margin-right: 28px;
-  margin-bottom: 28px;
-  display: block;
-}
-
-.post-list-frame:nth-child(3n)  {
-  margin-right: 0px;
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
 }
 
 .post-list-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.post-list-img img{
   width: 100%;
   height: auto;
 }
