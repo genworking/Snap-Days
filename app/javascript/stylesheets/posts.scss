@@ -75,28 +75,35 @@
   width: 36px;
 }
 
+.favorite-btn {
+  margin: 0 0 0 auto;
+}
+
 .favorite {
-  background-image: url("~favorite");
+  background-image: url("~bookmark-icon");
   background-repeat: no-repeat;
   height: 36px;
   width: 36px;
-  background-size: 36px !important;
+  background-size: 28px !important;
+  background-position: center;
 }
 
 .favorite:hover {
-  background-image: url("~favorite-hover");
+  background-image: url("~bookmark-hover-icon");
   background-repeat: no-repeat;
   height: 36px;
   width: 36px;
-  background-size: 36px !important;
+  background-size: 28px !important;
+  background-position: center;
 }
 
 .favorited {
-  background-image: url("~favorited");
+  background-image: url("~bookmarked-icon");
   background-repeat: no-repeat;
   height: 36px;
   width: 36px;
-  background-size: 36px !important;
+  background-size: 28px !important;
+  background-position: center;
 }
 
 .post-time {
