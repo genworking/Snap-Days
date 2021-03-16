@@ -11,7 +11,7 @@ $(function(){
      if(!($(".filename").length)){
        $("#icon-name").append('<span class="filename"></span>');
      }
-     $("p").addClass('changed');// CSSで中身を空欄に
+     $("#icon-name").addClass('changed');// CSSで中身を空欄に
      $(".filename").html(file.name);// 空欄に入力ファイル名を出力
    });
  });

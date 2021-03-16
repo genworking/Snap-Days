@@ -138,7 +138,7 @@
   }
 }
 
-p::after {
+p.icon-name-area::after {
   content: "選択されていません";
 }
 p.changed::after {
