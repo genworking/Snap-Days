@@ -2,17 +2,37 @@
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <p class="card-header f-bold">投稿する</p>
+      <!-- ユーザーアイコン -->
       <div class="col-auto pr-0 mr-top10">
         <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
       </div>
+      <div class="flex">
+        <!-- 選択画像プレビュー -->
+        <div class="image-preview-box">
+          <div class="image-preview-frame">
+            <% if @post.photos.present? %>
+              <a class="upload-image-preview"><%= image_tag "/upload-image-none-icon.png", id: :photo_prev %></a>
+            <% else %>
+              <a class="upload-image-preview"><%= image_tag @post.photos.url, id: :photo_prev %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
       <div class="card-body">
         <%= form_with model: @post, local: true, class: "upload-images p-0 border-0" do |f| %>
-          <!-- 投稿画像 -->
-          <div class="mb-3">
-            <%= f.fields_for :photos do |i| %>
-              <%= i.file_field :image, autofocus: true %>
-            <% end %>
-            <p class="small form-text">※ jpeg png 形式のみ投稿できます</p>
+          <div class="flex">
+            <!-- 投稿画像選択ボタン -->
+            <div class="mb-3">
+              <%= f.fields_for :photos do |i| %>
+                <%= i.label :image, "画像を選択", for: :input_file, class: "ff-btn" %>
+                <%= i.file_field :image, id: :input_file, class: "mr-left15 ff-form", autofocus: true %>
+              <% end %>
+              <p class="small form-text">※ jpeg png 形式のみ投稿できます</p>
+            </div>
+            <!-- 投稿画像ファイル名 -->
+            <p for="input-file" id="photo-name" class="photo-name-area"></p>
+            <!-- 投稿画像プレビュー削除 -->
+            <a for="photo-name" id="preview-delete" class="preview-delete-btn"></a>
           </div>
           <!-- 投稿コメント -->
           <div class="form-group">
@@ -21,8 +41,8 @@
           </div>
           <!-- ハッシュタグ -->
           <div class="form-group">
-            <%= f.label :hashword, "#ハッシュタグ" %>
-            <%= f.text_area :hashword, class: "form-control", placeholder: "#○○ で指定" %>
+            <%= f.label :hashword, "ハッシュタグ" %>
+            <%= f.text_area :hashword, class: "form-control", placeholder: "# で指定" %>
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>

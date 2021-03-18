@@ -28,11 +28,10 @@
           </div>
           <!-- 投稿のコメント -->
           <div class="m-2">
-            <strong><%= @post.caption %></strong>
+            <a><%= @post.caption %></a>
           </div>
           <!-- ハッシュタグ -->
           <div class="m-2">
-            ハッシュタグ
             <%= render_with_hashtags(@post.hashword) %>
           </div>
           <!-- 投稿に対するコメント -->

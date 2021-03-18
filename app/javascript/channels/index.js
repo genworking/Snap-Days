@@ -4,19 +4,7 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-/* アイコン名表示 */
-$(function(){
-  $("input[type='file']").on('change',function(){
-     var file = $(this).prop('files')[0];
-     if(!($(".filename").length)){
-       $("#icon-name").append('<span class="filename"></span>');
-     }
-     $("#icon-name").addClass('changed');// CSSで中身を空欄に
-     $(".filename").html(file.name);// 空欄に入力ファイル名を出力
-   });
- });
-
-/* アイコンプレビュー表示 */
+/* プロフィールアイコンプレビュー表示 */
 $(function() {
   function readURL(input) {
     if (input.files && input.files[0]) {
@@ -31,14 +19,61 @@ $(function() {
     readURL(this);
   });
 });
-/* アイコンプレビュー削除 */
+/* プロフィールアイコンプレビュー削除 */
 $(function(){
   $('#preview-delete').click(function(){
     $('input[type="file"]').val(null);// file_fieldをクリア
-    var src = $('.edit-profile-icon').attr('src');// srcを定義し、
-    $('.edit-profile-icon-preview').attr('src',src);// 表示先にsrcを読み込ませる
+    var src = $('.edit-profile-icon').attr('src');// 変更前と同じsrcを取得し、
+    $('.edit-profile-icon-preview').attr('src',src);// プレビューにそのsrcを読み込ませる
     $(".filename").html("選択されていません");// ファイル名表示をこの文字列に変更
     return false;
+  });
+});
+/* プロフィールアイコンファイル名表示 */
+$(function(){
+  $("input[type='file']").on('change',function(){
+     var file = $(this).prop('files')[0];
+     if(!($(".filename").length)){
+       $("#icon-name").append('<span class="filename"></span>');
+     }
+     $("#icon-name").addClass('changed');// CSSで中身を空欄に
+     $(".filename").html(file.name);// 空欄に入力ファイル名を出力
+   });
+ });
+
+/* 投稿画像プレビュー表示 */
+$(function() {
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#photo_prev').attr('src', e.target.result);// プレビュー表示先
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $("#input_file").change(function(){
+   readURL(this);
+  });
+});
+/* 投稿画像プレビューとファイル名削除 */
+$(function(){
+  $('#preview-delete').click(function(){
+    $('input[type="file"]').val(null);// file_fieldをクリア
+    $('.upload-image-preview img').attr('src',"/upload-image-none-icon.png");// プレビューにsrcを読み込ませる
+    $(".filename").html("選択されていません");// ファイル名表示をこの文字列に変更
+    return false;
+  });
+});
+/* 投稿画像ファイル名表示 */
+$(function(){
+  $("input[type='file']").on('change',function(){
+    var file = $(this).prop('files')[0];
+    if(!($(".filename").length)){
+      $("#photo-name").append('<span class="filename"></span>');
+    }
+    $("#photo-name").addClass('changed');// CSSで中身を空欄に
+    $(".filename").html(file.name);// 空欄に入力ファイル名を出力
   });
 });
 

@@ -97,6 +97,23 @@
   background-size: 180px!important;
 }
 
+.form-control {
+  border: 1px solid #dcdfe6;
+  font-size: inherit;
+}
+
+.devise-link {
+  text-align: center;
+  margin: 16px 0;
+}
+
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* プロフィール編集 */
 .right-arrow-img {
   display: block;
   margin-left: 10px;
@@ -171,20 +188,39 @@ p.changed::after {
   }
 }
 
-.form-control {
-  border: 1px solid #dcdfe6;
-  font-size: inherit;
+/* 投稿ページ */
+.image-preview-box {
+  width: 100%;
+  padding: 20px 20px 0px 20px;
+}
+.image-preview-frame {
+  position: relative;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+  }
+}
+a.upload-image-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.upload-image-preview img {
+  width: 100%;
+  height: auto;
 }
 
-.devise-link {
-  text-align: center;
-  margin: 16px 0;
+p.photo-name-area::after {
+  content: "選択されていません";
 }
-
-#wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+p.changed::after {
+  content: "";
 }
 
 footer {
