@@ -1,12 +1,33 @@
 class Post < ApplicationRecord
   belongs_to :user, optional: true
   has_many :photos, dependent: :destroy
+  has_many :hashtag_posts, dependent: :destroy
+  has_many :hashtags, through: :hashtag_posts
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :notifications, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
   accepts_nested_attributes_for :photos
+
+  after_create do
+    post = Post.find_by(id: self.id)
+    hashtags = self.hashword.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      post.hashtags << tag
+    end
+  end
+
+  before_update do
+    post = Post.find_by(id: self.id)
+    post.hashtags.clear
+    hashtags = self.hashword.scan(/[#＃][\w\p{Han}ぁ-ヶｦ-ﾟー]+/)
+    hashtags.uniq.map do |hashtag|
+      tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
+      post.hashtags << tag
+    end
+  end
 
   def liked_by(current_user)
     # user_idが一致するlikeを検索する

@@ -36,10 +36,16 @@ class PostsController < ApplicationController
     redirect_to root_path
   end
 
+  def hashtag
+    @user = current_user
+    @tag = Hashtag.find_by(hashname: params[:name])
+    @posts = @tag.posts
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:caption, photos_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:post).permit(:caption, :hashword, :hashtag_ids, photos_attributes: [:image]).merge(user_id: current_user.id)
   end
 
   def set_post

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_09_094809) do
+ActiveRecord::Schema.define(version: 2021_03_17_124525) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -52,6 +52,22 @@ ActiveRecord::Schema.define(version: 2021_03_09_094809) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "hashtag_posts", force: :cascade do |t|
+    t.integer "post_id"
+    t.integer "hashtag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashtag_id"], name: "index_hashtag_posts_on_hashtag_id"
+    t.index ["post_id"], name: "index_hashtag_posts_on_post_id"
+  end
+
+  create_table "hashtags", force: :cascade do |t|
+    t.string "hashname"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["hashname"], name: "index_hashtags_on_hashname", unique: true
+  end
+
   create_table "likes", force: :cascade do |t|
     t.integer "post_id", null: false
     t.integer "user_id", null: false
@@ -85,7 +101,8 @@ ActiveRecord::Schema.define(version: 2021_03_09_094809) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "caption"
+    t.text "caption"
+    t.text "hashword"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -131,6 +148,8 @@ ActiveRecord::Schema.define(version: 2021_03_09_094809) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
+  add_foreign_key "hashtag_posts", "hashtags"
+  add_foreign_key "hashtag_posts", "posts"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
   add_foreign_key "photos", "posts"

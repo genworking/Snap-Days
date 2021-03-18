@@ -30,6 +30,11 @@
           <div class="m-2">
             <strong><%= @post.caption %></strong>
           </div>
+          <!-- ハッシュタグ -->
+          <div class="m-2">
+            ハッシュタグ
+            <%= render_with_hashtags(@post.hashword) %>
+          </div>
           <!-- 投稿に対するコメント -->
           <div class="comment-post-id">
             <div class="m-2">

@@ -1,24 +1,28 @@
 <div class="d-flex flex-column align-items-center mt-3">
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
-      <div class="card-header">
-        投稿画面
+      <p class="card-header f-bold">投稿する</p>
+      <div class="col-auto pr-0 mr-top10">
+        <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
       </div>
       <div class="card-body">
-        <%= form_with model: @post, class: "upload-images p-0 border-0" do |f| %>
-          <div class="form-group row mt-2">
-            <div class="col-auto pr-0">
-              <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
-            </div>
-            <div class="col pl-0">
-              <%= f.text_field :caption, class: "form-control border-0", placeholder: "コメントを書く" %>
-            </div>
-          </div>
+        <%= form_with model: @post, local: true, class: "upload-images p-0 border-0" do |f| %>
+          <!-- 投稿画像 -->
           <div class="mb-3">
             <%= f.fields_for :photos do |i| %>
-              <%= i.file_field :image %>
+              <%= i.file_field :image, autofocus: true %>
             <% end %>
-            <div class="small form-text">※ jpeg png 形式のみ投稿できます</div>
+            <p class="small form-text">※ jpeg png 形式のみ投稿できます</p>
+          </div>
+          <!-- 投稿コメント -->
+          <div class="form-group">
+            <%= f.label :caption, "投稿コメント" %>
+            <%= f.text_area :caption, class: "form-control", placeholder: "コメントを書く" %>
+          </div>
+          <!-- ハッシュタグ -->
+          <div class="form-group">
+            <%= f.label :hashword, "#ハッシュタグ" %>
+            <%= f.text_area :hashword, class: "form-control", placeholder: "#○○ で指定" %>
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
