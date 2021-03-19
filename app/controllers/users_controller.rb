@@ -41,7 +41,8 @@ class UsersController < ApplicationController
 
   # 検索
   def search_username
-    @user = User.search(params[:search])
+    @users = User.search(params[:search])
+    @hashtags = Hashtag.search(params[:search])
   end
 
   private

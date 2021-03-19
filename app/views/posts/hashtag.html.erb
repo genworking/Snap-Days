@@ -1,10 +1,21 @@
-<h2>ハッシュタグ #<%= @tag.hashname %></h2>
-  <ul>
-    <% @posts.each do |post| %>
-      <li>
-        <%= link_to post_path(post.id) do %>
-          <%= image_tag post.image.variant(gravity: :center), if photo.image.attached? %>
-        <% end %>
-      </li>
-    <% end %>
-  </ul>
+<% if params[:name] == nil %>
+
+<% else %>
+  <h3 class="search-title">#<%= @hashtag.hashname %></h3>
+  <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
+  <hr>
+  <!-- ハッシュタグ投稿一覧 -->
+  <% if @hashtag_posts.present? %>
+    <div class="post-list-box">
+      <% @hashtag_posts.each do |hashtag_post| %>
+        <div class="post-list-frame">
+          <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
+            <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <%= render 'users/post_list_none' %>
+  <% end %>
+<% end %>

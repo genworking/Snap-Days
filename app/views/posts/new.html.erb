@@ -38,7 +38,7 @@
           <!-- ハッシュタグ -->
           <div class="form-group">
             <%= f.label :hashword, "ハッシュタグ" %>
-            <%= f.text_area :hashword, class: "form-control", placeholder: "# で指定" %>
+            <%= f.text_area :hashword, class: "form-control", placeholder: "「#」を先頭につけてください 例）#ジャケット" %>
           </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>

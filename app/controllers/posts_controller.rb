@@ -38,8 +38,13 @@ class PostsController < ApplicationController
 
   def hashtag
     @user = current_user
-    @tag = Hashtag.find_by(hashname: params[:name])
-    @posts = @tag.posts
+    if params[:name].nil?
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+    else
+      @hashtag = Hashtag.find_by(hashname: params[:name])
+      @hashtag_posts = @hashtag.posts.page(params[:page]).per(21).reverse_order
+      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+    end
   end
 
   private
