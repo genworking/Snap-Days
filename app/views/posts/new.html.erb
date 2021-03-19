@@ -2,22 +2,6 @@
   <div class="col-xl-7 col-lg-8 col-md-10 col-sm-11 post-card">
     <div class="card">
       <p class="card-header f-bold">投稿する</p>
-      <!-- ユーザーアイコン -->
-      <div class="col-auto pr-0 mr-top10">
-        <%= image_tag avatar_url(current_user), class: "post-profile-icon" %>
-      </div>
-      <div class="flex">
-        <!-- 選択画像プレビュー -->
-        <div class="image-preview-box">
-          <div class="image-preview-frame">
-            <% if @post.photos.present? %>
-              <a class="upload-image-preview"><%= image_tag "/upload-image-none-icon.png", id: :photo_prev %></a>
-            <% else %>
-              <a class="upload-image-preview"><%= image_tag @post.photos.url, id: :photo_prev %></a>
-            <% end %>
-          </div>
-        </div>
-      </div>
       <div class="card-body">
         <%= form_with model: @post, local: true, class: "upload-images p-0 border-0" do |f| %>
           <div class="flex">
@@ -33,6 +17,18 @@
             <p for="input-file" id="photo-name" class="photo-name-area"></p>
             <!-- 投稿画像プレビュー削除 -->
             <a for="photo-name" id="preview-delete" class="preview-delete-btn"></a>
+          </div>
+          <!-- 選択画像プレビュー -->
+          <div class="flex">
+            <div class="image-preview-box">
+              <div class="image-preview-frame">
+                <% if @post.photos.present? %>
+                  <a class="upload-image-preview"><%= image_tag "/upload-image-none-icon.png", id: :photo_prev %></a>
+                <% else %>
+                  <a class="upload-image-preview"><%= image_tag @post.photos.url, id: :photo_prev %></a>
+                <% end %>
+              </div>
+            </div>
           </div>
           <!-- 投稿コメント -->
           <div class="form-group">
