@@ -5,7 +5,7 @@
   <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
   <hr>
   <!-- ハッシュタグ投稿一覧 -->
-  <% if @hashtag_posts.present? %>
+  <% if @hashtag.present? %>
     <div class="post-list-box">
       <% @hashtag_posts.each do |hashtag_post| %>
         <div class="post-list-frame">

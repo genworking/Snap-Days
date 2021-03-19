@@ -81,4 +81,12 @@ class Post < ApplicationRecord
     end
     notification.save if notification.valid?
   end
+
+  def self.search(search)
+    if search
+      Hashtag.where(['hashname LIKE ?', "%#{search}%"])
+    else
+      Hashtag.all
+    end
+  end
 end

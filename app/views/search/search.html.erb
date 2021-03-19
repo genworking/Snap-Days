@@ -1,0 +1,29 @@
+<% if @user.present? %>
+  <div>
+    <% @user.each do | user | %>
+      <h3><%= link_to user.username, user_path(user) %></h3>
+    <% end %>
+  </div>
+<% else %>
+  <div>
+    <h3 class="search-title">#<%= @hashtag.hashname %></h3>
+    <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
+  </div>
+<% end %>
+<hr>
+<div class="mr-lefrig-auto">
+  <!-- ハッシュタグ投稿一覧 -->
+  <% if @hashtag_posts.present? %>
+    <div class="post-list-box">
+      <% @hashtag_posts.each do |hashtag_post| %>
+        <div class="post-list-frame">
+          <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
+            <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <a>検索されたハッシュタグはまだありません</a>
+  <% end %>
+</div>

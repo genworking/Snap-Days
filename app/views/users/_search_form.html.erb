@@ -1,5 +1,5 @@
 <div class="mr-left25per">
-  <%= form_tag(search_username_path, id: 'form2', class: 'nav-link', method: 'get') do %>
+  <%= form_tag(search_path, id: 'form2', class: 'nav-link', method: 'get') do %>
     <%= text_field_tag :search, '', { id: 'sbox2', placeholder: '検索', class: 'search-input' } %>
     <button type='submit' username='nil' id='sbtn2'><i class="fas fa-search"></i></button>
   <% end %>

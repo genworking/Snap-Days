@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/search'
   devise_for :users,controllers: {
     registrations: 'registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  get 'search', to: 'users#search_username', as: 'search_username'
+  get 'search', to: 'search#search', as: 'search'
   get '/post/hashtag/:name' => 'posts#hashtag'
   get '/post/hashtag' => 'posts#hashtag'
   delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
