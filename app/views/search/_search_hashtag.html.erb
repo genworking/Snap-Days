@@ -1,12 +1,21 @@
 <!-- ハッシュタグ検索結果 -->
-<div class="mr-lefrig-auto">
+<div class="pd-top20">
   <% if hashtag_posts.present? %>
-    <div>
-      <h3 class="search-title">#<%= hashtag.hashname %></h3>
-      <a>投稿<span class="f-bold"><%= hashtag_posts.count %></span>件</a>
+    <div class="flex">
+      <!-- ハッシュタグアイコン -->
+      <div class="col-md-4 text-center">
+        <% hashtag_randoms.each do | hashtag_random |%>
+          <%= image_tag hashtag_random.photos.first.image.url(:medium), class: "round-img" %>
+        <% end %>
+      </div>
+      <div>
+        <h3 class="search-title">#<%= hashtag.hashname %></h3>
+        <a>投稿<span class="f-bold"><%= hashtag_posts.count %></span>件</a>
+      </div>
     </div>
     <hr>
-    <div class="post-list-box">
+    <a class="f-bold f-black opa05">人気投稿</a>
+    <div class="post-list-box mr-top20">
       <% hashtag_posts.each do |hashtag_post| %>
         <div class="post-list-frame">
           <%= link_to post_path(hashtag_post), class: "post-list-img" do %>

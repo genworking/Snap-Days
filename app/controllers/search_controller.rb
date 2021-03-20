@@ -5,6 +5,7 @@ class SearchController < ApplicationController
     if @hashtag.present?
       @hashtag_posts = @hashtag.posts.page(params[:page]).per(21).reverse_order
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+      @hashtag_randoms = @hashtag.posts.order("RANDOM()").limit(1)
     elsif @user.blank? && @hashtag_posts.blank?
       redirect_to root_path(current_user)
       flash[:alert] = "検索結果が見つかりませんでした"
