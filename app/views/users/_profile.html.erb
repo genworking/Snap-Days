@@ -21,13 +21,15 @@
             <a class="f-black introduction-text"><%= simple_format(user.introduction) %></a>
           </li>
           <li>
-            <a class="website-icon"></a>
-            <a href="<%= user.website %>" class="f-black website-address" target="_blank"><%= user.website %></a>
+            <% if user.website.present? %>
+              <a class="website-icon"></a>
+              <a href="<%= user.website %>" class="f-black website-address" target="_blank"><%= user.website %></a>
+            <% end %>
           </li>
         </ul>
         <!-- フォローボタン -->
         <div class="profile-follow-btn">
-          <a class="follow-btn"><%= render 'follow_form' %></a>
+          <a class="follow-btn"><%= render 'users/follow_form' %></a>
         </div>
       </div>
     </div>
