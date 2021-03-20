@@ -1,30 +1,6 @@
-<!-- ユーザーネーム検索 -->
+<!-- 検索結果 -->
 <% if @user.present? %>
-  <div>
-    <% @user.each do | user | %>
-      <h3><%= link_to user.username, user_path(user) %></h3>
-    <% end %>
-  </div>
-  <hr>
+  <%= render '/search/search_user', user: @user %>
 <% else %>
-<!-- ハッシュタグ検索一覧 -->
-<div class="mr-lefrig-auto">
-  <% if @hashtag_posts.present? %>
-    <div>
-      <h3 class="search-title">#<%= @hashtag.hashname %></h3>
-      <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
-    </div>
-    <hr>
-    <div class="post-list-box">
-      <% @hashtag_posts.each do |hashtag_post| %>
-        <div class="post-list-frame">
-          <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
-            <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% else %>
-  <% end %>
-</div>
+  <%= render '/search/search_hashtag', hashtag_posts: @hashtag_posts, hashtag: @hashtag %>
 <% end %>
