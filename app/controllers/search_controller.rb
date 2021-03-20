@@ -6,6 +6,7 @@ class SearchController < ApplicationController
       @hashtag_posts = @hashtag.posts.page(params[:page]).per(21).reverse_order
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
     else
+      
     end
   end
 end
