@@ -3,3 +3,44 @@
  *= require_tree .
  *= require_self
 */
+
+/* ページネーション */
+/* 枠 */
+.pagination{
+  margin: auto auto 20px 0px;
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+/* ボタン内容 */
+.pagination span{
+  width: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: rgba(255,255,255,1);
+  text-align: center;
+  transition: .7s;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+.pagination span:hover{
+  transition: .7s;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.pagination span a {
+}
+/* 表示中ページのボタン */
+span.current {
+  color: black;
+  font-weight: bold;
+}
+/* 表示中ページ以外のボタン */
+.pagination span a:link, .pagination span a:visited, .pagination span a:hover, .pagination span a:active {
+  color: black;
+  opacity: .5;
+  text-decoration: none;
+  transition: .7s;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
