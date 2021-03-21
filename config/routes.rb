@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get '/users/:id', to: 'users#show', as: 'user'
-  get 'legal/terms'
-  get 'legal/privacy'
+  get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
+  get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
   get 'relationships/create'
   get 'relationships/destroy'
   get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
