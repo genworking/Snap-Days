@@ -256,6 +256,19 @@ p.changed::after {
   content: "";
 }
 
+/* 投稿一覧ページ */
+.posts-index-paginate {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+/* 投稿リストページ */
+.post-list-paginate {
+  margin: auto auto 20px 0px;
+}
+
+/* footer */
 footer {
   margin-top: auto;
 }

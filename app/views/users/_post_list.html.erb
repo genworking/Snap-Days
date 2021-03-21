@@ -1,5 +1,7 @@
 <!-- 投稿一覧 -->
-<%= paginate post_list %>
+<div class="post-list-paginate">
+  <%= paginate post_list %>
+</div>
 <% if post_list.present? %>
   <div class="post-list-box">
     <% post_list.each do |post| %>
