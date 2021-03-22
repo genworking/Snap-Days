@@ -78,7 +78,7 @@ $(function(){
 });
 
 /* profilebar */
-// リスト表示切り替え
+// スライド表示切り替え
 $(function() {
   $('.pb-btn').click(function() {
     $('.active').removeClass('active');
@@ -86,9 +86,9 @@ $(function() {
     $('.slide').eq(clickedIndex).addClass('active');
   });
 });
-// リストカテゴリ名の透過切り替え
+// カテゴリ名の透過切り替え
 $(function(){
   $('.pb-btn').click(function() {
-    $('.pb-btn').toggleClass('opa05');
+    $('.pb-btn').toggleClass('active-btn');
   });
 });

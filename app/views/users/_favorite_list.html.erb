@@ -1,4 +1,7 @@
 <!-- 保存済み一覧 -->
+<div class="favorite-list-paginate">
+  <%= paginate favorite_list %>
+</div>
 <% if favorite_list.present? %>
   <div class="post-list-box">
     <% favorite_list.each do |post| %>
