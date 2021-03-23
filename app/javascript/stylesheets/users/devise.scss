@@ -216,12 +216,14 @@
   text-align: center;
   -webkit-box-shadow: 0 5px 0 darkgreen;
   box-shadow: 0 5px 0 darkgreen;
+  transition: .1s;
   &:hover {
     cursor: pointer;
     -webkit-transform: translate(0, 3px);
     transform: translate(0, 3px);
     -webkit-box-shadow: 0 2px 0 darkgreen;
     box-shadow: 0 2px 0 darkgreen;
+    transition: .1s;
   }
 }
 
@@ -443,7 +445,7 @@ footer {
 /* 新規投稿ページ */
 .image-preview-box {
   width: 100%;
-  padding: 0px 20px 0px 20px;
+  padding: 0px 20px 10px 20px;
 }
 .image-preview-frame {
   position: relative;
@@ -468,6 +470,9 @@ a.upload-image-preview {
   height: auto;
 }
 
+p.photo-name-area {
+  line-height: 40px;
+}
 p.photo-name-area::after {
   content: "選択されていません";
 }
