@@ -173,8 +173,7 @@
 // アイコンプレビュー矢印
 .right-arrow-img {
   display: block;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 5px 10px auto 10px;
   background-image: url("~right-arrow-icon.png");
   background-repeat: no-repeat;
   height: 30px;
@@ -205,26 +204,37 @@
 // アイコン画像選択ボタン
 .ff-btn {
   display: block;
-  background-color: #228B22;
-  width: 180px;
+  background-color: #2ca559;
+  width: 130px;
   height: 30px;
-  margin-top: 10px;
-  margin-left: 10px;
+  margin: 5px 15px 10px 25px;
   border-radius: 5px;
   padding-top: 2px;
   color: white;
+  line-height: 25px;
   text-decoration: none;
   text-align: center;
+  -webkit-box-shadow: 0 5px 0 darkgreen;
+  box-shadow: 0 5px 0 darkgreen;
   &:hover {
     cursor: pointer;
+    -webkit-transform: translate(0, 3px);
+    transform: translate(0, 3px);
+    -webkit-box-shadow: 0 2px 0 darkgreen;
+    box-shadow: 0 2px 0 darkgreen;
   }
 }
+
 // 選択したアイコン画像ファイル名
+p.icon-name-area {
+  line-height: 40px;
+}
 p.icon-name-area::after {
   content: "選択されていません";
 }
 p.changed::after {
   content: "";
+  line-height: 30px;
 }
 .ff-form {
   display: none;
@@ -236,6 +246,8 @@ p.changed::after {
 // 投稿プレビュー削除ボタン
 .preview-delete-btn {
   display: block;
+  margin-top: 5px;
+  margin-left: 10px;
   width: 14px;
   height: 14px;
   background-size: 14px !important;

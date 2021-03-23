@@ -9,7 +9,7 @@
             <div class="flex">
               <!-- 変更前画像 -->
               <%= image_tag avatar_url(@user).to_s, class: "edit-profile-icon" %>
-              <a class="mr-topbot-auto right-arrow-img"></a>
+              <a class="right-arrow-img"></a>
               <!-- 選択中画像プレビュー -->
               <% if @user.profile_photo? %>
                 <%= image_tag @user.profile_photo.url, id: :img_prev, class: "mr-left10 edit-profile-icon-preview" %>
