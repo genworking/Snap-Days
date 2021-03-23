@@ -1,8 +1,12 @@
-<div class="profilebar">
-  <a class="">
-    <span class=""></span>
-    <span class="">投稿</span>
-  </a>
+<div class="pb-section">
+  <ul class="profilebar">
+    <li class="pb-btn profilebarList active-btn">
+      <a class="post-baricon"></a>
+      <a class='pb-btn-txt f-black'>投稿</a>
+    </li>
+  </ul>
 </div>
-<%= render 'users/post_list', user: user, post_list: post_list %>
-<%#= render 'users/favorite_list', favorite_list: @favorite_list %>
+<!-- js（pb-btn） -->
+<ul class="pb-slides">
+  <li class="slide active"><%= render 'users/post_list', user: user, post_list: post_list %></li>
+</ul>
