@@ -1,20 +1,18 @@
 Rails.application.routes.draw do
-  get 'search/search'
   devise_for :users,controllers: {
     registrations: 'registrations',
     omniauth_callbacks: 'users/omniauth_callbacks'
     }
 
   root 'posts#index'
-  get '/users/:id', to: 'users#show', as: 'user'
-  get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
-  get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
+  get 'users/:id', to: 'users#show', as: 'user'
   get 'relationships/create'
   get 'relationships/destroy'
-  get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
   get 'search', to: 'search#search', as: 'search'
-  get '/post/hashtag/:name' => 'posts#hashtag'
-  get '/post/hashtag' => 'posts#hashtag'
+  get 'post/hashtag/:name' => 'posts#hashtag'
+  get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
+  get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
+  get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
   delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
 
   resources :users
@@ -33,6 +31,7 @@ Rails.application.routes.draw do
      get :following, :followers
     end
   end
+
   resources :relationships, only: [:create, :destroy]
 
   # 投稿

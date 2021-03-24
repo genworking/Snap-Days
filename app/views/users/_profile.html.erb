@@ -14,7 +14,7 @@
           </li>
           <li>
             <a>投稿<span class="f-bold"><%= user.posts.count %></span>件</a>
-            <a><%= render 'users/follow_count' %></a>
+            <a><%= render 'users/follow_count', user: user  %></a>
           </li>
           <li class="fullname"><%= user.name %></li>
           <li>

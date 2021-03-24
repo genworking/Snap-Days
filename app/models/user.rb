@@ -27,12 +27,12 @@ class User < ApplicationRecord
     name
   end
 
-  # ユーザーをフォローする
+  # ユーザーがフォローしているか調べる
   def following?(other_user)
     following_relationships.find_by(following_id: other_user.id)
   end
 
-  # ユーザーがフォローしているか調べる
+  # ユーザーをフォローする
   def follow!(other_user)
     following_relationships.create!(following_id: other_user.id)
   end
@@ -54,6 +54,7 @@ class User < ApplicationRecord
     result
   end
 
+  # FB
   def self.find_for_oauth(auth)
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user

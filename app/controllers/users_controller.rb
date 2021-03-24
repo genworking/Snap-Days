@@ -28,16 +28,17 @@ class UsersController < ApplicationController
 
   # フォロー
   def following
-    @user  = User.find_by(id: params[:name])
-    @user = @user.followings
-    render 'show_follow'
+    @user = User.find_by(name: params[:name])
+    following_users = Relationship.where.not(following_id: current_user.id).pluck(:following_id)
+    @following_user = User.find(following_users)
+    render 'following'
   end
 
   # フォロワー
   def followers
-    @user  = User.find_by(id: params[:name])
-    @user = @user.followers
-    render 'show_follower'
+    @user = User.find_by(name: params[:id])
+    @users = @user.followers
+    render 'follower'
   end
 
   private
