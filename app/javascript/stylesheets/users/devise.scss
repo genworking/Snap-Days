@@ -1,8 +1,15 @@
 /*
-幅、配置、文字、アイコン、jQuery、container、
+動作、幅、配置、文字、アイコン、jQuery、container、
 プロフィール編集、プロフィール情報、自己紹介、ウェブサイト、プロフィールバー、ユーザー投稿リスト、ユーザー保存済みリストページ、
-新規投稿ページ、ホーム投稿一覧
+新規投稿ページ、ホーム投稿一覧、
+フォローユーザー一覧ページ、フォロワーユーザー一覧ページ、
+
  */
+
+/* 動作 */
+.ev-none {
+  pointer-events: none;
+}
 
 /* 幅 */
 .wd50per {
@@ -396,8 +403,6 @@ li.profilebarList {
   height: auto;
 }
 
-/*  */
-
 .edit-profile-btn {
   margin-left: 15px;
   margin-bottom: 10px;
@@ -486,4 +491,23 @@ p.changed::after {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+/* フォローユーザー一覧ページ */
+.fb-section {
+  display: flex;
+  justify-content: center;
+}
+
+ul.followbar {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  width: 50%;
+  margin: 20px auto 10px auto;
+}
+li.followbarList {
+  width: 50%;
+  margin: 0 auto;
+  line-height: 14px;
 }
