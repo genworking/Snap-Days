@@ -1,10 +1,10 @@
 <% @user ||= current_user %>
-<% @following_user.each do | following_user | %>
+<% @follower_user.each do | follower_user | %>
   <div class="profile-wrap">
     <div class="row">
       <!-- プロフィールアイコン画像 -->
       <div class="col-md-4 text-center">
-        <%= link_to image_tag(avatar_url(following_user), class: "round-img"), user_path(following_user) %>
+        <%= link_to image_tag(avatar_url(follower_user), class: "round-img"), user_path(follower_user) %>
       </div>
       <!-- プロフィール情報 -->
       <div class="col-md-8">
@@ -12,20 +12,20 @@
           <div class="profile-info">
             <ul class="profile-username">
               <li>
-                <a class="username f-black"><%= following_user.username %></a>
+                <a class="username f-black"><%= follower_user.username %></a>
               </li>
               <li>
-                <a>投稿<span class="f-bold"><%= following_user.posts.count %></span>件</a>
+                <a>投稿<span class="f-bold"><%= follower_user.posts.count %></span>件</a>
                 <a><%= render 'users/follow_count', user: @user  %></a>
               </li>
-              <li class="fullname"><%= following_user.name %></li>
+              <li class="fullname"><%= follower_user.name %></li>
               <li>
-                <a class="f-black introduction-text"><%= simple_format(following_user.introduction) %></a>
+                <a class="f-black introduction-text"><%= simple_format(follower_user.introduction) %></a>
               </li>
               <li>
-                <% if following_user.website.present? %>
+                <% if follower_user.website.present? %>
                   <a class="website-icon"></a>
-                  <a href="<%= following_user.website %>" class="f-black website-address" target="_blank"><%= following_user.website %></a>
+                  <a href="<%= follower_user.website %>" class="f-black website-address" target="_blank"><%= follower_user.website %></a>
                 <% end %>
               </li>
             </ul>

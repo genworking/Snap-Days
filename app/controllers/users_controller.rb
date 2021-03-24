@@ -36,9 +36,10 @@ class UsersController < ApplicationController
 
   # フォロワー
   def followers
-    @user = User.find_by(name: params[:id])
-    @users = @user.followers
-    render 'follower'
+    @user = User.find_by(name: params[:name])
+    follower_users = Relationship.where.not(follower_id: current_user.id).pluck(:follower_id)
+    @follower_user = User.find(follower_users)
+    render 'followers'
   end
 
   private
