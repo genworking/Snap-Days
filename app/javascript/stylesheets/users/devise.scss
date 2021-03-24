@@ -499,6 +499,20 @@ p.changed::after {
   justify-content: center;
 }
 
+.back-usershow-icon {
+  background-image: url("~left-arrow-icon");
+  background-repeat: no-repeat;
+  position: relative;
+  top: 15px;
+  left: 10%;
+  height: 21px;
+  width: 21px;
+  background-size: 21px !important;
+  &:hover {
+    opacity: .5;
+  }
+}
+
 ul.followbar {
   display: flex;
   list-style: none;

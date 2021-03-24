@@ -1,5 +1,6 @@
 <% @user ||= current_user %>
 <div class="fb-section">
+  <a href="<%= user_path(@user) %>" class="back-usershow-icon"></a>
   <ul class="followbar">
     <li class="opa05 f-bold f-black followbarList">
       <a href="<%= followers_user_path(@user) %>" class="f-black">フォロワー</a>
