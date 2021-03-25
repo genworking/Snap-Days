@@ -364,7 +364,7 @@ li.profilebarList {
 .post-list-none {
   border-radius: 10px;
 }
-
+// 9マス画像
 .list-left {
   width: 40%;
   display: grid;
@@ -392,17 +392,6 @@ ul.post-list-box {
     width: 31.3333%;
     margin: 0px 1% 2%;
     padding: 0px;
-  }
-}
-
-.post-list-frame {
-  // position: relative;
-  // height: 100%;
-  width: 100%;
-  &::before {
-    content: "";
-    // display: block;
-    padding-top: 100%;
   }
 }
 
@@ -460,7 +449,6 @@ ul.post-list-box {
 
 /* footer */
 footer {
-  background-color: blue;
   margin-top: auto;
 }
 

@@ -1,16 +1,17 @@
 <!-- 保存済み一覧 -->
-<div class="favorite-list-paginate">
-  <%= paginate favorite_list %>
-</div>
 <% if favorite_list.present? %>
-  <div class="post-list-box">
+  <ul class="post-list-box">
     <% favorite_list.each do |post| %>
-      <div class="post-list-frame">
+      <li>
         <%= link_to post_path(post), class: "post-list-img" do %>
           <%= image_tag post.photos.first.image.url(:medium) %>
         <% end %>
-      </div>
+      </li>
     <% end %>
+  </ul>
+  <!-- paginate -->
+  <div class="mr-top20 favorite-list-paginate">
+    <%= paginate favorite_list %>
   </div>
 <% else %>
   <a>お気に入り登録はまだありません</a>
