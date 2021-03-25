@@ -11,7 +11,7 @@
   </ul>
 </div>
 <!-- js（pb-btn） -->
-<ul class="pb-slides">
-  <li class="slide active"><%= render 'users/post_list', user: user, post_list: post_list %></li>
-  <li class="slide"><%= render 'users/favorite_list', user: user, favorite_list: favorite_list %></li>
-</ul>
+<div class="pb-slides">
+  <div class="slide active pb-slide"><%= render 'users/post_list', user: user, post_list: post_list %></div>
+  <div class="slide pb-slide"><%= render 'users/favorite_list', user: user, favorite_list: favorite_list %></div>
+</div>

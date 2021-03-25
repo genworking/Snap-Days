@@ -1,19 +1,17 @@
 <!-- 投稿一覧 -->
-<div class="post-list-paginate">
-  <% if post_list.present? %>
-    <%= paginate post_list %>
-  <% else %>
-  <% end %>
-</div>
 <% if post_list.present? %>
-  <div class="post-list-box">
+  <ul class="post-list-box">
     <% post_list.each do |post| %>
-      <div class="post-list-frame">
+      <li>
         <%= link_to post_path(post), class: "post-list-img" do %>
           <%= image_tag post.photos.first.image.url(:medium) %>
         <% end %>
-      </div>
+      </li>
     <% end %>
+  </ul>
+  <!-- paginate -->
+  <div class="mr-top20 post-list-paginate">
+    <%= paginate post_list %>
   </div>
 <% else %>
   <%= render 'users/post_list_none' %>
