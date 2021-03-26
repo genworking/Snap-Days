@@ -9,10 +9,6 @@
       </li>
     <% end %>
   </ul>
-  <!-- paginate -->
-  <div class="mr-top20 post-list-paginate">
-    <%= paginate post_list %>
-  </div>
 <% else %>
   <%= render 'users/post_list_none', user: user %>
 <% end %>

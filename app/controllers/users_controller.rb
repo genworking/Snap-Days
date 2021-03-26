@@ -3,10 +3,9 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(name: params[:id])
     @posts = @user.posts
-    @post_list = @user.posts.page(params[:page]).per(21).order('updated_at DESC')
+    @post_list = @user.posts.page(params[:page]).order(created_at: :desc)
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @favorite_list = Post.find(favorites)
-    @favorite_list = Kaminari.paginate_array(@favorite_list).page(params[:page]).per(21)
   end
 
   # パスワード変更ページ

@@ -79,7 +79,7 @@ $(function(){
 
 /* profilebar */
 // スライド表示切り替え
-$(function() {
+$(document).on('turbolinks:load', function() {
   $('.pb-btn').click(function() {
     $('.active').removeClass('active');
     var clickedIndex = $('.pb-btn').index($(this));
@@ -87,7 +87,7 @@ $(function() {
   });
 });
 // カテゴリ名の透過切り替え
-$(function(){
+$(document).on('turbolinks:load', function() {
   $('.pb-btn').click(function() {
     $('.pb-btn').toggleClass('active-btn');
   });
