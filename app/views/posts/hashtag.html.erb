@@ -1,21 +1,33 @@
 <% if params[:name] == nil %>
 
 <% else %>
-  <h3 class="search-title">#<%= @hashtag.hashname %></h3>
-  <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
-  <hr>
-  <!-- ハッシュタグ投稿一覧 -->
-  <% if @hashtag.present? %>
-    <div class="post-list-box">
-      <% @hashtag_posts.each do |hashtag_post| %>
-        <div class="post-list-frame">
-          <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
-            <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
+  <!-- ハッシュタグ検索結果 -->
+  <div class="pd-top30">
+    <% if @hashtag_posts.present? %>
+      <div class="flex">
+        <!-- ハッシュタグアイコン -->
+        <div class="col-md-4 text-center">
+          <% @hashtag_randoms.each do | hashtag_random |%>
+            <%= image_tag hashtag_random.photos.first.image.url(:medium), class: "round-img" %>
           <% end %>
         </div>
-      <% end %>
-    </div>
-  <% else %>
-    <%= render 'users/post_list_none' %>
-  <% end %>
+        <div>
+          <h3 class="search-title">#<%= @hashtag.hashname %></h3>
+          <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
+        </div>
+      </div>
+      <hr>
+      <a class="f-bold f-black opa05">人気投稿</a>
+      <ul class="post-list-box mr-top20">
+        <% @hashtag_posts.each do |hashtag_post| %>
+          <li class="post-list-frame">
+            <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
+              <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+    <% end %>
+  </div>
 <% end %>
