@@ -15,15 +15,15 @@
     </div>
     <hr>
     <a class="f-bold f-black opa05">人気投稿</a>
-    <div class="post-list-box mr-top20">
+    <ul class="post-list-box mr-top20">
       <% hashtag_posts.each do |hashtag_post| %>
-        <div class="post-list-frame">
+        <li class="post-list-frame">
           <%= link_to post_path(hashtag_post), class: "post-list-img" do %>
             <%= image_tag hashtag_post.photos.first.image.url(:medium) %>
           <% end %>
-        </div>
+        </li>
       <% end %>
-    </div>
+    </ul>
   <% else %>
   <% end %>
 </div>
