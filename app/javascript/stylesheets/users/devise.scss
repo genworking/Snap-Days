@@ -484,6 +484,7 @@ footer {
   padding: 0px 20px 10px 20px;
 }
 .image-preview-frame {
+  overflow: hidden;
   position: relative;
   width: 100%;
   margin-left: auto;
@@ -496,14 +497,14 @@ footer {
 }
 a.upload-image-preview {
   position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  left: 50%;
+  top: 50%;
+  width: 100%;
 }
 .upload-image-preview img {
   width: 100%;
-  height: auto;
+  flex-shrink: 0;
+  transform: translate(-50%,-50%);
 }
 
 p.photo-name-area {
