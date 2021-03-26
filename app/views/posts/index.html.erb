@@ -8,8 +8,8 @@
             <%= image_tag avatar_url(post.user), class: "post-profile-icon" %>
           <% end %>
           <!-- 投稿者フルネーム -->
-          <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
-            <strong><%= post.user.name %></strong>
+          <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.username do %>
+            <strong><%= post.user.username %></strong>
           <% end %>
           <!-- 削除アイコン -->
           <% if post.user_id == current_user.id %>
