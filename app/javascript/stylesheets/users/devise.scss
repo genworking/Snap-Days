@@ -390,8 +390,16 @@ ul.post-list-box {
     display: inline-block;
     vertical-align: top;
     width: 31.3333%;
-    margin: 0px 1% 2%;
+    margin-bottom: 3%;
     padding: 0px;
+  }
+  & > li:nth-child(2) {
+    margin-left: 3%;
+    margin-right: 3%;
+  }
+  & > li:nth-child(3n+2) {
+    margin-left: 3%;
+    margin-right: 3%;
   }
 }
 
