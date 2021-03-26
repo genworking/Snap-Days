@@ -18,7 +18,7 @@
               <% end %>
               <!-- 画像選択ボタン -->
               <%= f.label :profile_photo, "画像を選択", for: :input_file, class: "ff-btn" %>
-              <%= f.file_field :profile_photo, id: :input_file, class: "mr-left15 ff-form" %>
+              <%= f.file_field :profile_photo, accept: ".png, .jpg, .jpeg",id: :input_file, class: "mr-left15 ff-form" %>
               <!-- 選択画像ファイル名 -->
               <p for="input-file" id="icon-name" class="icon-name-area"></p>
               <!-- 選択画像削除ボタン -->
