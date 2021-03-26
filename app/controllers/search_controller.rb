@@ -10,7 +10,7 @@ class SearchController < ApplicationController
     end
     @hashtag = params[:search].try(:include?, "#") ? Hashtag.find_by(hashname: params[:search].delete('#')) : Hashtag.find_by(hashname: params[:search])
     if @hashtag.present?
-      @hashtag_posts = @hashtag.posts.page(params[:page]).reverse_order
+      @hashtag_posts = @hashtag.posts.includes(:liked_users).page(params[:page]).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
       @hashtag_randoms = @hashtag.posts.order("RANDOM()").limit(1)
     elsif @user.blank? && @hashtag_posts.blank?
