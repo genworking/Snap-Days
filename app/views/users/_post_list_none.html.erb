@@ -1,34 +1,38 @@
-<div class="flex post-list-none">
-  <div class="list-left">
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
+<% if user == current_user %>
+  <div class="flex post-list-none">
+    <div class="list-left">
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
+      <div class="list-left-box">
+        <a class="list-left-img"></a>
+      </div>
     </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
-    </div>
-    <div class="list-left-box">
-      <a class="list-left-img"></a>
+    <div class="list-right">
+      <a class="f-black list-right-txt">撮影した写真を投稿しよう</a>
     </div>
   </div>
-  <div class="list-right">
-    <a class="f-black list-right-txt">撮影した写真を投稿しよう</a>
-  </div>
-</div>
+<% else %>
+  <p><%= user.username %> さんの投稿はまだありません</p>
+<% end %>

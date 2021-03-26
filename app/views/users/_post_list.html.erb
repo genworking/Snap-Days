@@ -14,5 +14,5 @@
     <%= paginate post_list %>
   </div>
 <% else %>
-  <%= render 'users/post_list_none' %>
+  <%= render 'users/post_list_none', user: user %>
 <% end %>
