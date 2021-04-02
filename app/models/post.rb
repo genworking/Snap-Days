@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user, optional: true
+  has_one_attached :image
   has_many :photos, dependent: :destroy
   has_many :hashtag_posts, dependent: :destroy
   has_many :hashtags, through: :hashtag_posts
