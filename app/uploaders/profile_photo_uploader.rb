@@ -1,10 +1,8 @@
 class ProfilePhotoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
-  if Rails.env.development?
-    storage :fog
-  elsif Rails.env.test?
-    storage :fog
+  if Rails.env.development? || Rails.env.test?
+    storage :file
   else
     storage :fog
   end
