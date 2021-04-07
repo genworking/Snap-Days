@@ -11,11 +11,11 @@
           <div class="profile-info">
             <ul class="profile-username">
               <li>
-                <a class="username f-black"><%= following_user.username %></a>
+                <a href="<%= user_path(following_user) %>" class="username f-black"><%= following_user.username %></a>
               </li>
               <li>
                 <a>投稿<span class="f-bold"><%= following_user.posts.count %></span>件</a>
-                <a><%= render 'users/follow_count', user: @user  %></a>
+                <a><%= render 'users/following_list_count', user: @user %></a>
               </li>
               <li class="fullname"><%= following_user.name %></li>
               <li>
