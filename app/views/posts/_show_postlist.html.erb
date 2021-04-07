@@ -1,0 +1,18 @@
+<hr>
+<div>
+  <span class="f-bold f-black"><%= post.user.username %></span>
+  <a class="f-bold f-black opa05"> さんの他の投稿</a>
+</div>
+<% if post_list.present? %>
+  <ul class="post-list-box mr-top20">
+    <% post_list.each do |post_list| %>
+      <li>
+        <%= link_to post_path(post_list), class: "post-list-img" do %>
+          <%= image_tag post_list.photos.first.image.url(:medium) %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <a>投稿はまだありません</a>
+<% end %>

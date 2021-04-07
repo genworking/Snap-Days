@@ -8,6 +8,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id: params[:id])
+    @user = @post.user
+    @post_list = @user.posts.page(params[:page]).order(created_at: :desc)
   end
 
   def new
