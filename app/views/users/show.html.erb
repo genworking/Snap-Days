@@ -3,7 +3,8 @@
 </div>
 <hr>
 <% if @user == current_user %>
-  <%= render 'users/cu_profilebar', user: @user, post_list: @post_list, favorite_list: @favorite_list %>
+  <%= render 'users/cu_profilebar', user: @user, post: @post, post_list: @post_list,
+                                    favorite_list: @favorite_list %>
 <% else %>
-  <%= render 'users/profilebar', user: @user, post_list: @post_list %>
+  <%= render 'users/profilebar', user: @user, post: @post, post_list: @post_list %>
 <% end %>

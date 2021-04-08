@@ -10,6 +10,10 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @post_list = @user.posts.page(params[:page]).order(created_at: :desc)
+    respond_to do |format|
+      format.html # show.html.erb
+      format.js # show.js.erbから_show.html.erbへ
+    end
   end
 
   def new

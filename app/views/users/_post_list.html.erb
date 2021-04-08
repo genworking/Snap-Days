@@ -1,10 +1,16 @@
 <!-- 投稿一覧 -->
 <% if post_list.present? %>
+  <!-- 投稿詳細モーダル -->
+  <div id="mask" class="hidden"></div>
+  <div id="modal" class="hidden">
+    <p>モーダルウィンドウ</p>
+  </div>
+  <!-- 投稿一覧 -->
   <ul class="post-list-box">
-    <% post_list.each do |post| %>
+    <% post_list.each do |post_list| %>
       <li>
-        <%= link_to post_path(post), class: "post-list-img" do %>
-          <%= image_tag post.photos.first.image.url(:medium) %>
+        <%= link_to post_path(post_list.id), remote: true, class: "post-list-img" do %>
+          <%= image_tag post_list.photos.first.image.url(:medium) %>
         <% end %>
       </li>
     <% end %>

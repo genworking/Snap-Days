@@ -3,6 +3,7 @@
 プロフィール編集、プロフィール情報、自己紹介、ウェブサイト、プロフィールバー、ユーザー投稿リスト、ユーザー保存済みリストページ、
 新規投稿ページ、ホーム投稿一覧、
 フォローユーザー一覧ページ、フォロワーユーザー一覧ページ、
+いいね機能
  */
 
 /* 動作 */
@@ -378,6 +379,36 @@ li.profilebarList {
 
 /* ユーザー投稿リスト */
 /* 投稿リスト一覧 */
+#mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 200;
+}
+#modal {
+  position: fixed;
+  top: 10vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transform: translate(0, 0) scale(1);
+  transition: 0.2s;
+  z-index: 201;   /* マスクより上に重なるようにする */
+  width: 950px;   /* showビューの幅に合わせて設定 */
+}
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden; // hiddenクラスで最初は表示されないようにする
+}
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, 0) scale(0.8); // 大きさ0.8倍から等倍にモーダルが拡大される
+}
+
 .pb-slides {
 }
 .pb-slide {
@@ -463,6 +494,7 @@ footer {
   margin-top: auto;
 }
 
+/* スマートフォン */
 @media screen and (max-width: 768px) {
   .main {
     padding: 75px 0;
@@ -560,3 +592,6 @@ li.followbarList {
   margin: 0 auto;
   line-height: 14px;
 }
+
+/* いいね機能 */
+.like_text-box {}

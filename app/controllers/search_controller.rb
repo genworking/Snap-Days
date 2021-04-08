@@ -2,7 +2,7 @@ class SearchController < ApplicationController
   def search
     @user = User.find_by('name LIKE(?) or username LIKE(?)', "%#{params[:search]}%","%#{params[:search]}%")
     if @user.present?
-      @posts = @user.posts
+      @post = @user.posts
       @post_list = @user.posts.page(params[:page]).order('updated_at DESC')
       favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
       @favorite_list = Post.find(favorites)
