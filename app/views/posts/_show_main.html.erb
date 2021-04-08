@@ -17,7 +17,7 @@
             <!-- 投稿者フルネーム -->
             <%= link_to user_path(post.user), class: "black-color no-text-decoration post-user-name",
                                               title: post.user.name do %>
-              <strong><%= post.user.name %></strong>
+              <strong><%= post.user.username %></strong>
             <% end %>
             <!-- 削除アイコン -->
             <% if post.user_id == current_user.id %>
