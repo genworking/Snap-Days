@@ -397,16 +397,36 @@ li.profilebarList {
   transform: translate(0, 0) scale(1);
   transition: 0.2s;
   z-index: 201;   /* マスクより上に重なるようにする */
-  width: 950px;   /* showビューの幅に合わせて設定 */
+  width: 1000px;   /* showビューの幅に合わせて設定 */
+}
+#close {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 200;
+  width: 50px;
 }
 #mask.hidden {
   opacity: 0;
-  visibility: hidden; // hiddenクラスで最初は表示されないようにする
+  visibility: hidden;
 }
 #modal.hidden {
   opacity: 0;
   visibility: hidden;
-  transform: translate(0, 0) scale(0.8); // 大きさ0.8倍から等倍にモーダルが拡大される
+  transform: translate(0, 0) scale(0.8); // 大きさ0.8倍から等倍にモーダルが拡大
+}
+#close.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.close-modal-icon {
+  display: block;
+  cursor: pointer;
+  height: 20px;
+  width: 20px;
+  background-size: 20px !important;
+  background-repeat: no-repeat;
+  background-image: url("~close-icon-white.png");
 }
 
 .pb-slides {
