@@ -24,10 +24,10 @@
               </li>
               <li>
                 <% if follower_user.website.present? %>
-                  <a class="website-icon"></a>
-                  <a href="<%= follower_user.website %>"
-                     class="f-black website-address"
-                     target="_blank"><%= follower_user.website %></a>
+                  <a href="<%= follower_user.website %>" target="_blank" class="website-icon"></a>
+                  <a href="<%= follower_user.website %>" target="_blank" class="f-black website-address">
+                    <%= follower_user.website %>
+                  </a>
                 <% end %>
               </li>
             </ul>
