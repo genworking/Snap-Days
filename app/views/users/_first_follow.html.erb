@@ -1,0 +1,30 @@
+<ul>
+  <% users.each do |user| %>
+    <div class="profile-wrap">
+      <div class="row">
+        <!-- プロフィールアイコン画像 -->
+        <div class="col-md-4 text-center">
+          <%= link_to image_tag(avatar_url(user), class: "round-img"), user_path(user) %>
+        </div>
+        <!-- プロフィール情報 -->
+        <div class="col-md-8">
+          <div class="jus-spbw row">
+            <div class="profile-info">
+              <ul class="profile-username">
+                <li>
+                  <a href="<%= user_path(user) %>"
+                     class="username f-black"><%= user.username %></a>
+                </li>
+                <li class="fullname"><%= user.name %></li>
+                <li>
+                  <a class="f-black introduction-text"><%= simple_format(user.introduction) %></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+</ul>

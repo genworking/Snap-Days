@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   get 'relationships/create'
   get 'relationships/destroy'
   get 'search', to: 'search#search', as: 'search'
-  get 'post/hashtag/:name' => 'posts#hashtag'
+  get 'post/hashtag/:name', to: 'posts#hashtag'
   get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
   get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
-  get 'unsubscribe/:name' => 'users#unsubscribe', as: 'confirm_unsubscribe'
-  delete 'unsubscribe/:name' => 'users#destroy', as: 'user_destroy'
+  get 'unsubscribe/:name', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
+  delete 'unsubscribe/:name', to: 'users#destroy', as: 'user_destroy'
 
   resources :users
 
@@ -31,7 +31,6 @@ Rails.application.routes.draw do
      get :following, :followers
     end
   end
-
   resources :relationships, only: [:create, :destroy]
 
   # 投稿

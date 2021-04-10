@@ -18,12 +18,9 @@
   }
   &-nav {
     & > li {
-      margin-left: 20px;
+      margin-left: 15px;
       &:first-child {
         margin-left: 0;
-      }
-      &:nth-child(4) {
-        margin-left: 10px;
       }
       .commonNavIcon {
         height: 24px;
@@ -34,21 +31,27 @@
       }
       .home-icon {
         background-image: url("~home-icon.png");
+        &:hover {
+          background-image: url("~home-hover-icon.png");
+        }
       }
-      .home-icon:hover {
-        background-image: url("~home-hover-icon.png");
+      .users-icon {
+        background-image: url("~users-icon.png");
+        &:hover {
+          background-image: url("~users-hover-icon.png");
+        }
       }
       .photo-icon {
         background-image: url("~photo-icon.png");
-      }
-      .photo-icon:hover {
-        background-image: url("~photo-hover-icon.png");
+        &:hover {
+          background-image: url("~photo-hover-icon.png");
+        }
       }
       .notification-icon {
         background-image: url("~notification-icon.png");
-      }
-      .notification-icon:hover {
-        background-image: url("~notification-hover-icon.png");
+        &:hover {
+          background-image: url("~notification-hover-icon.png");
+        }
       }
       .notification-circle {
         position: absolute;
@@ -69,9 +72,9 @@
       }
       .logout-icon {
         background-image: url("~logout-icon.png");
-      }
-      .logout-icon:hover {
-        background-image: url("~logout-hover-icon.png");
+        &:hover {
+          background-image: url("~logout-hover-icon.png");
+        }
       }
     }
   }

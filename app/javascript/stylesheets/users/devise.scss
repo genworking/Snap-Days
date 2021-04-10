@@ -12,11 +12,40 @@
 }
 
 /* 幅 */
-.wd50per {
+.wd100 {
+  width: 100%;
+}
+.wd50 {
   width: 50%;
 }
 
 /* 配置 */
+.mr-topbot-auto {
+  margin: auto 0 auto 0;
+}
+.mr-left-auto {
+  margin-left: auto;
+}
+.mr-left-right-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.flex-center-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex-jus-center {
+  display: flex;
+  justify-content: center;
+}
+.jus-spbw {
+  justify-content: space-between;
+}
+.mr-leftauto {
+  margin-right: 0px;
+  margin-left: auto;
+}
 .mr-top10 {
   margin-top: 10px;
 }
@@ -41,16 +70,7 @@
 .mr-left30 {
   margin-left: 30px;
 }
-.mr-topbot-auto {
-  margin: auto 0 auto 0;
-}
-.mr-left-auto {
-  margin-left: auto;
-}
-.mr-left-right-auto {
-  margin-left: auto;
-  margin-right: auto;
-}
+
 
 .pd-top10 {
   padding-top: 10px;
@@ -60,6 +80,9 @@
 }
 .pd-top30 {
   padding-top: 30px;
+}
+.pd-right15 {
+  padding-right: 15px;
 }
 .pd-bottom10 {
   padding-bottom: 10px;

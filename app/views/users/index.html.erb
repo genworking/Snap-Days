@@ -1,0 +1,13 @@
+<% if @following_user.present? %>
+  <div class="mr-top20 text-center">
+    <a class="f-black f-bold opa05">まだフォローしていないユーザー</a>
+  </div>
+  <%= render 'users/other_users', other_unfollowed_user: @other_unfollowed_user %>
+<% else %>
+  <div class="text-center">
+    <p class="f-bold">Insta Clone Appへようこそ</p>
+    <p>興味のある人をフォローしてみましょう！</p>
+    <p>まずはアイコンをクリック！</p>
+  </div>
+  <%= render 'users/first_follow', users: @users %>
+<% end %>

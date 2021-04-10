@@ -10,17 +10,24 @@
         <ul class="profile-username">
           <li>
             <a class="username f-black"><%= user.username %></a>
+            <!-- プロフィール編集ボタン -->
             <%= render 'users/profile_edit_btn', user: user %>
           </li>
           <li>
+            <!-- 投稿数 -->
             <a>投稿<span class="f-bold"><%= user.posts.count %></span>件</a>
+            <!-- フォロー/フォロワーカウント -->
             <a><%= render 'users/follow_count', user: user  %></a>
           </li>
-          <li class="fullname"><%= user.name %></li>
+          <li class="fullname">
+            <%= user.name %>
+          </li>
           <li>
+            <!-- 自己紹介 -->
             <a class="f-black introduction-text"><%= simple_format(user.introduction) %></a>
           </li>
           <li>
+            <!-- ウェブサイト -->
             <% if user.website.present? %>
               <a href="<%= user.website %>" target="_blank" class="website-icon"></a>
               <a href="<%= user.website %>" target="_blank" class="f-black website-address"><%= user.website %></a>

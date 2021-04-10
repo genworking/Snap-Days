@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    @user = User.find_by('name LIKE(?) or username LIKE(?)', "%#{params[:search]}%","%#{params[:search]}%")
+    @user = User.find_by('name LIKE(?) or username LIKE(?)', "%#{params[:search]}%", "%#{params[:search]}%")
     if @user.present?
       @post = @user.posts
       @post_list = @user.posts.page(params[:page]).order('updated_at DESC')

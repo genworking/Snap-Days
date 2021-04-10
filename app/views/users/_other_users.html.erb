@@ -1,0 +1,32 @@
+<ul>
+  <% other_unfollowed_user.each do |other_unfollowed_user| %>
+    <div class="profile-wrap">
+      <div class="row">
+        <!-- プロフィールアイコン画像 -->
+        <div class="col-md-4 text-center">
+          <%= link_to image_tag(avatar_url(other_unfollowed_user), class: "round-img"), user_path(other_unfollowed_user) %>
+        </div>
+        <!-- プロフィール情報 -->
+        <div class="col-md-8">
+          <div class="jus-spbw row">
+            <div class="profile-info">
+              <ul class="profile-username">
+                <li>
+                  <a href="<%= user_path(other_unfollowed_user) %>"
+                     class="username f-black"><%= other_unfollowed_user.username %></a>
+                </li>
+                <li class="fullname">
+                  <%= other_unfollowed_user.name %>
+                </li>
+                <li>
+                  <a class="f-black introduction-text"><%= simple_format(other_unfollowed_user.introduction) %></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  <% end %>
+</ul>

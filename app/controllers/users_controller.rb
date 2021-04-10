@@ -1,5 +1,15 @@
 class UsersController < ApplicationController
 
+  def index
+    @current_user = current_user
+    users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
+    @users = User.find(users)# フォロー0人ページ用
+    @following_user = @current_user.followings.page(params[:page]).order(updated_at: :desc)# フォロー中ユーザー
+    other_unfollowed_users = Relationship.where.not(following_id: current_user.followings)
+                                         .pluck(:following_id)# 他のフォローしていないユーザー
+    @other_unfollowed_user = User.find(other_unfollowed_users)# フォロー1人以上ページ用
+  end
+
   def show
     @user = User.find_by(name: params[:id])
     @post = @user.posts
