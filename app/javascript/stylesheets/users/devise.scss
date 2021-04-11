@@ -1,12 +1,15 @@
 /*
 動作、幅、配置、文字、アイコン、jQuery、container、
 プロフィール編集、プロフィール情報、自己紹介、ウェブサイト、プロフィールバー、ユーザー投稿リスト、ユーザー保存済みリストページ、
-新規投稿ページ、ホーム投稿一覧、
+新規投稿ページ、トップ投稿一覧、
 フォローユーザー一覧ページ、フォロワーユーザー一覧ページ、
 いいね機能
  */
 
 /* 動作 */
+.cr-pointer {
+  cursor: pointer;
+}
 .ev-none {
   pointer-events: none;
 }
@@ -104,6 +107,13 @@
 }
 .f-black:link, .f-black:visited, .f-black:hover, .f-black:active {
   color: black;
+  text-decoration: none;
+}
+.f-white {
+  color: white;
+}
+.f-white:link, .f-white:visited, .f-white:hover, .f-white:active {
+  color: white;
   text-decoration: none;
 }
 .opa05 {
@@ -596,7 +606,32 @@ p.changed::after {
   content: "";
 }
 
-/* ホーム投稿一覧 */
+/* トップ投稿一覧 */
+// さぁ始めようボタン
+.start-btn {
+  display: block;
+  background-color: rgb(4, 191, 248);
+  width: 12rem;
+  height: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding-top: 2px;
+  line-height: 25px;
+  text-align: center;
+  -webkit-box-shadow: 0 5px 0 rgb(0, 144, 187);
+  box-shadow: 0 5px 0 rgb(0, 144, 187);
+  transition: .1s;
+  &:hover {
+    cursor: pointer;
+    -webkit-transform: translate(0, 3px);
+    transform: translate(0, 3px);
+    -webkit-box-shadow: 0 2px 0 rgb(0, 144, 187);
+    box-shadow: 0 2px 0 rgb(0, 144, 187);
+    transition: .1s;
+  }
+}
+
 .posts-index-paginate {
   display: flex;
   justify-content: center;

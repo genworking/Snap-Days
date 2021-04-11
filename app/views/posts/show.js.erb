@@ -10,13 +10,13 @@ $(function(){
   modal.classList.remove('hidden');
   mask.classList.remove('hidden');
   close.classList.remove('hidden');
-  // モーダル外（マスク）をクリック => hiddenクラス付与 => 再度、非表示
+  // モーダル外（マスク）をクリック => hiddenクラス付与 => 再度非表示
   mask.addEventListener('click', () => {
     modal.classList.add('hidden');
     mask.classList.add('hidden');
     close.classList.add('hidden');
   });
-  // クローズボタンクリック => hiddenクラス付与 => 再度、非表示
+  // クローズボタンクリック => hiddenクラス付与 => 再度非表示
   $('#close').click(function(){
     modal.classList.add('hidden');
     mask.classList.add('hidden');

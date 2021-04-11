@@ -4,6 +4,13 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
+/* さぁ始めよう => ユーザー一覧 表示切り替え*/
+$(document).on('turbolinks:load', function(){
+  $('.start-btn').click(function(){
+    $('.slide').toggleClass('active');
+  });
+});
+
 /* プロフィールアイコンプレビュー表示 */
 $(function() {
   function readURL(input) {
