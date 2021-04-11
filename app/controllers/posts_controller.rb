@@ -3,7 +3,15 @@ class PostsController < ApplicationController
   before_action :set_post, only: %i(show destroy)
 
   def index
-    @posts = Post.includes(:photos, :user).page(params[:page]).per(15).order('updated_at DESC')
+    users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
+    @users = User.find(users)
+    @posts = Post.includes(:photos, :user).where(user_id: current_user.followings)
+                 .page(params[:page]).per(10).order('created_at DESC')# フォロー中ユーザーの投稿
+    @following_user = current_user.followings# フォロー中ユーザー
+    other_unfollowed_users = User.where.not(id: current_user.followings)
+                                 .where.not(id: current_user.id)
+                                 .pluck(:id)# 他のフォローしていないユーザー
+    @other_unfollowed_user = User.find(other_unfollowed_users)
   end
 
   def show
