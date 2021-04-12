@@ -9,7 +9,7 @@
         <!-- プロフィール情報 -->
         <div class="col-md-8">
           <div class="jus-spbw row">
-            <div class="profile-info">
+            <div class="wd100 jus-spbw profile-info">
               <ul class="profile-username">
                 <li>
                   <a href="<%= user_path(other_unfollowed_user) %>"
@@ -22,6 +22,16 @@
                   <a class="f-black introduction-text"><%= simple_format(other_unfollowed_user.introduction) %></a>
                 </li>
               </ul>
+              <!-- ユーザーフォローボタン -->
+              <% unless current_user?(other_unfollowed_user) %>
+                <div id="follow_form" class="mr-right30">
+                <% if current_user.following?(other_unfollowed_user) %>
+                  <%= render 'users/unfollow', user: other_unfollowed_user %>
+                <% else %>
+                  <%= render 'users/follow', user: other_unfollowed_user %>
+                <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
