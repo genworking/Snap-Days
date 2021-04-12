@@ -1,15 +1,15 @@
 <ul>
-  <% users.each do |user| %>
+  <% @users.each do |user| %>
     <div class="profile-wrap">
       <div class="row">
-        <!-- プロフィールアイコン画像 -->
+        <!-- ユーザーアイコン画像 -->
         <div class="col-md-4 text-center">
           <%= link_to image_tag(avatar_url(user), class: "round-img"), user_path(user) %>
         </div>
-        <!-- プロフィール情報 -->
         <div class="col-md-8">
           <div class="jus-spbw row">
-            <div class="profile-info">
+            <div class="wd100 jus-spbw profile-info">
+              <!-- ユーザー情報 -->
               <ul class="profile-username">
                 <li>
                   <a href="<%= user_path(user) %>"
@@ -20,6 +20,16 @@
                   <a class="f-black introduction-text"><%= simple_format(user.introduction) %></a>
                 </li>
               </ul>
+              <!-- ユーザーフォローボタン -->
+              <% unless current_user?(user) %>
+                <div id="follow_form" class="mr-right30">
+                <% if current_user.following?(user) %>
+                  <%= render 'users/unfollow', user: user %>
+                <% else %>
+                  <%= render 'users/follow', user: user %>
+                <% end %>
+                </div>
+              <% end %>
             </div>
           </div>
         </div>

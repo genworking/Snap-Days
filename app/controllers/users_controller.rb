@@ -4,8 +4,7 @@ class UsersController < ApplicationController
     users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
     @users = User.find(users)
     @following_user = current_user.followings# フォロー中ユーザー
-    other_unfollowed_users = User.where.not(id: current_user.followings)
-                                 .where.not(id: current_user.id)
+    other_unfollowed_users = User.where.not(id: [current_user.id, *current_user.following_ids])
                                  .pluck(:id)# 他のフォローしていないユーザー
     @other_unfollowed_user = User.find(other_unfollowed_users)
   end
@@ -17,6 +16,16 @@ class UsersController < ApplicationController
     favorites = Favorite.where(user_id: current_user.id).pluck(:post_id)
     @favorite_list = Post.find(favorites)
   end
+
+  def firstfollow
+    users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
+    @users = User.find(users)
+    @following_user = current_user.followings# フォロー中ユーザー
+    other_unfollowed_users = User.where.not(id: [current_user.id, *current_user.following_ids])
+                                 .pluck(:id)# 他のフォローしていないユーザー
+    @other_unfollowed_user = User.find(other_unfollowed_users)
+  end
+
 
   # パスワード変更ページ
   def mypassword

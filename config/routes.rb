@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     }
 
   root 'posts#index'
+  get 'users/firstfollow', to: 'users#firstfollow', as: 'first_follow'
   get 'users/:id', to: 'users#show', as: 'user'
   get 'relationships/create'
   get 'relationships/destroy'

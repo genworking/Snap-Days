@@ -8,8 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.includes(:photos, :user).where(user_id: [current_user.id, *current_user.following_ids])
                  .page(params[:page]).per(10).order('created_at DESC')# フォロー中ユーザーの投稿
     @following_user = current_user.followings# フォロー中ユーザー
-    other_unfollowed_users = User.where.not(id: current_user.followings)
-                                 .where.not(id: current_user.id)
+    other_unfollowed_users = User.where.not(id: [current_user.id, *current_user.following_ids])
                                  .pluck(:id)# 他のフォローしていないユーザー
     @other_unfollowed_user = User.find(other_unfollowed_users)
   end

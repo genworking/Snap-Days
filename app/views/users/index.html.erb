@@ -4,16 +4,9 @@
   </div>
   <%= render 'users/other_users', other_unfollowed_user: @other_unfollowed_user %>
 <% else %>
-  <div class="text-center slide active">
+  <div class="text-center">
     <p class="f-bold">Insta Clone Appへようこそ</p>
     <p>興味のある人をフォローしましょう！</p>
-    <a class="f-white start-btn">さぁ、はじめてみましょう</a>
-  </div>
-  <!-- ボタンクリック後に表示 -->
-  <div class="slide">
-    <div class="mr-top20 text-center">
-      <a class="f-black f-bold opa05">おすすめユーザー</a>
-    </div>
-    <%= render 'users/first_follow', users: @users %>
+    <a href="<%= first_follow_path %>" class="f-white start-btn">さぁ、はじめてみましょう</a>
   </div>
 <% end %>

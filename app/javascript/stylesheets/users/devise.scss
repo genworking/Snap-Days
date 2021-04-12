@@ -23,15 +23,8 @@
 }
 
 /* 配置 */
-.mr-topbot-auto {
-  margin: auto 0 auto 0;
-}
-.mr-left-auto {
-  margin-left: auto;
-}
-.mr-left-right-auto {
-  margin-left: auto;
-  margin-right: auto;
+.flex {
+  display: flex;
 }
 .flex-center-center {
   display: flex;
@@ -42,11 +35,25 @@
   display: flex;
   justify-content: center;
 }
+.flex-alitem-center {
+  display: flex;
+  align-items: center;
+}
 .jus-spbw {
   justify-content: space-between;
 }
-.mr-leftauto {
-  margin-right: 0px;
+.vrt-aln-middle {
+  vertical-align: middle;
+}
+
+.mr-topbot-auto {
+  margin: auto 0 auto 0;
+}
+.mr-left-right-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+.mr-left-auto {
   margin-left: auto;
 }
 .mr-top10 {
@@ -54,6 +61,12 @@
 }
 .mr-top20 {
   margin-top: 20px;
+}
+.mr-right20 {
+  margin-right: 20px;
+}
+.mr-right30 {
+  margin-right: 30px;
 }
 .mr-bottom10 {
   margin-bottom: 10px;
@@ -94,8 +107,8 @@
   padding-left: 10px;
 }
 
-.flex {
-  display: flex;
+.vrt-aln-middle {
+  vertical-align: middle;
 }
 
 /* 文字 */
