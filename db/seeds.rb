@@ -7,17 +7,19 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # サンプルユーザー作成
-1.upto(49) do |n|
-  name = Faker::Name.name
-  username = Faker::Name.username
+5.times do |n|
+  name = Faker::Sports::Football.name
+  username = Faker::Movies::StarWars.character
   email = "sample-#{n+1}@example.com"
   password = Faker::Internet.password(min_length: 6)
-  introduction = "#{name}です！よろしくお願いします！！"
+  movie = Faker::Movie.title
+  introduction = "#{name}です！<br />好きな映画は#{movie}です！！<br />よろしくお願いします😌"
 
   User.create(name: name,
-              useername: username,
+              username: username,
               email: email,
               password: password,
               password_confirmation: password,
               introduction: introduction
+  )
 end
