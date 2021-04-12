@@ -1,4 +1,4 @@
-<% follower_user.each do | follower_user | %>
+<% follower_users.each do | follower_user | %>
   <div class="profile-wrap">
     <div class="row">
       <!-- プロフィールアイコン画像 -->
@@ -16,7 +16,7 @@
               </li>
               <li>
                 <a>投稿<span class="f-bold"><%= follower_user.posts.count %></span>件</a>
-                <a><%= render 'users/following_list_count', user: user %></a>
+                <a><%= render 'users/following_list_count', user: follower_user %></a>
               </li>
               <li class="fullname"><%= follower_user.name %></li>
               <li>

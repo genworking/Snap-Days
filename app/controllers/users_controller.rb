@@ -17,6 +17,7 @@ class UsersController < ApplicationController
     @favorite_list = Post.find(favorites)
   end
 
+  # フォロー0のときの案内ページ
   def firstfollow
     users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
     @users = User.find(users)
@@ -26,6 +27,19 @@ class UsersController < ApplicationController
     @other_unfollowed_user = User.find(other_unfollowed_users)
   end
 
+  # 各ユーザーのフォロー中ユーザー一覧
+  def following
+    @user = User.find_by(name: params[:id])
+    @following_users = @user.followings
+    render 'following'
+  end
+
+  # 各ユーザーのフォロワーユーザー一覧
+  def followers
+    @user = User.find_by(name: params[:id])
+    @follower_users = @user.followers
+    render 'followers'
+  end
 
   # パスワード変更ページ
   def mypassword
@@ -42,20 +56,6 @@ class UsersController < ApplicationController
     @user = User.find_by(name: params[:name])
     @user.destroy
     redirect_to root_path
-  end
-
-  # フォローユーザー一覧
-  def following
-    @user = User.find_by(name: params[:id])
-    @following_users = @user.followings
-    render 'following'
-  end
-
-  # フォロワーユーザー一覧
-  def followers
-    @user = User.find_by(name: params[:id])
-    @follower_user = @user.followers
-    render 'followers'
   end
 
   private

@@ -16,7 +16,7 @@
               </li>
               <li>
                 <a>投稿<span class="f-bold"><%= following_user.posts.count %></span>件</a>
-                <a><%= render 'users/following_list_count', user: @user %></a>
+                <a><%= render 'users/following_list_count', user: following_user %></a>
               </li>
               <li class="fullname"><%= following_user.name %></li>
               <li>
