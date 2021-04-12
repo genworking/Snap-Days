@@ -14,10 +14,6 @@
                 <a href="<%= user_path(follower_user) %>"
                    class="username f-black"><%= follower_user.username %></a>
               </li>
-              <li>
-                <a>投稿<span class="f-bold"><%= follower_user.posts.count %></span>件</a>
-                <a><%= render 'users/following_list_count', user: follower_user %></a>
-              </li>
               <li class="fullname"><%= follower_user.name %></li>
               <li>
                 <a class="f-black introduction-text"><%= simple_format(follower_user.introduction) %></a>
