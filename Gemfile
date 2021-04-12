@@ -21,6 +21,7 @@ gem 'omniauth', '1.9.1'
 gem 'omniauth-facebook'
 gem 'kaminari'
 gem 'fog-aws'
+gem 'faker'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'
