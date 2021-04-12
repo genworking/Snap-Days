@@ -8,7 +8,7 @@
       <!-- プロフィール情報 -->
       <div class="col-md-8">
         <div class="row">
-          <div class="profile-info">
+          <div class="wd100 jus-spbw profile-info">
             <ul class="profile-username">
               <li>
                 <a href="<%= user_path(follower_user) %>"
@@ -22,18 +22,10 @@
               <li>
                 <a class="f-black introduction-text"><%= simple_format(follower_user.introduction) %></a>
               </li>
-              <li>
-                <% if follower_user.website.present? %>
-                  <a href="<%= follower_user.website %>" target="_blank" class="website-icon"></a>
-                  <a href="<%= follower_user.website %>" target="_blank" class="f-black website-address">
-                    <%= follower_user.website %>
-                  </a>
-                <% end %>
-              </li>
             </ul>
             <!-- フォローボタン -->
-            <div class="profile-follow-btn">
-              <a class="follow-btn"><%= render 'users/follow_form', user: user %></a>
+            <div class="mr-right30 profile-follow-btn">
+              <a class="follow-btn"><%= render 'users/follow_form', user: follower_user %></a>
             </div>
           </div>
         </div>
