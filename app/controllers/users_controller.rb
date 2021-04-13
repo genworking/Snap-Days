@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
 
   def index
-    users = User.where.not(id: current_user.id).pluck(:id)# 自分以外のユーザー
-    @users = User.find(users)
     @following_user = current_user.followings# フォロー中ユーザー
     other_unfollowed_users = User.where.not(id: [current_user.id, *current_user.following_ids])
                                  .pluck(:id)# 他のフォローしていないユーザー
