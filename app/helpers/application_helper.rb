@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def avatar_url(user)
     if user.nil?
       avatar_url = "/withdrawal-icon.png"
