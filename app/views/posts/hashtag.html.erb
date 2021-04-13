@@ -1,21 +1,22 @@
 <% if params[:name] == nil %>
-
 <% else %>
   <!-- ハッシュタグ検索結果 -->
   <div class="pd-top30">
     <% if @hashtag_posts.present? %>
       <div class="flex">
-        <!-- ハッシュタグアイコン -->
+        <!-- ハッシュタグランダムアイコン画像 -->
         <div class="col-md-4 text-center">
           <% @hashtag_randoms.each do | hashtag_random |%>
             <%= image_tag hashtag_random.photos.first.image.url(:medium), class: "round-img" %>
           <% end %>
         </div>
+        <!-- ハッシュタグ情報 -->
         <div>
           <h3 class="search-title">#<%= @hashtag.hashname %></h3>
           <a>投稿<span class="f-bold"><%= @hashtag_posts.count %></span>件</a>
         </div>
       </div>
+      <!-- ハッシュタグ投稿一覧 -->
       <hr>
       <a class="f-bold f-black opa05">人気投稿</a>
       <ul class="post-list-box mr-top20">
@@ -28,6 +29,7 @@
         <% end %>
       </ul>
     <% else %>
+      <p>入力されたハッシュタグの投稿はまだありません</p>
     <% end %>
   </div>
 <% end %>

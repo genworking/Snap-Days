@@ -33,9 +33,11 @@
                 <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "like hide-text" %>
               <% end %>
             </div>
+            <!-- いいね数 -->
             <span class="like-count"><%= post.likes.count %></span>
             <!-- コメントアイコン -->
             <%= link_to "", post_path(post), class: "comment" %>
+            <!-- コメント数 -->
             <span class="comment-count"><%= post.comments.count %></span>
             <!-- お気に入りボタン -->
             <%= render 'favorites/favorite', post: post %>
@@ -44,18 +46,18 @@
           <div id="like-text-post-<%= post.id.to_s %>">
             <%= render "like_text", { likes: post.likes } %>
           </div>
+          <!-- 投稿者コメント -->
           <div>
-            <!-- 投稿者コメント -->
             <span><strong><%= post.user.name %></strong></span>
             <span><%= post.caption %></span>
           </div>
+          <!-- 投稿経過時間 -->
           <div>
-            <!-- 投稿経過時間 -->
             <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post), class: "post-time no-text-decoration" %>
           </div>
+          <!-- コメント入力欄 -->
           <div>
             <hr>
-            <!-- コメント入力欄 -->
             <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
               <%= form_with model: [post, Comment.new], class: "w-100" do |f| %>
                 <%= f.hidden_field :user_id, value: current_user.id %>

@@ -27,11 +27,11 @@
               <!-- ユーザーフォローボタン -->
               <% unless current_user?(user) %>
                 <div id="follow_form" class="mr-right30">
-                <% if current_user.following?(user) %>
-                  <%= render 'users/unfollow', user: user %>
-                <% else %>
-                  <%= render 'users/follow', user: user %>
-                <% end %>
+                  <% if current_user.following?(user) %>
+                    <%= render 'users/unfollow', user: user %>
+                  <% else %>
+                    <%= render 'users/follow', user: user %>
+                  <% end %>
                 </div>
               <% end %>
             </div>

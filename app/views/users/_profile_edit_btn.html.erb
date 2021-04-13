@@ -1,6 +1,7 @@
 <!-- プロフィール編集ボタン -->
 <% if user == current_user %>
   <div class="edit-btn">
-    <%= link_to "プロフィールを編集", edit_user_registration_path, data: {"turbolinks" => false}, class: "btn btn-outline-dark edit-profile-btn" %>
+    <%= link_to "プロフィールを編集", edit_user_registration_path, data: {"turbolinks" => false},
+                                                                class: "btn btn-outline-dark edit-profile-btn" %>
   </div>
 <% end %>
