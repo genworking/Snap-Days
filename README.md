@@ -12,14 +12,15 @@ https://arcane-stream-03424.herokuapp.com/<br>
 # 使用技術
 * ruby 2.7.2
 * rails 6.0.3
-* AWS （S3）  
-<br>
-# 動作
-新規登録後、トップページは「Insta Clone Appへようこそ」のページになっています。
+* AWS （S3）<br>
+
+# 動作  
+新規登録後、トップページは「Insta Clone Appへようこそ」のページになっており、<br>
+ボタンをクリックすると、
 <br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 33 17" src="https://user-images.githubusercontent.com/66241426/114492936-88214600-9c54-11eb-9b8b-6506d655aaff.png">
 <br>
-ボタンをクリックするとユーザー一覧が表示され、フォローができます。<br>
+ユーザー一覧が表示され、フォローができます。<br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 33 48" src="https://user-images.githubusercontent.com/66241426/114493226-231a2000-9c55-11eb-9f1f-40d48c0113d4.png">
 <br>
 フォローしている人が1人以上いる場合、<br>
