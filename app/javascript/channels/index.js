@@ -4,13 +4,6 @@
 const channels = require.context('.', true, /_channel\.js$/)
 channels.keys().forEach(channels)
 
-/* さぁ始めよう => ユーザー一覧 表示切り替え*/
-$(document).on('turbolinks:load', function(){
-  $('.start-btn').click(function(){
-    $('.slide').toggleClass('active');
-  });
-});
-
 /* プロフィールアイコンプレビュー表示 */
 $(function() {
   function readURL(input) {
@@ -26,6 +19,7 @@ $(function() {
     readURL(this);
   });
 });
+
 /* プロフィールアイコンプレビュー削除 */
 $(function(){
   $('#preview-delete').click(function(){
@@ -36,6 +30,7 @@ $(function(){
     return false;
   });
 });
+
 /* プロフィールアイコンファイル名表示 */
 $(function(){
   $("input[type='file']").on('change',function(){
@@ -63,6 +58,7 @@ $(function() {
    readURL(this);
   });
 });
+
 /* 投稿画像プレビューとファイル名削除 */
 $(function(){
   $('#preview-delete').click(function(){
@@ -72,6 +68,7 @@ $(function(){
     return false;
   });
 });
+
 /* 投稿画像ファイル名表示 */
 $(function(){
   $("input[type='file']").on('change',function(){

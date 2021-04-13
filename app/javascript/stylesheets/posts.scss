@@ -28,15 +28,14 @@
   height: 30px;
   width: 30px;
   background-size: 30px !important;
-}
-
-.like:hover {
-  margin-top: 5px;
-  background-image: url("~like-hover");
-  background-repeat: no-repeat;
-  height: 30px;
-  width: 30px;
-  background-size: 30px !important;
+  &:hover {
+    margin-top: 5px;
+    background-image: url("~like-hover");
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    background-size: 30px !important;
+  }
 }
 
 .liked {
@@ -55,17 +54,16 @@
   padding-bottom: 10px;
   height: 36px;
   width: 36px;
-  background-size: 36px !important;;
-}
-
-.comment:hover {
-  background-image: url("~comment-hover-icon");
-  background-repeat: no-repeat;
-  background-origin: content-box;
-  padding-bottom: 10px;
-  height: 36px;
-  width: 36px;
-  background-size: 36px !important;;
+  background-size: 36px !important;
+  &:hover {
+    background-image: url("~comment-hover-icon");
+    background-repeat: no-repeat;
+    background-origin: content-box;
+    padding-bottom: 10px;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+  }
 }
 
 .comment-count {
@@ -86,15 +84,14 @@
   width: 36px;
   background-size: 28px !important;
   background-position: center;
-}
-
-.favorite:hover {
-  background-image: url("~bookmark-hover-icon");
-  background-repeat: no-repeat;
-  height: 36px;
-  width: 36px;
-  background-size: 28px !important;
-  background-position: center;
+  &:hover {
+    background-image: url("~bookmark-hover-icon");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 28px !important;
+    background-position: center;
+  }
 }
 
 .favorited {
