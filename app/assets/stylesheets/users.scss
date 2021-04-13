@@ -2,9 +2,11 @@
 .mr-left10per {
   margin-left: 10%;
 }
+
 .mr-left20per {
   margin-left: 20%;
 }
+
 .mr-left25per {
   margin-left: 25%;
 }
@@ -18,6 +20,7 @@
   position: relative;
   max-width: 300px;
 }
+
 #sbox2{
   height: 30px;
   padding: 0 10px;
@@ -29,6 +32,7 @@
   outline: 0;
   background: #ffffff;
 }
+
 #sbtn2 {
   height: 45px;
   position: absolute;
@@ -40,6 +44,7 @@
   font-size: 15px;/*アイコンサイズ*/
   transition: .2s;
 }
+
 #sbtn2:hover{
   color: #7fbfff;
 }
