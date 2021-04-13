@@ -29,7 +29,7 @@ class ProfilePhotoUploader < CarrierWave::Uploader::Base
     process :resize_to_limit => [30, 30]
   end
 
-  # 入力画像の形式制限
+  # 入力画像の形式
   def extension_white_list
     %w(jpg jpeg gif png)
   end
