@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users,controllers: {
-    registrations: 'registrations',
-    omniauth_callbacks: 'users/omniauth_callbacks'
+  devise_for :users, controllers: {
+    registrations: 'registrations'
     }
 
   root 'posts#index'
@@ -16,14 +15,12 @@ Rails.application.routes.draw do
   get 'unsubscribe/:name', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
   delete 'unsubscribe/:name', to: 'users#destroy', as: 'user_destroy'
 
-  resources :users
-
   # リンク先name指定
   resources :users, param: :name
 
-  # パスワード変更用
+  # パスワード変更
   resource :account, :only => [:show] do
-        resource :password, :only => [:edit, :update], module: "accounts"
+    resource :password, :only => [:edit, :update], module: "accounts"
   end
 
   # フォロー、フォロワー
@@ -41,6 +38,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i(create destroy)
   end
 
+  # 通知
   resources :notifications, only: :index
 
   # お気に入り
@@ -48,7 +46,6 @@ Rails.application.routes.draw do
     get :favorites, on: :collection
   end
 
-  # お気に入り
   resources :posts, expect: [:index] do
     resource :favorites, only: [:create, :destroy]
   end

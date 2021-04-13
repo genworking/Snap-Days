@@ -50,7 +50,8 @@ class PostsController < ApplicationController
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
     else
       @hashtag = Hashtag.find_by(hashname: params[:name])
-      @hashtag_posts = @hashtag.posts.includes(:liked_users).page(params[:page]).sort {|a,b| b.liked_users.size <=> a.liked_users.size}
+      @hashtag_posts = @hashtag.posts.includes(:liked_users).page(params[:page])
+                               .sort {|a,b| b.liked_users.size <=> a.liked_users.size}# いいね数順
       @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
       @hashtag_randoms = @hashtag.posts.order("RANDOM()").limit(1)
     end
