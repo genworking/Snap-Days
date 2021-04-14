@@ -6,7 +6,7 @@
 <img width="500" alt="スクリーンショット 2021-04-13 23 26 55" src="https://user-images.githubusercontent.com/66241426/114569249-c26c0100-9caf-11eb-8e72-89ab6c3d8ced.png"><br><br>
 
 # URL
-https://arcane-stream-03424.herokuapp.com/<br><br>
+https://instalike-work.herokuapp.com/<br><br>
 「登録する」でページ遷移後、ユーザーネームとメールアドレスの入力で新規登録できます。<br><br>
 
 # 使用技術
@@ -15,7 +15,7 @@ https://arcane-stream-03424.herokuapp.com/<br><br>
 * AWS （S3）<br><br>
 
 # 動作  
-新規登録後、トップページの「Insta Clone Appへようこそ」からボタンをクリックすると、<br><br>
+新規登録後、トップページの「Insta Clone Appへようこそ」からボタンをクリックすると、<br>
 
 <img width="500" alt="スクリーンショット 2021-04-13 12 33 17" src="https://user-images.githubusercontent.com/66241426/114492936-88214600-9c54-11eb-9b8b-6506d655aaff.png"><br><br>
 

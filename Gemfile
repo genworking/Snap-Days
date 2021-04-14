@@ -18,6 +18,7 @@ gem 'rmagick'  # 画像加工
 gem 'dotenv-rails'
 gem 'pry-rails' # binding.pry
 gem 'omniauth', '1.9.1'
+gem 'omniauth-facebook'
 gem 'kaminari'
 gem 'fog-aws'
 gem 'rails-i18n'
