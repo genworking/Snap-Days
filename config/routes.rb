@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
   get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
   get 'unsubscribe/:name', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
+  post 'users/guest_sign_in', to: 'users#guest_sign_in'
   delete 'unsubscribe/:name', to: 'users#destroy', as: 'user_destroy'
 
   # リンク先name指定

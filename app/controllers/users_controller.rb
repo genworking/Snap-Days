@@ -56,6 +56,22 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
+  # ゲストログイン
+  def guest_sign_in
+    user = User.find_or_create_by!(name: 'ゲストユーザー', username: 'ゲストユーザー', email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
+  end
+
+  # ゲストユーザーのパスワード変更・アカウント削除不可
+  def ensure_normal_user
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。'
+    end
+  end
+
   private
 
   def user_params

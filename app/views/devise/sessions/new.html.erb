@@ -23,8 +23,12 @@
           </div>
         <% end %>
         <br>
-        <p class="devise-link" style="text-align: left;">アカウントをお持ちでないですか？
+        <p class="devise-link" style="text-align: left;">
+          アカウントをお持ちでないですか？
           <%= link_to "登録する", new_user_registration_path %>
+        </p>
+        <p>
+          <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %>
         </p>
       </div>
     </div>
