@@ -1,5 +1,5 @@
-# Insta Clone App
-インスタライクな写真投稿サイトです。<br>
+#  Snap Days
+日常のワンシーンを気軽に発信できる写真投稿サイトです。<br>
 好きな写真をコメント付きで投稿・共有できます。<br>
 いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、プレビュー機能を追加しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 22 30 46" src="https://user-images.githubusercontent.com/66241426/114560768-ee838400-9ca7-11eb-957a-f8a9c670ccf0.png"><br><br>
@@ -15,7 +15,7 @@ https://instalike-work.herokuapp.com/<br><br>
 * AWS （S3）<br><br>
 
 # 動作  
-新規登録後、トップページの「Insta Clone Appへようこそ」からボタンをクリックすると、<br>
+新規登録後、トップページの「Snap Daysへようこそ」からボタンをクリックすると、<br>
 
 <img width="500" alt="スクリーンショット 2021-04-13 12 33 17" src="https://user-images.githubusercontent.com/66241426/114492936-88214600-9c54-11eb-9b8b-6506d655aaff.png"><br><br>
 
