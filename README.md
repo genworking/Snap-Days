@@ -1,12 +1,12 @@
 #  Snap Days
 日常のワンシーンを気軽に発信できる写真投稿サイトです。<br>
 好きな写真をコメント付きで投稿・共有できます。<br>
-いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、プレビュー機能を追加しました。<br><br>
+いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、画像プレビュー機能を追加しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 22 30 46" src="https://user-images.githubusercontent.com/66241426/114560768-ee838400-9ca7-11eb-957a-f8a9c670ccf0.png"><br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 23 26 55" src="https://user-images.githubusercontent.com/66241426/114569249-c26c0100-9caf-11eb-8e72-89ab6c3d8ced.png"><br><br>
 
 # URL
-https://instalike-work.herokuapp.com/<br><br>
+https://snapdays.herokuapp.com<br><br>
 「ゲストユーザー（閲覧用）」から、メールアドレスとパスワードを入力せずにログインできます。<br><br>
 
 # 使用技術
