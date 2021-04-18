@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'relationships/destroy'
   get 'search', to: 'search#search', as: 'search'
   get 'post/hashtag/:name', to: 'posts#hashtag'
+  get 'maps/index', to: 'maps#index', as: 'maps'
   get 'legal/terms', to: 'legal#terms', as: 'legal_terms'
   get 'legal/privacy', to: 'legal#privacy', as: 'legal_privacy'
   get 'unsubscribe/:name', to: 'users#unsubscribe', as: 'confirm_unsubscribe'
@@ -46,8 +47,10 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :edit, :update] do
     get :favorites, on: :collection
   end
-
   resources :posts, expect: [:index] do
     resource :favorites, only: [:create, :destroy]
   end
+
+  # google MAP
+  resources :maps, only: [:index]
 end

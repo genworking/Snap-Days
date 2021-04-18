@@ -79,3 +79,17 @@
     }
   }
 }
+
+.mapNavIcon {
+  height: 24px;
+  width: 24px;
+  background-size: 22px !important;
+  background-repeat: no-repeat;
+  transition: .3s;
+}
+.map-icon {
+  background-image: url("~map-icon.png");
+  &:hover {
+    background-image: url("~map-hover-icon.png");
+  }
+}
