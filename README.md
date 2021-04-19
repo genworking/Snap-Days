@@ -28,11 +28,14 @@ https://snapdays.herokuapp.com<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 53 04" src="https://user-images.githubusercontent.com/66241426/115273998-2d6b7b00-a17b-11eb-8a1e-cdbb7d7c4a08.png"><br><br>
 
 ナビバーのカメラアイコンから新規投稿できます。<br><br>
-プレビューで画像を確認でき、コメントとハッシュタグ、撮影場所を設定できます。<br><br>
+プレビューで画像を確認でき、コメント、ハッシュタグ、撮影場所を設定できます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 42 28" src="https://user-images.githubusercontent.com/66241426/115274270-715e8000-a17b-11eb-8132-ac45dba8c91f.png"><br><br>
 
 ナビバーの検索フォームからは、「ユーザーネーム」「フルネーム」「#ハッシュタグ」「ハッシュタグ（#無し）」が検索可能です。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
+
+ナビバーのマップアイコンからは、googlemapの自由検索ができます。
+<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115278752-c9e44c00-a180-11eb-8c56-1ade0848ddd6.png"><br><br>
 
 ユーザーネームやアイコンをクリックすると、ユーザーの詳細情報を見ることができます。<br><br>
 下部には投稿画像が時系列順で3列表示されます。<br><br>
@@ -52,16 +55,16 @@ https://snapdays.herokuapp.com<br><br>
 
 # 特徴
 プロフィール編集で変更後をイメージしやすくするため、アイコンプレビューを設置しました。<br><br>
-
 <img width="500" alt="スクリーンショット 2021-04-13 12 07 10" src="https://user-images.githubusercontent.com/66241426/114491793-35468f00-9c52-11eb-8352-bab56bd2ca1e.png"><br><br>
 
 写真を見た人の興味を広げるため、<br><br>
 投稿時に撮影場所を設定すると、その場所を示すgooglemapを設置しました<br><br>
-
 <img width="500" alt="スクリーンショット 2021-04-20 1 45 46" src="https://user-images.githubusercontent.com/66241426/115275035-3c066200-a17c-11eb-87a7-d0080f6d244f.png"><br><br>
 
-他のユーザーを見つけやすいように「フォローしていないユーザー」一覧ページを設置しました。<br><br>
+本人以外が投稿詳細ページを見た場合、他の投稿一覧が3列表示されます。<br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115279518-cd2c0780-a181-11eb-8b71-c78e1d9a0a1e.png"><br><br>
 
+他のユーザーを見つけやすいように「フォローしていないユーザー」一覧ページを設置しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 09 19" src="https://user-images.githubusercontent.com/66241426/114492055-b736b800-9c52-11eb-83a2-7009ff89a1ba.png"><br><br>
 
 # 機能一覧
