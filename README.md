@@ -34,7 +34,7 @@ https://snapdays.herokuapp.com<br><br>
 ナビバーの検索フォームからは、「ユーザーネーム」「フルネーム」「#ハッシュタグ」「ハッシュタグ（#無し）」が検索可能です。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
 
-ナビバーのマップアイコンからは、googlemapの自由検索ができます。
+ナビバーのマップアイコンからは、googlemapの自由検索ができます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115278752-c9e44c00-a180-11eb-8c56-1ade0848ddd6.png"><br><br>
 
 ユーザーネームやアイコンをクリックすると、ユーザーの詳細情報を見ることができます。<br><br>
@@ -61,8 +61,8 @@ https://snapdays.herokuapp.com<br><br>
 投稿時に撮影場所を設定すると、その場所を示すgooglemapを設置しました<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 45 46" src="https://user-images.githubusercontent.com/66241426/115275035-3c066200-a17c-11eb-87a7-d0080f6d244f.png"><br><br>
 
-本人以外が投稿詳細ページを見た場合、他の投稿一覧が3列表示されます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115279518-cd2c0780-a181-11eb-8b71-c78e1d9a0a1e.png"><br><br>
+また、本人以外が投稿詳細ページを見た場合は、他の投稿一覧が3列表示されます。<br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 2 40 33" src="https://user-images.githubusercontent.com/66241426/115280928-6b6c9d00-a183-11eb-842f-53e276453a5e.png"><br><br>
 
 他のユーザーを見つけやすいように「フォローしていないユーザー」一覧ページを設置しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 09 19" src="https://user-images.githubusercontent.com/66241426/114492055-b736b800-9c52-11eb-83a2-7009ff89a1ba.png"><br><br>
