@@ -1,9 +1,10 @@
 #  Snap Days
 日常のワンシーンを気軽に発信できる写真投稿サイトです。<br>
 好きな写真をコメント付きで投稿・共有できます。<br>
-いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、画像プレビュー機能を追加しました。<br><br>
+いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、
+画像プレビュー、撮影場所のgooglemap表示機能を追加しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-18 1 25 58" src="https://user-images.githubusercontent.com/66241426/115119815-45a99180-9fe5-11eb-9fe3-9c428c39b017.png"><br><br>
-<img width="500" alt="スクリーンショット 2021-04-18 1 27 18" src="https://user-images.githubusercontent.com/66241426/115119811-40e4dd80-9fe5-11eb-9590-a141c205c2db.png"><br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 1 50 35" src="https://user-images.githubusercontent.com/66241426/115273775-ed0bfd00-a17a-11eb-8320-7245f8a45ceb.png"><br><br>
 
 # URL
 https://snapdays.herokuapp.com<br><br>
@@ -24,11 +25,11 @@ https://snapdays.herokuapp.com<br><br>
 
 フォローしている人が1人以上いる場合、<br><br>
 トップページに「フォローユーザーの投稿」と「自分の投稿」が時系列順で表示されます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-18 1 22 15" src="https://user-images.githubusercontent.com/66241426/115119679-8d7be900-9fe4-11eb-921a-8c58b4951ae1.png"><br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 1 53 04" src="https://user-images.githubusercontent.com/66241426/115273998-2d6b7b00-a17b-11eb-8a1e-cdbb7d7c4a08.png"><br><br>
 
 ナビバーのカメラアイコンから新規投稿できます。<br><br>
-プレビューで画像を確認でき、コメントとハッシュタグを設定できます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-18 1 18 56" src="https://user-images.githubusercontent.com/66241426/115119572-13e3fb00-9fe4-11eb-97c0-e80673fae894.png"><br><br>
+プレビューで画像を確認でき、コメントとハッシュタグ、撮影場所を設定できます。<br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 1 42 28" src="https://user-images.githubusercontent.com/66241426/115274270-715e8000-a17b-11eb-8132-ac45dba8c91f.png"><br><br>
 
 ナビバーの検索フォームからは、「ユーザーネーム」「フルネーム」「#ハッシュタグ」「ハッシュタグ（#無し）」が検索可能です。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
@@ -38,7 +39,7 @@ https://snapdays.herokuapp.com<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 55 06" src="https://user-images.githubusercontent.com/66241426/114494520-7db47b80-9c57-11eb-9973-dc94112fb37e.png"><br><br>
 
 また、本人の場合は保存済みリストのボタンが表示され、クリックするとリストを切り替えることができます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-18 1 14 56" src="https://user-images.githubusercontent.com/66241426/115119506-a506a200-9fe3-11eb-96e9-2ad134c8d2b1.png"><br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 1 57 15" src="https://user-images.githubusercontent.com/66241426/115274550-c13d4700-a17b-11eb-8c2b-bac8165dcfbb.png"><br><br>
 
 ユーザー詳細ページの3列の画像をクリックすると、投稿がモーダルで表示されます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 13 01 43" src="https://user-images.githubusercontent.com/66241426/114495075-6fb32a80-9c58-11eb-82d2-6d92630f57b0.png"><br><br>
@@ -47,12 +48,17 @@ https://snapdays.herokuapp.com<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 13 11 32" src="https://user-images.githubusercontent.com/66241426/114496234-7c388280-9c5a-11eb-82fb-a41622532dc5.png"><br><br>
 
 通知アイコンをクリックすると内容を確認できます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-13 13 10 33" src="https://user-images.githubusercontent.com/66241426/114496266-8b1f3500-9c5a-11eb-8578-1859d213b25c.png"><br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 1 59 22" src="https://user-images.githubusercontent.com/66241426/115274819-0ceff080-a17c-11eb-9261-ba49fa133f9a.png"><br><br>
 
 # 特徴
 プロフィール編集で変更後をイメージしやすくするため、アイコンプレビューを設置しました。<br><br>
 
 <img width="500" alt="スクリーンショット 2021-04-13 12 07 10" src="https://user-images.githubusercontent.com/66241426/114491793-35468f00-9c52-11eb-8352-bab56bd2ca1e.png"><br><br>
+
+写真を見た人の興味を広げるため、<br><br>
+投稿時に撮影場所を設定すると、その場所を示すgooglemapを設置しました<br><br>
+
+<img width="500" alt="スクリーンショット 2021-04-20 1 45 46" src="https://user-images.githubusercontent.com/66241426/115275035-3c066200-a17c-11eb-87a7-d0080f6d244f.png"><br><br>
 
 他のユーザーを見つけやすいように「フォローしていないユーザー」一覧ページを設置しました。<br><br>
 
@@ -69,6 +75,7 @@ https://snapdays.herokuapp.com<br><br>
   * フォロー/フォロワー一覧ページ
 * コメント機能（Ajax）
 * ハッシュタグ機能
+* 撮影場所機能（GoogleMapAPI、geocoder）
 * いいね機能（Ajax）
 * お気に入り保存機能（Ajax）
 * フォロー/フォロワー機能（Ajax）
