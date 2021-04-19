@@ -40,6 +40,14 @@
             <%= f.label :hashword, "ハッシュタグ" %>
             <%= f.text_area :hashword, class: "form-control", placeholder: "例: #ジャケット " %>
           </div>
+          <!-- 撮影場所 -->
+          <div class="form-group">
+            <div class="flex">
+              <%= f.label :address, "撮影場所（任意）" %>
+              <div class="small form-text">※ googlemapで表示されます</div>
+            </div>
+            <%= f.text_area :address, class: "form-control", placeholder: "例: 東京タワー（または、東京都港区芝公園４丁目２−８） " %>
+          </div>
           <%= f.submit "投稿する", class: "btn btn-primary" %>
         <% end %>
       </div>

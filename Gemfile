@@ -23,6 +23,8 @@ gem 'kaminari'
 gem 'fog-aws'
 gem 'rails-i18n'
 gem 'faker'
+gem 'gon'
+gem 'geocoder'
 
 group :development, :test do
   gem 'sqlite3', '~> 1.4'

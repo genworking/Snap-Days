@@ -12,6 +12,7 @@ class PostsController < ApplicationController
     @post = Post.find_by(id: params[:id])
     @user = @post.user
     @post_list = @user.posts.page(params[:page]).order(created_at: :desc)
+    gon.post = @post
     respond_to do |format|
       format.html # show.html.erb
       format.js # show.js.erbから_show.html.erbへ
@@ -60,7 +61,9 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:caption, :hashword, :hashtag_ids, photos_attributes: [:image]).merge(user_id: current_user.id)
+    params.require(:post)
+          .permit(:caption, :hashword, :hashtag_ids, :address, photos_attributes: [:image])
+          .merge(user_id: current_user.id)
   end
 
   def set_post

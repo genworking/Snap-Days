@@ -1,5 +1,7 @@
 <!-- 投稿詳細 -->
 <%= render 'posts/show_main', post: @post %>
+<!-- 撮影場所 -->
+<%= render 'posts/show_map', post: @post %>
 <!-- 投稿者の他投稿一覧 -->
 <% unless current_user?(@post.user) %>
   <%= render 'posts/show_postlist', post: @post, post_list: @post_list %>

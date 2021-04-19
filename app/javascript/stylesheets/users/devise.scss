@@ -1,7 +1,7 @@
 /*
 動作、幅、配置、文字、アイコン、jQuery、container、
 プロフィール編集、プロフィール情報、自己紹介、ウェブサイト、プロフィールバー、ユーザー投稿リスト、ユーザー保存済みリストページ、
-新規投稿ページ、トップ投稿一覧、
+新規投稿ページ、トップ投稿一覧、投稿詳細ページ、
 フォローユーザー一覧ページ、フォロワーユーザー一覧ページ、
 いいね機能
  */
@@ -56,6 +56,12 @@
 .mr-left-auto {
   margin-left: auto;
 }
+.mr-top5 {
+  margin-top: 5px;
+}
+.mr-top7 {
+  margin-top: 7px;
+}
 .mr-top10 {
   margin-top: 10px;
 }
@@ -76,6 +82,12 @@
 }
 .mr-bottom30 {
   margin-bottom: 30px;
+}
+.mr-left5 {
+  margin-left: 5px;
+}
+.mr-left7 {
+  margin-left: 7px;
 }
 .mr-left10 {
   margin-left: 10px;
@@ -134,6 +146,14 @@
 }
 .opaini {
   opacity: initial;
+}
+
+.clamdown-blue {
+  color: rgb(0, 144, 187);
+}
+.clamdown-blue:link, .clamdown-blue:visited, .clamdown-blue:hover, .clamdown-blue:active {
+  color: rgb(0, 144, 187);
+  text-decoration: none;
 }
 
 /* アイコン */
@@ -568,6 +588,11 @@ footer {
   .devise-card {
     background-color: #fafafa;
   }
+  .col-md-10-arrange {
+    flex: 0 0 83.33333%;
+    max-width: 83.33333%;
+    position: relative;
+  }
 }
 
 .login-icon {
@@ -649,6 +674,19 @@ p.changed::after {
   display: flex;
   justify-content: center;
   margin-bottom: 30px;
+}
+
+/* 投稿詳細ページ */
+.h6Icon {
+  display: inline-block;
+  height: 16px;
+  width: 16px;
+  background-size: 16px !important;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+}
+.show-map-icon {
+  background-image: url("~show-map-icon.png");
 }
 
 /* フォローユーザー一覧ページ */
