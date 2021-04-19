@@ -1,7 +1,7 @@
 #  Snap Days
 日常のワンシーンを気軽に発信できる写真投稿サイトです。<br>
 好きな写真をコメント付きで投稿・共有できます。<br>
-いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、
+いいね、お気に入り、ハッシュタグなどSNSでおなじみの機能に加え、<br>
 画像プレビュー、撮影場所のgooglemap表示機能を追加しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-18 1 25 58" src="https://user-images.githubusercontent.com/66241426/115119815-45a99180-9fe5-11eb-9fe3-9c428c39b017.png"><br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 50 35" src="https://user-images.githubusercontent.com/66241426/115273775-ed0bfd00-a17a-11eb-8320-7245f8a45ceb.png"><br><br>
