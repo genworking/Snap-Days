@@ -31,12 +31,6 @@ https://snapdays.herokuapp.com<br><br>
 プレビューで画像を確認でき、コメント、ハッシュタグ、撮影場所を設定できます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 42 28" src="https://user-images.githubusercontent.com/66241426/115274270-715e8000-a17b-11eb-8132-ac45dba8c91f.png"><br><br>
 
-ナビバーの検索フォームからは、「ユーザーネーム」「フルネーム」「#ハッシュタグ」「ハッシュタグ（#無し）」が検索可能です。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
-
-ナビバーのマップアイコンからは、googlemapの自由検索ができます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115278752-c9e44c00-a180-11eb-8c56-1ade0848ddd6.png"><br><br>
-
 ユーザーネームやアイコンをクリックすると、ユーザーの詳細情報を見ることができます。<br><br>
 下部には投稿画像が時系列順で3列表示されます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 55 06" src="https://user-images.githubusercontent.com/66241426/114494520-7db47b80-9c57-11eb-9973-dc94112fb37e.png"><br><br>
@@ -46,6 +40,12 @@ https://snapdays.herokuapp.com<br><br>
 
 ユーザー詳細ページの3列の画像をクリックすると、投稿がモーダルで表示されます。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 13 01 43" src="https://user-images.githubusercontent.com/66241426/114495075-6fb32a80-9c58-11eb-82d2-6d92630f57b0.png"><br><br>
+
+ナビバーの検索フォームからは、「ユーザーネーム」「フルネーム」「#ハッシュタグ」「ハッシュタグ（#無し）」が検索可能です。<br><br>
+<img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
+
+また、マップアイコンからはgooglemapの自由検索ができます。<br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115278752-c9e44c00-a180-11eb-8c56-1ade0848ddd6.png"><br><br>
 
 他のユーザーにフォローされたり投稿にいいねが付くと、通知アイコンに赤い印がつき、<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 13 11 32" src="https://user-images.githubusercontent.com/66241426/114496234-7c388280-9c5a-11eb-82fb-a41622532dc5.png"><br><br>
