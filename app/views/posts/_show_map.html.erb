@@ -1,11 +1,11 @@
 <% if post.address.present? %>
-  <div class="col-md-10 col-md-offset-1 mx-auto postShow-wrap mr-bottom20">
+  <div  data-turbolinks='false' class="col-md-10 col-md-offset-1 mx-auto postShow-wrap mr-bottom20">
     <div class="row post-wrap">
       <h6 class="mr-top7 mr-left7">この写真の撮影場所：
         <a class="h6Icon show-map-icon"></a>
         <a class="f-bold clamdown-blue"><%= post.address %></a>
       </h6>
-      <div id="map" data-turbolinks='false'></div>
+      <div id="map"></div>
       <style>
       #map {
         width: 100%;

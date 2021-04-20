@@ -58,7 +58,7 @@ https://snapdays.herokuapp.com<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 07 10" src="https://user-images.githubusercontent.com/66241426/114491793-35468f00-9c52-11eb-8352-bab56bd2ca1e.png"><br><br>
 
 写真を見た人の興味を広げるため、<br><br>
-投稿時に撮影場所を設定すると、その場所を示すgooglemapを設置しました<br><br>
+投稿時に撮影場所を設定すると、その場所を示すgooglemapを設置しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-20 1 45 46" src="https://user-images.githubusercontent.com/66241426/115275035-3c066200-a17c-11eb-87a7-d0080f6d244f.png"><br><br>
 
 また、本人以外が投稿詳細ページを見た場合は、他の投稿一覧が3列表示されます。<br><br>
