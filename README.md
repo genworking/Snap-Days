@@ -78,7 +78,7 @@ https://snapdays.herokuapp.com<br><br>
   * フォロー/フォロワー一覧ページ
 * コメント機能（Ajax）
 * ハッシュタグ機能
-* 撮影場所機能（GoogleMapAPI、geocoder）
+* 撮影場所機能（googlemapAPI、gon、geocoder）
 * いいね機能（Ajax）
 * お気に入り保存機能（Ajax）
 * フォロー/フォロワー機能（Ajax）
@@ -86,6 +86,7 @@ https://snapdays.herokuapp.com<br><br>
 * 検索機能
   * フルネーム、ユーザーネーム検索
   * ハッシュタグ検索
+* googlemapページ（googlemapAPI）
 * 画像保存機能（fog-aws）<br><br>
 
 # 作成者
