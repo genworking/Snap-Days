@@ -45,7 +45,7 @@ https://snapdays.herokuapp.com<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 16 37" src="https://user-images.githubusercontent.com/66241426/114492281-404def00-9c53-11eb-856a-8d9813ca9116.png"><br><br>
 
 また、マップアイコンからはgooglemapの自由検索ができます。<br><br>
-<img width="500" alt="スクリーンショット 2021-04-20 2 33 19" src="https://user-images.githubusercontent.com/66241426/115278752-c9e44c00-a180-11eb-8c56-1ade0848ddd6.png"><br><br>
+<img width="500" alt="スクリーンショット 2021-04-20 11 24 05" src="https://user-images.githubusercontent.com/66241426/115328080-fde45f00-a1ca-11eb-850f-4f193d3a1d82.png"><br><br>
 
 他のユーザーにフォローされたり投稿にいいねが付くと、通知アイコンに赤い印がつき、<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 13 11 32" src="https://user-images.githubusercontent.com/66241426/114496234-7c388280-9c5a-11eb-82fb-a41622532dc5.png"><br><br>
