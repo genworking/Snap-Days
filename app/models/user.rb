@@ -15,6 +15,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
 
   validates :name, presence: true, length: { maximum: 50 }, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   validates :username, presence: true, uniqueness: true
   validates :introduction, length: { maximum: 160 }
   validates :phone_number, length: { maximum: 20 }
