@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'users/:id', to: 'users#show', as: 'user'
   get 'relationships/create'
   get 'relationships/destroy'
-  get 'search', to: 'search#search', as: 'search'
+  get 'search', to: 'searches#search', as: 'search'
   get 'post/hashtag/:name', to: 'posts#hashtag'
   get 'maps/index', to: 'maps#index', as: 'maps'
   get 'legal/terms', to: 'legal#terms', as: 'legal_terms'

@@ -1,7 +1,7 @@
 <!-- 検索結果 -->
 <% if @user.present? %>
-  <%= render 'search/search_user', user: @user %>
+  <%= render 'searches/search_user', user: @user %>
 <% else %>
-  <%= render 'search/search_hashtag', hashtag_posts: @hashtag_posts, hashtag: @hashtag,
+  <%= render 'searches/search_hashtag', hashtag_posts: @hashtag_posts, hashtag: @hashtag,
                                       hashtag_randoms: @hashtag_randoms %>
 <% end %>

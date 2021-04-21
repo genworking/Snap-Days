@@ -1,4 +1,4 @@
-class SearchController < ApplicationController
+class SearchesController < ApplicationController
   def search
     @user = User.find_by('name LIKE(?) or username LIKE(?)', "%#{params[:search]}%", "%#{params[:search]}%")
     if @user.present?
