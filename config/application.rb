@@ -9,7 +9,7 @@ module InstaClone5
     config.i18n.default_locale = :ja
 
     config.time_zone = 'Tokyo'
-    config.generators.test_framework = :rspec# モデル、コントローラー作成時、ファイル自動作成
+    config.generators.test_framework = :rspec # モデル、コントローラー作成時、ファイル自動作成
     config.generators.system_tests   = false
     config.generators.stylesheets    = false
     config.generators.javascripts    = false
