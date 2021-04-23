@@ -1,7 +1,6 @@
 class Post < ApplicationRecord
   geocoded_by :address # addressカラムを基準に緯度経度を算出
   after_validation :geocode # 住所変更時に緯度経度も変更
-
   belongs_to :user, optional: true
   has_many :photos, dependent: :destroy
   has_many :hashtag_posts, dependent: :destroy
