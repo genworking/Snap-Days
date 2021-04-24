@@ -6,12 +6,27 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
-    it 'usernameとnameとemailの値が設定されていればOK' do
-      expect(@user.valid?).to eq(true)
+    # ユーザーネーム、名前、メール、パスワードがあれば有効な状態であること
+    it 'is valid with a username, last name, email, and password' do
+      @user = User.new(
+        name: 'Aaron',
+        username: 'Sumner',
+        email: 'tester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze',
+        introduction: '',
+        phone_number: ''
+      )
+      expect(@user).to be_valid
     end
 
     it 'usernameが空だとNG' do
       @user.username = ''
+      expect(@user.valid?).to eq(false)
+    end
+
+    it 'usernameが50文字を超えるとNG' do
+      str = 'abc'
+      @user.username = 'a' * 51
       expect(@user.valid?).to eq(false)
     end
 
@@ -20,8 +35,34 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
+    it 'nameが50文字を超えるとNG' do
+      str = 'abc'
+      @user.name = 'a' * 51
+      expect(@user.valid?).to eq(false)
+    end
+
     it 'emailが空だとNG' do
       @user.email = ''
+      expect(@user.valid?).to eq(false)
+    end
+
+    it 'passwordが空だとNG' do
+      @user.password = ''
+      expect(@user.valid?).to eq(false)
+    end
+
+    it 'passwordが6文字以上でなければNG' do
+      @user.password = 'a' * 5
+      expect(@user.valid?).to eq(false)
+    end
+
+    it 'introductionが160文字を超えるとNG' do
+      @user.introduction = 'a' * 161
+      expect(@user.valid?).to eq(false)
+    end
+
+    it 'phone_numberが20文字を超えるとNG' do
+      @user.phone_number = '1' * 21
       expect(@user.valid?).to eq(false)
     end
   end
