@@ -11,9 +11,10 @@ https://snapdays.herokuapp.com<br><br>
 「ゲストユーザー（閲覧用）」から、メールアドレスとパスワードを入力せずにログインできます。<br><br>
 
 # 使用技術
-* ruby 2.7.2
-* rails 6.0.3
-* AWS （S3）<br><br>
+* Ruby 2.7.2
+* Rails 6.0.3
+* AWS （S3）
+* RSpec 3.10<br><br>
 
 # 動作  
 新規登録後、トップページの「Snap Daysへようこそ」からボタンをクリックすると、<br>
