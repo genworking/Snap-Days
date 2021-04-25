@@ -1,6 +1,4 @@
 # FactoryBot.define do
-#   factory :post do
-#     title { "Hello." }
-#     association :user
+#   factory :post, aliases: [:user, :photo] do
 #   end
 # end

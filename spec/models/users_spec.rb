@@ -38,7 +38,7 @@ RSpec.describe User, type: :model do
         password: 'dottle-nouveau-pavilion-tights-furze'
       )
       @user.valid?
-      expect(@user.errors[:name]).to include("はすでに存在します")
+      expect(@user.errors[:name]).to include("はすでに存在します" || "has already been taken")
     end
 
     it 'nameが50文字を超えるとNG' do
@@ -65,7 +65,7 @@ RSpec.describe User, type: :model do
         password: 'dottle-nouveau-pavilion-tights-furze'
       )
       @user.valid?
-      expect(@user.errors[:username]).to include("はすでに存在します")
+      expect(@user.errors[:username]).to include("はすでに存在します" || "has already been taken")
     end
 
     it 'usernameが50文字を超えるとNG' do
@@ -93,7 +93,7 @@ RSpec.describe User, type: :model do
         password: 'dottle-nouveau-pavilion-tights-furze'
       )
       @user.valid?
-      expect(@user.errors[:email]).to include("はすでに存在します")
+      expect(@user.errors[:email]).to include("はすでに存在します" || "has already been taken")
     end
 
     it 'passwordが空だとNG' do
@@ -108,11 +108,6 @@ RSpec.describe User, type: :model do
 
     it 'introductionが160文字を超えるとNG' do
       @user.introduction = 'a' * 161
-      expect(@user.valid?).to eq(false)
-    end
-
-    it 'phone_numberが20文字を超えるとNG' do
-      @user.phone_number = '1' * 21
       expect(@user.valid?).to eq(false)
     end
 
@@ -132,7 +127,12 @@ RSpec.describe User, type: :model do
         phone_number: '01234567890'
       )
       @user.valid?
-      expect(@user.errors[:phone_number]).to include("はすでに存在します")
+      expect(@user.errors[:phone_number]).to include("はすでに存在します" || "has already been taken")
+    end
+
+    it 'phone_numberが20文字を超えるとNG' do
+      @user.phone_number = '1' * 21
+      expect(@user.valid?).to eq(false)
     end
   end
 end

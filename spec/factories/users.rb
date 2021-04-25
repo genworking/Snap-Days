@@ -6,10 +6,8 @@ FactoryBot.define do
     sequence(:name) { |n| "TEST_NAME#{n}"}
     sequence(:email) { |n| "TEST#{n}@example.com"}
     sequence(:password) { |n| "testpass#{n}"}
-
     # 投稿ありのユーザーファクトリ（ユーザーのあとに投稿データを生成する）
     factory :user_with_posts do
-
       transient do
         posts_count { 5 }
       end
@@ -19,5 +17,4 @@ FactoryBot.define do
       end
     end
   end
-
 end

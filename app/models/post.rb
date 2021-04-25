@@ -11,6 +11,10 @@ class Post < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :favorites, dependent: :destroy
 
+  validates :caption, presence: true, length: { maximum: 2200 } # インスタと同じ文字数
+  validates :hashword, length: { maximum: 136 } # インスタと同じ文字数
+  validates :address, length: { maximum: 92 } # 住所世界最長文字数
+
   accepts_nested_attributes_for :photos
 
   after_create do

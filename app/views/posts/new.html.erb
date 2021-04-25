@@ -37,7 +37,10 @@
           </div>
           <!-- ハッシュタグ -->
           <div class="form-group">
-            <%= f.label :hashword, "ハッシュタグ" %>
+            <div class="flex">
+              <%= f.label :hashword, "ハッシュタグ（任意）" %>
+              <div class="small form-text">※ 検索フォームから見つけられます</div>
+            </div>
             <%= f.text_area :hashword, class: "form-control", placeholder: "例: #ジャケット " %>
           </div>
           <!-- 撮影場所 -->
