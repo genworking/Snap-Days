@@ -117,102 +117,72 @@ RSpec.describe User, type: :model do
   end
 
   describe '文字列に一致するフルネームを検索する' do
+    before do
+      @user1 = User.create(
+        name: 'Aaron',
+        username: 'Sumner',
+        email: 'tester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+      @user2 = User.create(
+        name: 'Joe',
+        username: 'Tester',
+        email: 'joetester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+      @user3 = User.create(
+        name: 'Michael',
+        username: 'Hartl',
+        email: 'michaeltester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+    end
+
     context '一致するデータが見つかったとき' do
       it '検索文字列に一致するフルネームのユーザー情報を返すこと' do
-        user1 = User.create(
-          name: 'Aaron',
-          username: 'Sumner',
-          email: 'tester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user2 = User.create(
-          name: 'Joe',
-          username: 'Tester',
-          email: 'joetester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user3 = User.create(
-          name: 'Michael',
-          username: 'Hartl',
-          email: 'michaeltester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        expect(User.where('name LIKE ?', 'Aaron')).to include(user1)
-        expect(User.where('name LIKE ?', 'Aaron')).to_not include(user2, user3)
+        expect(User.where('name LIKE ?', 'Aaron')).to include(@user1)
+        expect(User.where('name LIKE ?', 'Aaron')).to_not include(@user2, @user3)
       end
     end
 
     context '一致するデータが1件も見つからないとき' do
       it '空のコレクションを返すこと' do
-        user1 = User.create(
-          name: 'Aaron',
-          username: 'Sumner',
-          email: 'tester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user2 = User.create(
-          name: 'Joe',
-          username: 'Tester',
-          email: 'joetester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user3 = User.create(
-          name: 'Michael',
-          username: 'Hartl',
-          email: 'michaeltester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
         expect(User.where('name LIKE ?', 'aaa')).to be_empty
       end
     end
   end
 
   describe '文字列に一致するユーザーネームを検索する' do
+    before do
+      @user1 = User.create(
+        name: 'Aaron',
+        username: 'Sumner',
+        email: 'tester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+      @user2 = User.create(
+        name: 'Joe',
+        username: 'Tester',
+        email: 'joetester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+      @user3 = User.create(
+        name: 'Michael',
+        username: 'Hartl',
+        email: 'michaeltester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+    end
+
     context '一致するデータが見つかったとき' do
       it '検索文字列に一致するユーザーネームのユーザー情報を返すこと' do
-        user1 = User.create(
-          name: 'Aaron',
-          username: 'Sumner',
-          email: 'tester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user2 = User.create(
-          name: 'Joe',
-          username: 'Tester',
-          email: 'joetester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user3 = User.create(
-          name: 'Michael',
-          username: 'Hartl',
-          email: 'michaeltester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        expect(User.search('Sumner')).to include(user1)
-        expect(User.search('Sumner')).to_not include(user2, user3)
+        expect(User.search('Sumner')).to include(@user1)
+        expect(User.search('Sumner')).to_not include(@user2, @user3)
       end
     end
 
     context '一致するデータが1件も見つからないとき' do
       it '空のコレクションを返すこと' do
-        user1 = User.create(
-          name: 'Aaron',
-          username: 'Sumner',
-          email: 'tester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user2 = User.create(
-          name: 'Joe',
-          username: 'Tester',
-          email: 'joetester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
-        user3 = User.create(
-          name: 'Michael',
-          username: 'Hartl',
-          email: 'michaeltester@example.com',
-          password: 'dottle-nouveau-pavilion-tights-furze'
-        )
         expect(User.search('aaa')).to be_empty
       end
     end
