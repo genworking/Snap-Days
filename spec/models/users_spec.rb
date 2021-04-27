@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
-    it '名前、ユーザーネーム、メール、パスワードがあれば有効な状態であること' do
+    it 'フルネーム、ユーザーネーム、メール、パスワードがあれば有効な状態であること' do
       @user = User.new(
         name: 'Aaron',
         username: 'Sumner',
@@ -23,9 +23,16 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
-    it 'nameが50文字を超えるとNG' do
-      @user.name = 'a' * 51
-      expect(@user.valid?).to eq(false)
+    context 'nameの文字数制限' do
+      it 'nameが50文字を超えるとNG' do
+        @user.name = 'a' * 51
+        expect(@user.valid?).to eq(false)
+      end
+
+      it 'nameが50文字以内であればOK' do
+        @user.name = 'a' * 50
+        expect(@user.valid?).to eq(true)
+      end
     end
 
     it 'usernameが空だとNG' do
@@ -33,10 +40,16 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
-    it 'usernameが50文字を超えるとNG' do
-      str = 'abc'
-      @user.username = 'a' * 51
-      expect(@user.valid?).to eq(false)
+    context 'usernameの文字数制限' do
+      it 'usernameが50文字を超えるとNG' do
+        @user.username = 'a' * 51
+        expect(@user.valid?).to eq(false)
+      end
+
+      it 'usernameが50文字以内であればOK' do
+        @user.username = 'a' * 50
+        expect(@user.valid?).to eq(true)
+      end
     end
 
     it 'emailが空だとNG' do
@@ -49,19 +62,40 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
-    it 'passwordが6文字以上でなければNG' do
-      @user.password = 'a' * 5
-      expect(@user.valid?).to eq(false)
+    context 'passwordの文字数制限' do
+      it 'passwordが6文字以上でなければNG' do
+        @user.password = 'a' * 5
+        expect(@user.valid?).to eq(false)
+      end
+
+      it 'passwordが6文字以上であればOK' do
+        @user.password = 'a' * 6
+        expect(@user.valid?).to eq(true)
+      end
     end
 
-    it 'introductionが160文字を超えるとNG' do
-      @user.introduction = 'a' * 161
-      expect(@user.valid?).to eq(false)
+    context 'introductionの文字数制限' do
+      it 'introductionが160文字を超えるとNG' do
+        @user.introduction = 'a' * 161
+        expect(@user.valid?).to eq(false)
+      end
+
+      it 'introductionが160文字以内であればOK' do
+        @user.introduction = 'a' * 160
+        expect(@user.valid?).to eq(true)
+      end
     end
 
-    it 'phone_numberが20文字を超えるとNG' do
-      @user.phone_number = '1' * 21
-      expect(@user.valid?).to eq(false)
+    context 'phone_numberの文字数制限' do
+      it 'phone_numberが20文字を超えるとNG' do
+        @user.phone_number = '1' * 21
+        expect(@user.valid?).to eq(false)
+      end
+
+      it 'phone_numberが20文字以内であればOK' do
+        @user.phone_number = '1' * 20
+        expect(@user.valid?).to eq(true)
+      end
     end
   end
 
