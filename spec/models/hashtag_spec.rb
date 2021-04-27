@@ -16,7 +16,7 @@ RSpec.describe Hashtag, type: :model do
         )
         post2 = user.posts.create(
           caption: 'post2_caption',
-          hashword: 'aaa'
+          hashword: 'test'
         )
         post3 = user.posts.create(
           caption: 'post3_caption',
@@ -41,13 +41,13 @@ RSpec.describe Hashtag, type: :model do
         )
         post2 = user.posts.create(
           caption: 'post2_caption',
-          hashword: 'aaa'
+          hashword: 'test'
         )
         post3 = user.posts.create(
           caption: 'post3_caption',
           hashword: 'test_hashword'
         )
-        expect(Post.where('hashword LIKE ?', 'bbb')).to be_empty
+        expect(Post.where('hashword LIKE ?', 'aaa')).to be_empty
       end
     end
   end
