@@ -6,8 +6,7 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
-    # 名前、ユーザーネーム、メール、パスワードがあれば有効な状態であること
-    it 'is valid with a username, last name, email, and password' do
+    it '名前、ユーザーネーム、メール、パスワードがあれば有効な状態であること' do
       @user = User.new(
         name: 'Aaron',
         username: 'Sumner',
