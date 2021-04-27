@@ -121,14 +121,14 @@ RSpec.describe User, type: :model do
 
     context '一致するデータが見つかったとき' do
       it '検索文字列に一致するフルネームのユーザー情報を返すこと' do
-        expect(User.where('name LIKE ?', 'Aaron')).to include(@user1)
-        expect(User.where('name LIKE ?', 'Aaron')).to_not include(@user2, @user3)
+        expect(User.search('Aaron')).to include(@user1)
+        expect(User.search('Aaron')).to_not include(@user2, @user3)
       end
     end
 
     context '一致するデータが1件も見つからないとき' do
       it '空のコレクションを返すこと' do
-        expect(User.where('name LIKE ?', 'aaa')).to be_empty
+        expect(User.search('aaa')).to be_empty
       end
     end
   end
