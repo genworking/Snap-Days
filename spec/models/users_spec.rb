@@ -23,23 +23,6 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
-    it 'nameが重複するとNG' do
-      User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user.valid?
-      expect(@user.errors[:name]).to include("はすでに存在します" || "has already been taken")
-    end
-
     it 'nameが50文字を超えるとNG' do
       @user.name = 'a' * 51
       expect(@user.valid?).to eq(false)
@@ -48,23 +31,6 @@ RSpec.describe User, type: :model do
     it 'usernameが空だとNG' do
       @user.username = ''
       expect(@user.valid?).to eq(false)
-    end
-
-    it 'usernameが重複するとNG' do
-      User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user.valid?
-      expect(@user.errors[:username]).to include("はすでに存在します" || "has already been taken")
     end
 
     it 'usernameが50文字を超えるとNG' do
@@ -76,23 +42,6 @@ RSpec.describe User, type: :model do
     it 'emailが空だとNG' do
       @user.email = ''
       expect(@user.valid?).to eq(false)
-    end
-
-    it 'emailが重複するとNG' do
-      User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user.valid?
-      expect(@user.errors[:email]).to include("はすでに存在します" || "has already been taken")
     end
 
     it 'passwordが空だとNG' do
@@ -113,6 +62,38 @@ RSpec.describe User, type: :model do
     it 'phone_numberが20文字を超えるとNG' do
       @user.phone_number = '1' * 21
       expect(@user.valid?).to eq(false)
+    end
+  end
+
+  describe 'ユニークバリデーション' do
+    before do
+      User.create(
+        name: 'Aaron',
+        username: 'Sumner',
+        email: 'tester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+      @user = User.new(
+        name: 'Aaron',
+        username: 'Sumner',
+        email: 'tester@example.com',
+        password: 'dottle-nouveau-pavilion-tights-furze'
+      )
+    end
+
+    it 'nameが重複するとNG' do
+      @user.valid?
+      expect(@user.errors[:name]).to include("はすでに存在します" || "has already been taken")
+    end
+
+    it 'usernameが重複するとNG' do
+      @user.valid?
+      expect(@user.errors[:username]).to include("はすでに存在します" || "has already been taken")
+    end
+
+    it 'emailが重複するとNG' do
+      @user.valid?
+      expect(@user.errors[:email]).to include("はすでに存在します" || "has already been taken")
     end
   end
 
