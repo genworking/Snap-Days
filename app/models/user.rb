@@ -10,20 +10,21 @@ class User < ApplicationRecord
   has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
   has_many :favorites, dependent: :destroy
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :omniauthable
-
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :introduction, length: { maximum: 160 }
   validates :phone_number, length: { maximum: 20 }
-
   enum sex: { man: 0, woman: 1 }
-
   mount_uploader :profile_photo, ProfilePhotoUploader
+
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable, :omniauthable
+
+  scope :search, ->(term) {
+    where('name LIKE(?) or username LIKE(?)', "%#{term}%", "%#{term}%")
+  }
 
   # URL先name指定
   def to_param

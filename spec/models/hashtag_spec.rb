@@ -22,8 +22,8 @@ RSpec.describe Hashtag, type: :model do
           caption: 'post3_caption',
           hashword: 'test_hashword'
         )
-        expect(Post.where('hashword LIKE ?', 'test_hashword')).to include(post1, post3)
-        expect(Post.where('hashword LIKE ?', 'test_hashword')).to_not include(post2)
+        expect(Post.search('test_hashword')).to include(post1, post3)
+        expect(Post.search('test_hashword')).to_not include(post2)
       end
     end
 
@@ -47,7 +47,7 @@ RSpec.describe Hashtag, type: :model do
           caption: 'post3_caption',
           hashword: 'test_hashword'
         )
-        expect(Post.where('hashword LIKE ?', 'aaa')).to be_empty
+        expect(Post.search('aaa')).to be_empty
       end
     end
   end

@@ -188,8 +188,8 @@ RSpec.describe User, type: :model do
           email: 'michaeltester@example.com',
           password: 'dottle-nouveau-pavilion-tights-furze'
         )
-        expect(User.where('username LIKE ?', 'Sumner')).to include(user1)
-        expect(User.where('username LIKE ?', 'Sumner')).to_not include(user2, user3)
+        expect(User.search('Sumner')).to include(user1)
+        expect(User.search('Sumner')).to_not include(user2, user3)
       end
     end
 
@@ -213,7 +213,7 @@ RSpec.describe User, type: :model do
           email: 'michaeltester@example.com',
           password: 'dottle-nouveau-pavilion-tights-furze'
         )
-        expect(User.where('name LIKE ?', 'aaa')).to be_empty
+        expect(User.search('aaa')).to be_empty
       end
     end
   end
