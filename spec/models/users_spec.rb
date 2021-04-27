@@ -110,25 +110,6 @@ RSpec.describe User, type: :model do
       expect(@user.valid?).to eq(false)
     end
 
-    it 'phone_numberが重複するとNG' do
-      User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze',
-        phone_number: '01234567890'
-      )
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze',
-        phone_number: '01234567890'
-      )
-      @user.valid?
-      expect(@user.errors[:phone_number]).to include("はすでに存在します" || "has already been taken")
-    end
-
     it 'phone_numberが20文字を超えるとNG' do
       @user.phone_number = '1' * 21
       expect(@user.valid?).to eq(false)

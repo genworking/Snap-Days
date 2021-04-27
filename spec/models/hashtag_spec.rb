@@ -27,8 +27,8 @@ RSpec.describe Hashtag, type: :model do
       end
     end
 
-    context "一致するデータが1件も見つからないとき" do
-      it "空のコレクションを返すこと" do
+    context '一致するデータが1件も見つからないとき' do
+      it '空のコレクションを返すこと' do
         user = User.create(
           name: 'Joe',
           username: 'Tester',

@@ -19,8 +19,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }
   validates :introduction, length: { maximum: 160 }
-  validates :phone_number, uniqueness: true, length: { maximum: 20 }
-  
+  validates :phone_number, length: { maximum: 20 }
+
   enum sex: { man: 0, woman: 1 }
 
   mount_uploader :profile_photo, ProfilePhotoUploader
