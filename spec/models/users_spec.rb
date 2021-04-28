@@ -145,24 +145,18 @@ RSpec.describe User, type: :model do
         email: 'joetester@example.com',
         password: 'dottle-nouveau-pavilion-tights-furze'
       )
-      @user3 = User.create(
-        name: 'Michael',
-        username: 'Hartl',
-        email: 'michaeltester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
     end
 
     context '一致するデータが見つかったとき' do
       it '検索文字列に一致するフルネームのユーザー情報を返すこと' do
-        expect(User.search('Aaron')).to include(@user1)
-        expect(User.search('Aaron')).to_not include(@user2, @user3)
+        expect(User.search('Aaron')).to eq(@user1)
+        expect(User.search('Aaron')).to_not eq(@user2)
       end
     end
 
     context '一致するデータが1件も見つからないとき' do
-      it '空のコレクションを返すこと' do
-        expect(User.search('aaa')).to be_empty
+      it 'nilを返すこと' do
+        expect(User.search('aaa')).to eq(nil)
       end
     end
   end
@@ -181,24 +175,18 @@ RSpec.describe User, type: :model do
         email: 'joetester@example.com',
         password: 'dottle-nouveau-pavilion-tights-furze'
       )
-      @user3 = User.create(
-        name: 'Michael',
-        username: 'Hartl',
-        email: 'michaeltester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
     end
 
     context '一致するデータが見つかったとき' do
       it '検索文字列に一致するユーザーネームのユーザー情報を返すこと' do
-        expect(User.search('Sumner')).to include(@user1)
-        expect(User.search('Sumner')).to_not include(@user2, @user3)
+        expect(User.search('Sumner')).to eq(@user1)
+        expect(User.search('Sumner')).to_not eq(@user2)
       end
     end
 
     context '一致するデータが1件も見つからないとき' do
-      it '空のコレクションを返すこと' do
-        expect(User.search('aaa')).to be_empty
+      it 'nilを返すこと' do
+        expect(User.search('aaa')).to eq(nil)
       end
     end
   end

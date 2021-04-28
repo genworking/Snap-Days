@@ -22,9 +22,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
-  scope :search, ->(term) {
-    where('name LIKE(?) or username LIKE(?)', "%#{term}%", "%#{term}%")
-  }
+  # 無い場合、nilを返す
+  def self.search(term)
+    find_by('name LIKE(?) or username LIKE(?)', "%#{term}%", "%#{term}%")
+  end
 
   # URL先name指定
   def to_param
