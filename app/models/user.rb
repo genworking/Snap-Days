@@ -23,8 +23,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :omniauthable
 
   # 無い場合、nilを返す
-  def self.search(term)
-    find_by('name LIKE(?) or username LIKE(?)', "%#{term}%", "%#{term}%")
+  def self.search(search_word)
+    find_by('name LIKE(?) or username LIKE(?)', "%#{search_word}%", "%#{search_word}%")
   end
 
   # URL先name指定

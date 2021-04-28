@@ -15,9 +15,9 @@ class Post < ApplicationRecord
   validates :address, length: { maximum: 92 } # 住所世界最長文字数
   accepts_nested_attributes_for :photos
 
-  scope :search, ->(term) {
-    where("hashword LIKE ?", "%#{term}%")
-  }
+  def self.search(search_word)
+    find_by(['hashword LIKE ?', "%#{search_word}%"])
+  end
 
   after_create do
     post = Post.find_by(id: self.id)
