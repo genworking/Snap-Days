@@ -25,17 +25,17 @@
              website, introduction,
              phone_number, sex|
     User.create!(
-      { name: name,
-        username: username,
-        email: email,
-        password: password,
-        profile_photo: profile_photo,
-        website: website,
-        introduction: introduction,
-        phone_number: phone_number,
-        sex: sex}
+      name: name,
+      username: username,
+      email: email,
+      password: password,
+      profile_photo: profile_photo,
+      website: website,
+      introduction: introduction,
+      phone_number: phone_number,
+      sex: sex
     )
-    puts "\"#{username}\" のアカウントが作成されました!"
+    puts "[" + "\e[32m" + "\"#{username}\" のアカウントが作成されました!" + "\e[0m" + "]"
   end
 
   User.all.each do |user|
@@ -45,7 +45,7 @@
       hashword: "#テスト",
       address: "スカイツリー"
     )
-    puts "\"#{user.username}\" の投稿が作成されました!"
+    puts "[" + "\e[32m" + "\"#{user.username}\" の投稿が作成されました!" + "\e[0m" + "]"
   end
 
   Post.all.each do |post|
@@ -53,7 +53,7 @@
       post_id: Post.find(post.id),
       image: File.open('./app/assets/images/faker-image-skytree.jpeg')
     )
-    puts "投稿ID: \"#{post.id}\" の画像が設定されました!"
+    puts "[" + "\e[32m" + "投稿ID: \"#{post.id}\" の画像が設定されました!" + "\e[0m" + "]"
   end
 end
 
@@ -73,5 +73,5 @@ end
                password_confirmation: password,
                introduction: introduction
              )
-  puts "\"#{username}\" のサンプルアカウントが作成されました!"
+  puts "[" + "\e[32m" + "\"#{username}\" のサンプルアカウントが作成されました!" + "\e[0m" + "]"
 end
