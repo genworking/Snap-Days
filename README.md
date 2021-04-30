@@ -14,7 +14,8 @@ https://snapdays.herokuapp.com<br><br>
 * Ruby 2.7.2
 * Rails 6.0.3
 * AWS （S3）
-* RSpec 3.10<br><br>
+* RSpec 3.10
+* Docker 20.10.5<br><br>
 
 # 動作  
 新規登録後、トップページの「Snap Daysへようこそ」からボタンをクリックすると、<br>
