@@ -1,2 +1,4 @@
-module Accounts::PasswordsHelper
+module Accounts
+  module PasswordsHelper
+  end
 end

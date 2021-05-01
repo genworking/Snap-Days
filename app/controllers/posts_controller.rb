@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post, only: %i(show destroy)
+  before_action :set_post, only: [:show, :destroy]
 
   def index
     @posts = Post.includes(:photos, :user).where(user_id: [current_user.id, *current_user.following_ids])
-                 .page(params[:page]).per(10).order('created_at DESC')# フォロー中ユーザーの投稿
-    @following_user = current_user.followings# フォロー中ユーザー
+                 .page(params[:page]).per(10).order('created_at DESC') # フォロー中ユーザーの投稿
+    @following_user = current_user.followings # フォロー中ユーザー
   end
 
   def show
@@ -48,12 +48,12 @@ class PostsController < ApplicationController
   def hashtag
     @user = current_user
     if params[:name].nil?
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+      @hashtags = Hashtag.all.to_a.group_by { |hashtag| hashtag.posts.count }
     else
       @hashtag = Hashtag.find_by(hashname: params[:name])
       @hashtag_posts = @hashtag.posts.includes(:liked_users).page(params[:page])
-                               .sort {|a,b| b.liked_users.size <=> a.liked_users.size}# いいね数順
-      @hashtags = Hashtag.all.to_a.group_by{ |hashtag| hashtag.posts.count}
+                               .sort { |a, b| b.liked_users.size <=> a.liked_users.size } # いいね数順
+      @hashtags = Hashtag.all.to_a.group_by { |hashtag| hashtag.posts.count }
       @hashtag_randoms = @hashtag.posts.order("RANDOM()").limit(1)
     end
   end

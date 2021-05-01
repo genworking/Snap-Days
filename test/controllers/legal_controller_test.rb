@@ -10,5 +10,4 @@ class LegalControllerTest < ActionDispatch::IntegrationTest
     get legal_privacy_url
     assert_response :success
   end
-
 end

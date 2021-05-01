@@ -1,12 +1,11 @@
 class RegistrationsController < Devise::RegistrationsController
-
   # ログイン後、遷移
-  def after_sign_up_path_for(resource)
+  def after_sign_up_path_for(_resource)
     user_path(current_user)
   end
 
   # プロフィール更新後、遷移
-  def after_update_path_for(resource)
+  def after_update_path_for(_resource)
     user_path(current_user)
   end
 

@@ -64,28 +64,26 @@ class User < ApplicationRecord
     user = User.where(uid: auth.uid, provider: auth.provider).first
     unless user
       user = User.create(
-        uid:      auth.uid,
+        uid: auth.uid,
         provider: auth.provider,
-        email:    User.dummy_email(auth),
+        email: User.dummy_email(auth),
         password: Devise.friendly_token[0, 20]
       )
-      user.save(:validate => false)
+      user.save(validate: false)
     end
     user
   end
 
   def create_notification_follow!(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ",current_user.id, id, 'follow'])
-    if temp.blank?
-      notification = current_user.active_notifications.new(
-        visited_id: id,
-        action: 'follow'
-      )
-      notification.save if notification.valid?
-    end
-  end
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and action = ? ", current_user.id, id, 'follow'])
+    return unless temp.blank?
 
-  private
+    notification = current_user.active_notifications.new(
+      visited_id: id,
+      action: 'follow'
+    )
+    notification.save if notification.valid?
+  end
 
   def self.dummy_email(auth)
     "#{auth.uid}-#{auth.provider}@example.com"
