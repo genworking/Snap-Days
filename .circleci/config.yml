@@ -1,39 +1,7 @@
 version: 2.1
-orbs:
-  ruby-orbs: sue445/ruby-orbs@1.6.0
-  heroku: circleci/heroku@1.0.1
-
-workflows:
-  build_test_and_deploy:
-    jobs:
-      - build
-      - rubocop:
-          requires:
-            - build
-      - rspec:
-          requires:
-            - build
-            - rubocop
-      - deploy_prd:
-          requires:
-            - build
-            - rspec
-          filters:
-            branches:
-              only:
-                - master
-      - deploy_stg:
-          requires:
-            - build
-            - rspec
-          filters:
-            branches:
-              only:
-                - staging
-
 executors:
   default:
-    working_directory: ~/repo
+    working_directory: ~/insta_clone5
     docker:
       - image: ruby:2.7.2
         environment:
@@ -62,43 +30,15 @@ jobs:
       - run:
           name: Rspec
           command: bundle exec rspec
-  deploy_prd:
-    executor: heroku/default
-    parameters:
-      app-name:
-        default: $HEROKU_APP_NAME_PRD
-        type: string
-      post-deploy:
-        default:
-          - run:
-              command: heroku run rails db:migrate --app $HEROKU_APP_NAME_PRD
-        type: steps
+  heroku_deploy:
+    docker:
+      - image: buildpack-deps:trusty
     steps:
       - checkout
-      - heroku/install
-      - heroku/deploy-via-git:
-          app-name: << parameters.app-name >>
-      - steps: << parameters.post-deploy >>
-  deploy_stg:
-    executor: heroku/default
-    parameters:
-      app-name:
-        default: $HEROKU_APP_NAME_STG
-        type: string
-      post-deploy:
-        default:
-          - run:
-              command: heroku run rails db:migrate --app $HEROKU_APP_NAME_STG
-        type: steps
-      force:
-        default: true
-        type: boolean
-    steps:
-      - checkout
-      - heroku/install
-      - heroku/deploy-via-git:
-          app-name: << parameters.app-name >>
-      - steps: << parameters.post-deploy >>
+      - run:
+          name: Deploy to Heroku
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
 
 commands:
   bundle-install:
@@ -116,3 +56,23 @@ commands:
     steps:
       - checkout
       - bundle-install
+
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.6.0
+  heroku: circleci/heroku@1.0.1
+
+workflows:
+  version: 2.1
+  build:
+    jobs:
+      - rspec
+      - rubocop
+      - heroku_deploy:
+          requires:
+            - rspec
+            - rubocop
+          # 指定ブランチプッシュ時のみ
+          filters:
+            branches:
+              only:
+                - main

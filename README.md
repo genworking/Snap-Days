@@ -14,8 +14,10 @@ https://snapdays.herokuapp.com<br><br>
 * Ruby 2.7.2
 * Rails 6.0.3
 * AWS （S3）
+* Docker 20.10.5
+* CircleCI 2.1
 * RSpec 3.10
-* Docker 20.10.5<br><br>
+* Rubocop 1.13.0<br><br>
 
 # 動作  
 新規登録後、トップページの「Snap Daysへようこそ」からボタンをクリックすると、<br>
@@ -68,6 +70,11 @@ https://snapdays.herokuapp.com<br><br>
 
 他のユーザーを見つけやすいように「フォローしていないユーザー」一覧ページを設置しました。<br><br>
 <img width="500" alt="スクリーンショット 2021-04-13 12 09 19" src="https://user-images.githubusercontent.com/66241426/114492055-b736b800-9c52-11eb-83a2-7009ff89a1ba.png"><br><br>
+
+# テスト
+開発効率を上げるため、CircleCIとGitHubを連携しました。<br><br>
+プッシュするとRSpecとrubocopが自動で実行されます。<br><br>
+<img width="500" alt="スクリーンショット 2021-05-02 15 42 57" src="https://user-images.githubusercontent.com/66241426/116804850-253d1380-ab5d-11eb-9717-c11e41e130ac.png"><br><br>
 
 # 機能一覧
 * ユーザー登録、ログイン機能(devise)
