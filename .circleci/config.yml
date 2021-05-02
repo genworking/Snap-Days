@@ -18,7 +18,7 @@ workflows:
           requires:
             - build
             - rspec
-            
+
 executors:
   default:
     working_directory: ~/insta_clone5
@@ -56,9 +56,9 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy to Heroku
+          name: Deploy to Heroku main
           command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
 
 commands:
   bundle-install:
