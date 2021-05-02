@@ -1,4 +1,24 @@
 version: 2.1
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.6.0
+  heroku: circleci/heroku@1.0.1
+
+workflows:
+  build_test_and_deploy:
+    jobs:
+      - build
+      - rubocop:
+          requires:
+            - build
+      - rspec:
+          requires:
+            - build
+            - rubocop
+      - heroku_deploy:
+          requires:
+            - build
+            - rspec
+            
 executors:
   default:
     working_directory: ~/insta_clone5
@@ -56,23 +76,3 @@ commands:
     steps:
       - checkout
       - bundle-install
-
-orbs:
-  ruby-orbs: sue445/ruby-orbs@1.6.0
-  heroku: circleci/heroku@1.0.1
-
-workflows:
-  version: 2.1
-  build:
-    jobs:
-      - rspec
-      - rubocop
-      - heroku_deploy:
-          requires:
-            - rspec
-            - rubocop
-          # 指定ブランチプッシュ時のみ
-          filters:
-            branches:
-              only:
-                - main
