@@ -73,8 +73,11 @@ https://snapdays.herokuapp.com<br><br>
 
 # テスト
 開発効率を上げるため、CircleCIとGitHubを連携しました。<br><br>
-プッシュするとRSpecとrubocopが自動で実行されます。<br><br>
+プッシュするとRSpecとrubocopが実行されます。<br><br>
 <img width="500" alt="スクリーンショット 2021-05-03 11 55 58" src="https://user-images.githubusercontent.com/66241426/116837736-9684d100-ac06-11eb-8970-6247c4ea6ff3.png"><br><br>
+
+mainブランチをプッシュすると、コードチェック後にHerokuへ自動デプロイされます。<br><br>
+<img width="500" alt="スクリーンショット 2021-05-05 23 41 26" src="https://user-images.githubusercontent.com/66241426/117159820-8eda4d80-adfb-11eb-945a-1386c97da0a2.png"><br><br>
 
 # 機能一覧
 * ユーザー登録、ログイン機能(devise)
