@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
 
   describe 'バリデーション' do
     it '有効なファクトリを持つこと' do
-      expect(FactoryBot.build(:user)).to be_valid
+      expect(@user).to be_valid
     end
 
     it 'フルネーム、ユーザーネーム、メール、パスワードがあれば有効な状態であること' do
