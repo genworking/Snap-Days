@@ -6,15 +6,12 @@ RSpec.describe User, type: :model do
   end
 
   describe 'バリデーション' do
+    it '有効なファクトリを持つこと' do
+      expect(FactoryBot.build(:user)).to be_valid
+    end
+
     it 'フルネーム、ユーザーネーム、メール、パスワードがあれば有効な状態であること' do
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze',
-        introduction: '',
-        phone_number: ''
-      )
+      @user = FactoryBot.build(:user, introduction: '', phone_number: '')
       expect(@user).to be_valid
     end
 
@@ -101,18 +98,8 @@ RSpec.describe User, type: :model do
 
   describe 'ユニークバリデーション' do
     before do
-      User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
-      @user = User.new(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
+      FactoryBot.create(:user)
+      @user = FactoryBot.build(:user)
     end
 
     it 'nameが重複するとNG' do
@@ -133,12 +120,7 @@ RSpec.describe User, type: :model do
 
   describe '文字列に一致するフルネームを検索する' do
     before do
-      @user1 = User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
+      @user1 = FactoryBot.create(:user)
       @user2 = User.create(
         name: 'Joe',
         username: 'Tester',
@@ -163,12 +145,7 @@ RSpec.describe User, type: :model do
 
   describe '文字列に一致するユーザーネームを検索する' do
     before do
-      @user1 = User.create(
-        name: 'Aaron',
-        username: 'Sumner',
-        email: 'tester@example.com',
-        password: 'dottle-nouveau-pavilion-tights-furze'
-      )
+      @user1 = FactoryBot.create(:user)
       @user2 = User.create(
         name: 'Joe',
         username: 'Tester',
