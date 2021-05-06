@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :name, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :username, presence: true, uniqueness: true, length: { maximum: 50 }
   validates :email, presence: true, uniqueness: true
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, on: :create
   validates :introduction, length: { maximum: 160 }
   validates :phone_number, length: { maximum: 20 }
   enum sex: { man: 0, woman: 1 }
