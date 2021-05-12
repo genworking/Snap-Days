@@ -11,6 +11,6 @@ FactoryBot.define do
   end
 
   trait :post_address do
-    address { "addresstest" }
+    address { "address_test" }
   end
 end
