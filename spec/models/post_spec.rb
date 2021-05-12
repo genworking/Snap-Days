@@ -5,9 +5,21 @@ RSpec.describe Post, type: :model do
     @post = FactoryBot.build(:post)
   end
 
-  it "ファクトリで関連するユーザーを生成する" do
-    puts "[" + "\e[42m" + "この投稿のユーザー：#{@post.user.inspect}" + "\e[0m" + "]"
-    expect(@post.user.inspect).to include("User")
+  describe 'ファクトリー' do
+    it "ファクトリで投稿に関連するユーザーを生成する" do
+      puts "[" + "\e[42m" + "投稿の関連ユーザー：#{@post.user.inspect}" + "\e[0m" + "]"
+      expect(@post.user.inspect).to include("Aaron")
+    end
+
+    it "ファクトリで生成された投稿にhashtagを設定する" do
+      post = FactoryBot.create(:post, :post_hashtag)
+      expect(post.hashword).to include("hashtag_test")
+    end
+
+    it "ファクトリで生成された投稿にaddressを設定する" do
+      post = FactoryBot.create(:post, :post_address)
+      expect(post.address).to include("addresstest")
+    end
   end
 
   describe 'バリデーション' do
