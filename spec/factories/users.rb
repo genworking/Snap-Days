@@ -4,5 +4,9 @@ FactoryBot.define do
     username { 'Sumner' }
     email { 'tester@example.com' }
     password { 'dottle-nouveau-pavilion-tights-furze' }
+
+    trait :name_hoge do
+      name { 'hogehoge' }
+    end
   end
 end

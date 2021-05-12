@@ -10,7 +10,6 @@
 # 固定ユーザー作成
 1.times do |n|
   hobby = Faker::Book.title
-  address = Faker::Address.state
   [
     ['ふるねーむ', 'ユーザーネーム', 'test1@test.com', 'hogehoge', File.open('./app/assets/images/default-first-user-icon.png'),
       'https://www.google.com/', "ユーザーネームです！<br />好きな本は、「#{hobby}」です！！<br />よろしくお願いします😌",

@@ -5,6 +5,11 @@ RSpec.describe Post, type: :model do
     @post = FactoryBot.build(:post)
   end
 
+  it "ファクトリで関連するユーザーを生成する" do
+    puts "[" + "\e[42m" + "この投稿のユーザー：#{@post.user.inspect}" + "\e[0m" + "]"
+    expect(@post.user.inspect).to include("User")
+  end
+
   describe 'バリデーション' do
     it '有効なファクトリーを持つこと' do
       expect(@post).to be_valid
