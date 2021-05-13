@@ -360,7 +360,7 @@ DEPENDENCIES
   active_storage_validations (= 0.8.2)
   bootsnap (>= 1.4.2)
   byebug
-  capybara (>= 2.15)
+  capybara
   carrierwave (~> 2.0)
   devise
   dotenv-rails

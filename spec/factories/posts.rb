@@ -13,4 +13,9 @@ FactoryBot.define do
   trait :post_address do
     address { "address_test" }
   end
+
+  trait :post_sample1 do
+    hashword { "hashword_sample1" }
+    address { "address_sample1" }
+  end
 end

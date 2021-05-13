@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     @following_user = current_user.followings # フォロー中ユーザー
     other_unfollowed_users = User.where.not(id: [current_user.id, *current_user.following_ids])
