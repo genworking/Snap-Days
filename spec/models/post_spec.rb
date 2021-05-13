@@ -7,7 +7,7 @@ RSpec.describe Post, type: :model do
 
   describe 'ファクトリー' do
     it "ファクトリで投稿に関連するユーザーを生成する" do
-      puts "[" + "\e[42m" + "投稿の関連ユーザー：#{@post.user.inspect}" + "\e[0m" + "]"
+      puts "[\e[42m投稿の関連ユーザー：#{@post.user.inspect}\e[0m]"
       expect(@post.user.inspect).to include("Aaron")
     end
 
