@@ -10,6 +10,7 @@ FactoryBot.define do
     name { 'testuser1' }
     username { 'testusername1' }
     email { 'testuser1@example.com' }
+    post 
   end
 
   trait :testuser2 do
