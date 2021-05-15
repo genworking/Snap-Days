@@ -12,12 +12,12 @@ RSpec.describe Post, type: :model do
     end
 
     it "ファクトリで生成された投稿にhashtagを設定する" do
-      post = FactoryBot.build(:post, :post_hashtag)
+      post = FactoryBot.build(:post, :with_hashtag)
       expect(post.hashword).to include("hashtag_test")
     end
 
     it "ファクトリで生成された投稿にaddressを設定する" do
-      post = FactoryBot.build(:post, :post_address)
+      post = FactoryBot.build(:post, :with_address)
       expect(post.address).to include("address_test")
     end
   end

@@ -26,14 +26,15 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    if @post.photos.present?
-      @post.save
-      redirect_to post_path(@post)
-      flash[:notice] = "投稿が保存されました"
-    else
-      redirect_to root_path
-      flash[:alert] = "投稿に失敗しました"
-    end
+    @post.save
+    # if @post.photos.present?
+    #   @post.save
+    #   redirect_to post_path(@post)
+    #   flash[:notice] = "投稿が保存されました"
+    # else
+    #   redirect_to root_path
+    #   flash[:alert] = "投稿に失敗しました"
+    # end
   end
 
   def destroy

@@ -6,11 +6,11 @@ FactoryBot.define do
     association :user
   end
 
-  trait :post_hashtag do
+  trait :with_hashtag do
     hashword { "hashtag_test" }
   end
 
-  trait :post_address do
+  trait :with_address do
     address { "address_test" }
   end
 

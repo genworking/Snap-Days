@@ -4,7 +4,7 @@ RSpec.describe Post::PostsController, type: :controller do
   describe '#create' do
     context '認証済みユーザーとして' do
       before do
-        @user = FactoryBot.create(:user, :testuser1)
+        @user = FactoryBot.create(:user)
       end
 
       it '投稿を追加できること' do
