@@ -1,18 +1,22 @@
 require 'rails_helper'
 
 RSpec.describe Post::PostsController, type: :controller do
-  describe '#create' do
+  describe '#index' do
     context '認証済みユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
       end
 
-      it '投稿を追加できること' do
-        post_params = FactoryBot.attributes_for(:post)
+      it '正常にレスポンスを返すこと' do
         sign_in @user
-        expect {
-          post :create, params: { post: post_params }
-        }.to change(@user.posts, :count).by(1)
+        get :index
+        expect(response).to be_successful
+      end
+
+      it '200レスポンスを返すこと' do
+        sign_in @user
+        get :index
+        expect(response).to have_http_status "200"
       end
     end
 
