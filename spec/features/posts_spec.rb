@@ -9,14 +9,14 @@ RSpec.feature "Posts", type: :feature do
     fill_in "パスワード", with: user.password
     click_button "ログインする"
 
-    expect do
+    expect {
       visit new_post_path
       find(".ff-btn").click
-      attach_file "input_file", "spec/factories/images/2.jpeg"
+      attach_file "input_file", "#{Rails.root}/spec/factories/images/2.jpeg"
       fill_in "投稿コメント", with: "test_caption"
       click_button "投稿する"
 
       expect(page).to have_content "投稿が保存されました"
-    end.to change(user.posts, :count).by(1)
+    }.to change(user.posts, :count).by(1)
   end
 end

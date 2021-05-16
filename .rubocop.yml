@@ -242,6 +242,13 @@ Style/WordArray:
   EnforcedStyle: percent
   MinSize: 5
 
+
+# 複数行の場合は { ... } ではなく do ... end を使うべきというチェック項目
+Style/BlockDelimiters:
+  AutoCorrect: false
+  Exclude:
+    - "spec/**/*"
+
 # Offense count: 67
 # Cop supports --auto-correct.
 # Configuration parameters: AutoCorrect, AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, IgnoredPatterns.
