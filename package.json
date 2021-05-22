@@ -1,5 +1,5 @@
 {
-  "name": "techpitgram",
+  "name": "insta_clone5",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
@@ -13,6 +13,6 @@
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.1"
   }
 }
