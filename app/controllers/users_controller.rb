@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:guest_sign_in]
 
   def index
     @following_user = current_user.followings # フォロー中ユーザー
@@ -59,16 +59,9 @@ class UsersController < ApplicationController
 
   # ゲストログイン
   def guest_sign_in
-    user = User.find_or_create_by!(name: 'ゲストユーザー', username: 'ゲストユーザー', email: 'guest@example.com') do |u|
-      u.password = SecureRandom.urlsafe_base64
-    end
-    sign_in user
+    guest_user = User.guest
+    sign_in guest_user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
-  end
-
-  # ゲストユーザーのパスワード変更・アカウント削除不可
-  def ensure_normal_user
-    redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。' if resource.email == 'guest@example.com'
   end
 
   private

@@ -22,7 +22,14 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
-  # 無い場合、nilを返す
+  # ゲストログイン
+  def self.guest
+    find_or_create_by(email: 'guest@example.com', name: 'ゲストユーザー', username: 'ゲストユーザー') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
+  # ナビバーフォーム検索（無い場合、nilを返す）
   def self.search(search_word)
     find_by('name LIKE(?) or username LIKE(?)', "%#{search_word}%", "%#{search_word}%")
   end
