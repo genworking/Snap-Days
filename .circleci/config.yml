@@ -28,6 +28,7 @@ executors:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
 
+
 jobs:
   build:
     executor: default
@@ -47,7 +48,7 @@ jobs:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-      - run: npm install yarn
+      - run: sudo apt-get update && sudo apt-get install yarn
       - run: bundle exec bin/webpack
       - run:
           name: Rspec
