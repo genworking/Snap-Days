@@ -1,5 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
-  before_action :ensure_normal_user, only: %i[update destroy]
+  before_action :ensure_normal_user, only: [:update, :destroy]
 
   # ログイン後、遷移
   def after_sign_up_path_for(_resource)
@@ -13,9 +13,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   # ゲストユーザーのパスワード変更・アカウント削除不可
   def ensure_normal_user
-    if resource.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。'
-    end
+    redirect_to root_path, alert: 'ゲストユーザーの更新・削除はできません。' if resource.email == 'guest@example.com'
   end
 
   protected
