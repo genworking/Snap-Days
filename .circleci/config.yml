@@ -47,6 +47,9 @@ jobs:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
+      - run: bundle exec bin/yarn
+      - run: bundle exec bin/webpack
+      - run:
       - run:
           name: Rspec
           command: bundle exec rspec
