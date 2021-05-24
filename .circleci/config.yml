@@ -27,8 +27,13 @@ executors:
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
+
+jobs:
+  build:
+    executor: default
     steps:
       - checkout
+      - bundle-install
       # 2回目以降高速に行うため、キャッシュに保存したものを取り出す。
       # Gemfileを変更した際に前回使用したものと同じではエラーが生じる可能性があるので、
       # ファイル名・ファイルの中身に応じてハッシュ値を算出する。checksum 構文。
@@ -43,13 +48,6 @@ executors:
           key: Sample_Cache_{{ checksum "Gemfile.lock" }}
           paths:
             - ./vendor/bundle
-
-jobs:
-  build:
-    executor: default
-    steps:
-      - checkout
-      - bundle-install
   rubocop:
     executor: default
     steps:
