@@ -40,7 +40,7 @@ jobs:
     steps:
       - preparate
       - run:
-          name: Rubocop
+          name: Rubocopを実行
           command: bundle exec rubocop
   rspec:
     executor: default
@@ -51,7 +51,7 @@ jobs:
       - run: bundle exec bin/yarn
       - run: bundle exec bin/webpack
       - run:
-          name: Rspec
+          name: Rspecを実行
           command: bundle exec rspec
   heroku_deploy:
     docker:
@@ -59,7 +59,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Deploy to Heroku main
+          name: mainブランチをherokuへデプロイ
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
 
