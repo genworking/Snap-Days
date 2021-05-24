@@ -48,6 +48,10 @@ jobs:
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
       - run:
+          name: yarnをインストール
+          command: yarn install
+      - run: bundle exec bin/webpack
+      - run:
           name: Rspecを実行
           command: bundle exec rspec
   heroku_deploy:
