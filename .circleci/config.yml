@@ -23,11 +23,10 @@ executors:
   default:
     working_directory: ~/insta_clone5
     docker:
-      - image: circleci/node:14.15.4
+      - image: ruby:2.7.2
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
-
 
 jobs:
   build:
@@ -48,8 +47,6 @@ jobs:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-      - run: bundle exec bin/yarn
-      - run: bundle exec bin/webpack
       - run:
           name: Rspecを実行
           command: bundle exec rspec
@@ -62,7 +59,6 @@ jobs:
           name: mainブランチをherokuへデプロイ
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
-
 commands:
   bundle-install:
     steps:
