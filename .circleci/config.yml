@@ -23,10 +23,26 @@ executors:
   default:
     working_directory: ~/insta_clone5
     docker:
-      - image: ruby:2.7.2
+      - image: ruby:2.7.2-node-browsers
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
+    steps:
+      - checkout
+      # 2回目以降高速に行うため、キャッシュに保存したものを取り出す。
+      # Gemfileを変更した際に前回使用したものと同じではエラーが生じる可能性があるので、
+      # ファイル名・ファイルの中身に応じてハッシュ値を算出する。checksum 構文。
+      - restore_cache:
+          key: Sample_Cache_{{ checksum "Gemfile.lock" }}
+      # 初回 or Gemfile更新 時にはこのコマンドを使用して環境を整える。
+      - run:
+          name: install Gemfile
+          command: bundle install --path vendor/bundle
+      # 上記のコマンドにより生成されたディレクトリをキャッシュに保存する。キャッシュ名が既に有る場合は、実行されない。
+      - save_cache:
+          key: Sample_Cache_{{ checksum "Gemfile.lock" }}
+          paths:
+            - ./vendor/bundle
 
 jobs:
   build:
@@ -39,20 +55,23 @@ jobs:
     steps:
       - preparate
       - run:
-          name: Rubocopを実行
+          name: Rubocop
           command: bundle exec rubocop
   rspec:
     executor: default
     steps:
       - preparate
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:schema:load
       - run:
-          name: yarnをインストール
+          name: Set up DB
+          command: |
+            bundle exec rails db:create
+            bundle exec rails db:migrate
+      - run:
+          name: yarn install
           command: yarn install
       - run: bundle exec bin/webpack
       - run:
-          name: Rspecを実行
+          name: Rspec
           command: bundle exec rspec
   heroku_deploy:
     docker:
@@ -60,7 +79,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: mainブランチをherokuへデプロイ
+          name: Deploy main branch to heroku
           command: |
             git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
 commands:
