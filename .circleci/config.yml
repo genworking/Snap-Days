@@ -23,7 +23,7 @@ executors:
   default:
     working_directory: ~/insta_clone5
     docker:
-      - image: circleci/node:8.11.3
+      - image: ruby:2.7.2
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -31,9 +31,14 @@ executors:
 jobs:
   build:
     executor: default
+    docker:
+      - image: circleci/node:12
     steps:
       - checkout
       - bundle-install
+      - run:
+          name: install dependencies
+          command: yarn install
   rubocop:
     executor: default
     steps:
@@ -43,12 +48,14 @@ jobs:
           command: bundle exec rubocop
   rspec:
     executor: default
+    docker:
+      - image: circleci/node:12
     steps:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
       - run:
-          name: yarn Install
+          name: install dependencies
           command: yarn install
       - run: bundle exec bin/webpack
       - run:
