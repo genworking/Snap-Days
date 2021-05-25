@@ -47,16 +47,10 @@ jobs:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-      - type: cache-restore
-          name: Restore bundle cache
-          key: rails-demo-bundle-{{ checksum "yarn.lock" }}
       - run:
           name: yarn Install
           command: yarn install
-      - type: cache-save
-          name: Save bundle cache
-          key: rails-demo-bundle-{{ checksum 'yarn.lock' }}
-          paths: .yarn-cache
+      - run: bundle exec bin/webpack
       - run:
           name: Rspec
           command: bundle exec rspec
