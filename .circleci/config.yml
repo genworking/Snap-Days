@@ -21,17 +21,30 @@ workflows:
 
 jobs:
   build:
+    build:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:8.9
+    working_directory: ~/insta_clone5
     steps:
       - checkout
-      - bundle-install
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
       - run:
-          name: install dependencies
-          command: yarn install
+          name: Running tests
+          command: yarn test
+      - run:
+          name: tslint
+          command: yarn lint
   rubocop:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:8.9
     steps:
       - preparate
       - run:
@@ -39,7 +52,7 @@ jobs:
           command: bundle exec rubocop
   rspec:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:8.9
     steps:
       - preparate
       - run: bundle exec rails db:create
