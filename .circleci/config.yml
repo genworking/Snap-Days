@@ -44,7 +44,7 @@ jobs:
           command: yarn lint
   rubocop:
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/node:12
     steps:
       - preparate
       - run:
@@ -52,7 +52,7 @@ jobs:
           command: bundle exec rubocop
   rspec:
     docker:
-      - image: circleci/node:8.9
+      - image: circleci/node:12
     steps:
       - preparate
       - run: bundle exec rails db:create
