@@ -19,6 +19,7 @@ workflows:
             - build
             - rspec
 
+# Ver2.1から利用可能
 executors:
   default:
     working_directory: ~/insta_clone5
@@ -46,11 +47,36 @@ jobs:
     executor: default
     steps:
       - preparate
+      # バンドル キャッシュを復元
+      - restore_cache:
+          keys:
+            - rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - rails-demo-bundle-v2-
+      - run:
+          name: バンドル インストール
+          command: |
+            gem install bundler -v 2.2.15
+            bundle install
+      # バンドル キャッシュを保存
+      - save_cache:
+          key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+      # Yarn の設定
+      - restore_cache:
+          keys:
+            - rails-demo-yarn-{{ checksum "yarn.lock" }}
+            - rails-demo-yarn-
+      - run:
+          name: Yarn のインストール
+          command: yarn install --cache-folder ~/.cache/yarn
+      # Yarn のキャッシュを保存
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-      - run:
-          name: yarn Install
-          command: yarn install
       - run: bundle exec bin/webpack
       - run:
           name: Rspec
