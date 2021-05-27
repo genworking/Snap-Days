@@ -35,18 +35,6 @@ jobs:
     steps:
       - checkout
       - bundle-install
-  rubocop:
-    executor: default
-    steps:
-      - preparate
-      - run:
-          name: Rubocop
-          when: always
-          command: bundle exec rubocop
-  rspec:
-    executor: default
-    steps:
-      - preparate
       # バンドル キャッシュを復元
       - restore_cache:
           keys:
@@ -75,9 +63,21 @@ jobs:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+      - run: bundle exec bin/webpack
+  rubocop:
+    executor: default
+    steps:
+      - preparate
+      - run:
+          name: Rubocop
+          when: always
+          command: bundle exec rubocop
+  rspec:
+    executor: default
+    steps:
+      - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
-      - run: bundle exec bin/webpack
       - run:
           name: Rspec
           command: bundle exec rspec
