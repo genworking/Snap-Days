@@ -19,46 +19,37 @@ workflows:
             - build
             - rspec
 
+executors:
+  default:
+    working_directory: ~/insta_clone5
+    docker:
+      - image: circleci/ruby:2.7.2-node-browsers
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
 jobs:
   build:
-    build:
-    docker:
-      - image: circleci/node:8.9
-    working_directory: ~/insta_clone5
+    executor: default
     steps:
       - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
-      - run: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-          name: Running tests
-          command: yarn test
-      - run:
-          name: tslint
-          command: yarn lint
+      - bundle-install
   rubocop:
-    docker:
-      - image: circleci/node:12
+    executor: default
     steps:
       - preparate
       - run:
           name: Rubocop
+          when: always
           command: bundle exec rubocop
   rspec:
-    docker:
-      - image: circleci/node:12
+    executor: default
     steps:
       - preparate
       - run: bundle exec rails db:create
       - run: bundle exec rails db:schema:load
       - run:
-          name: install dependencies
+          name: yarn Install
           command: yarn install
       - run: bundle exec bin/webpack
       - run:
