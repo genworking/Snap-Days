@@ -1,40 +1,32 @@
 version: 2.1
-orbs:
-  ruby-orbs: sue445/ruby-orbs@1.6.0
-  heroku: circleci/heroku@1.0.1
+workflows: # 全体の流れを定義
+  your_workflow_name: # ワークフローの名前(任意の名前)
+    jobs: # 実行するジョブ(任意の名前)
+      - your_job_name
 
-workflows:
-  build_test_and_deploy:
-    jobs:
-      - build
-      - rubocop:
-          requires:
-            - build
-      - rspec:
-          requires:
-            - build
-            - rubocop
-      - heroku_deploy:
-          requires:
-            - build
-            - rspec
-
-# Ver2.1から利用可能
-executors:
-  default:
-    working_directory: ~/insta_clone5
+executors: # 各ジョブの初期設定
+  working_directory: ~/アプリの名前
+  ruby_and_postgres:
     docker:
-      - image: circleci/ruby:2.7.2-node-browsers
+      - image: circleci/ruby:2.7.3-node-browsers
         environment:
+          BUNDLE_JOBS: 3
+          BUNDLE_RETRY: 3
           BUNDLE_PATH: vendor/bundle
+          PGHOST: 127.0.0.1
+          PGUSER: 任意の名前
           RAILS_ENV: test
+      - image: circleci/postgres:13.2
+        environment:
+          POSTGRES_USER: 任意の名前（上のPGUSERと同じ名前）
+          POSTGRES_DB: アプリ名_test
+          POSTGRES_PASSWORD: 任意のPW
 
 jobs:
-  build:
-    executor: default
+  your_job_name:
+    executor: ruby_and_postgres
     steps:
       - checkout
-      - bundle-install
       # バンドル キャッシュを復元
       - restore_cache:
           keys:
@@ -63,46 +55,28 @@ jobs:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-      - run: bundle exec bin/webpack
-  rubocop:
-    executor: default
-    steps:
-      - preparate
+      # Rubocopの実行
       - run:
-          name: Rubocop
+          name: Run Lint
           when: always
           command: bundle exec rubocop
-  rspec:
-    executor: default
-    steps:
-      - preparate
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:schema:load
+      # DB関連の設定
       - run:
-          name: Rspec
-          command: bundle exec rspec
-  heroku_deploy:
-    docker:
-      - image: buildpack-deps:trusty
-    steps:
-      - checkout
+          name: DB起動待機
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
-          name: Deploy to Heroku main
+          name: Create DB
           command: |
-            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
-commands:
-  bundle-install:
-    steps:
-      - ruby-orbs/bundle-install:
-          bundle_clean: true
-          bundle_extra_args: ''
-          bundle_gemfile: Gemfile
-          bundle_jobs: 4
-          bundle_path: vendor/bundle
-          bundle_retry: 3
-          cache_key_prefix: v1-bundle-dependencies
-          restore_bundled_with: true
-  preparate:
-    steps:
-      - checkout
-      - bundle-install
+            bin/rails db:migrate
+            bin/rails db:schema:load --trace
+      # テストの実行
+      - run:
+          name: Run Tests
+          command: |
+            bundle exec rspec --profile 10 \
+                              --format RspecJunitFormatter \
+                              --out test_results/rspec.xml \
+                              --format progress \
+                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
+      - store_test_results:
+          path: /tmp/test-results
