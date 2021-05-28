@@ -36,7 +36,6 @@ jobs:
   build:
     executor: default
     steps:
-      - checkout
       # バンドル キャッシュを復元
       - restore_cache:
           keys:
@@ -70,7 +69,6 @@ jobs:
     steps:
       - run:
           name: rubocopの実行
-          when: always
           command: |
             bundle install
             bundle exec rubocop
