@@ -22,7 +22,7 @@ jobs:
     executor: ruby_and_postgres
     steps:
       - checkout
-      - bundle-install
+      - run: bundle exec bundle install
       # バンドル キャッシュを復元
       - restore_cache:
           keys:
@@ -76,20 +76,3 @@ jobs:
                               $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
       - store_test_results:
           path: /tmp/test-results
-
-commands:
-  bundle-install:
-    steps:
-      - ruby-orbs/bundle-install:
-          bundle_clean: true
-          bundle_extra_args: ''
-          bundle_gemfile: Gemfile
-          bundle_jobs: 4
-          bundle_path: vendor/bundle
-          bundle_retry: 3
-          cache_key_prefix: v1-bundle-dependencies
-          restore_bundled_with: true
-  preparate:
-    steps:
-      - checkout
-      - bundle-install
