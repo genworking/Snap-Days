@@ -3,23 +3,15 @@ orbs:
   ruby-orbs: sue445/ruby-orbs@1.6.0
   heroku: circleci/heroku@1.0.1
 
-workflows:
-  build_test_and_deploy:
-    jobs:
-      - build
-      - rubocop:
-          requires:
-            - build
-      - rspec:
-          requires:
-            - build
-            - rubocop
+workflows: # 全体の流れを定義
+  build_test_and_deploy: # ワークフローの名前
+    jobs: # 実行するジョブ(任意の名前)
+      - build_and_test
       - heroku_deploy:
           requires:
-            - build
-            - rspec
+            - build_and_test
 
-executors:
+executors: # 各ジョブの初期設定
   working_directory: ~/insta_clone5
   default:
     docker:
@@ -33,7 +25,7 @@ executors:
           RAILS_ENV: test
 
 jobs:
-  build:
+  build_and_test:
     executor: default
     steps:
       - checkout
@@ -65,23 +57,16 @@ jobs:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-  rubocop:
-    executor: default
-    steps:
-      - checkout
-      - run: bundle install
       - run:
-          name: Rubocop
+          name: rubocopの実行
           command: bundle exec rubocop
-  rspec:
-    executor: default
-    steps:
-      - checkout
-      - run: bundle exec rails db:create
-      - run: bundle exec rails db:schema:load
-      - run: bundle install
       - run:
-          name: Rspec
+          name: Create DB
+          command: |
+            bin/rails db:migrate
+            bin/rails db:schema:load
+      - run:
+          name: RSpecの実行
           command: bundle exec rspec
   heroku_deploy:
     docker:
