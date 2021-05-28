@@ -1,12 +1,12 @@
 version: 2.1
 workflows: # 全体の流れを定義
-  your_workflow_name: # ワークフローの名前(任意の名前)
+  build_test_and_deploy: # ワークフローの名前
     jobs: # 実行するジョブ(任意の名前)
-      - your_job_name
+      - build_and_test
 
 executors: # 各ジョブの初期設定
-  working_directory: ~/アプリの名前
-  ruby_and_postgres:
+  working_directory: ~/insta_clone5
+  ruby_node_browsers:
     docker:
       - image: circleci/ruby:2.7.2-node-browsers
         environment:
@@ -18,8 +18,8 @@ executors: # 各ジョブの初期設定
           RAILS_ENV: test
 
 jobs:
-  your_job_name:
-    executor: ruby_and_postgres
+  build_and_test:
+    executor: ruby_node_browsers
     steps:
       - checkout
       # バンドル キャッシュを復元
@@ -52,15 +52,11 @@ jobs:
             - ~/.cache/yarn
       # Rubocopの実行
       - run:
-          name: Run Lint
+          name: rubocop
           when: always
           command: |
             bundle install
             bundle exec rubocop
-      # DB関連の設定
-      - run:
-          name: DB起動待機
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Create DB
           command: |
@@ -68,12 +64,5 @@ jobs:
             bin/rails db:schema:load --trace
       # テストの実行
       - run:
-          name: Run Tests
-          command: |
-            bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
-                              --format progress \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-      - store_test_results:
-          path: /tmp/test-results
+          name: RSpec
+          command: bundle exec rspec
