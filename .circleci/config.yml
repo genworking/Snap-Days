@@ -22,7 +22,6 @@ jobs:
     executor: ruby_and_postgres
     steps:
       - checkout
-      - run: bundle exec bundle install
       # バンドル キャッシュを復元
       - restore_cache:
           keys:
@@ -55,7 +54,9 @@ jobs:
       - run:
           name: Run Lint
           when: always
-          command: bundle exec rubocop
+          command: |
+            bundle install
+            bundle exec rubocop
       # DB関連の設定
       - run:
           name: DB起動待機
