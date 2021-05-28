@@ -1,12 +1,27 @@
 version: 2.1
+orbs:
+  ruby-orbs: sue445/ruby-orbs@1.6.0
+  heroku: circleci/heroku@1.0.1
+
 workflows: # 全体の流れを定義
   build_test_and_deploy: # ワークフローの名前
     jobs: # 実行するジョブ(任意の名前)
-      - build_and_test
+      - build
+      - rubocop:
+          requires:
+            - build
+      - rspec:
+          requires:
+            - build
+            - rubocop
+      - heroku_deploy:
+          requires:
+            - build
+            - rspec
 
 executors: # 各ジョブの初期設定
   working_directory: ~/insta_clone5
-  ruby_node_browsers:
+  default:
     docker:
       - image: circleci/ruby:2.7.2-node-browsers
         environment:
@@ -18,8 +33,8 @@ executors: # 各ジョブの初期設定
           RAILS_ENV: test
 
 jobs:
-  build_and_test:
-    executor: ruby_node_browsers
+  build:
+    executor: default
     steps:
       - checkout
       # バンドル キャッシュを復元
@@ -43,26 +58,38 @@ jobs:
             - rails-demo-yarn-{{ checksum "yarn.lock" }}
             - rails-demo-yarn-
       - run:
-          name: Yarn のインストール
+          name: Yarnのインストール
           command: yarn install --cache-folder ~/.cache/yarn
       # Yarn のキャッシュを保存
       - save_cache:
           key: rails-demo-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
-      # Rubocopの実行
+  rubocop:
+    executor: default
+    steps:
       - run:
-          name: rubocop
+          name: rubocopの実行
           when: always
           command: |
             bundle install
             bundle exec rubocop
+  rspec:
+    executor: default
+    steps:
       - run:
           name: Create DB
           command: |
             bin/rails db:migrate
             bin/rails db:schema:load --trace
-      # テストの実行
       - run:
-          name: RSpec
+          name: RSpecの実行
           command: bundle exec rspec
+  heroku_deploy:
+    docker:
+      - image: buildpack-deps:trusty
+    steps:
+      - run:
+          name: Deploy to Heroku main
+          command: |
+            git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git main
