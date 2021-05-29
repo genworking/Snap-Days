@@ -11,7 +11,7 @@ RSpec.feature "Registrations", type: :feature do
       click_button "ログインする"
 
       visit edit_user_registration_path
-      fill_in name="user[username]", with: "New name"
+      fill_in "user[username]", with: "New name"
       click_button "変更する"
 
       expect(page).to have_content "アカウント情報を変更しました"
