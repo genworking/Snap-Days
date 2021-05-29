@@ -1,6 +1,6 @@
 class RegistrationsController < Devise::RegistrationsController
   before_action :ensure_normal_user, only: [:update, :destroy]
-
+  
   # ログイン後、遷移
   def after_sign_up_path_for(_resource)
     user_path(current_user)
