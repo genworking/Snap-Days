@@ -34,4 +34,36 @@ RSpec.describe Post::PostsController, type: :controller do
       end
     end
   end
+
+  describe '#destroy' do
+    context '認可されたユーザーとして' do
+      before do
+        @user = FactoryBot.create(:user)
+        @post = FactoryBot.create(:post, user: @user)
+      end
+
+      it '投稿を削除できること' do
+        sign_in @user
+        expect {
+          delete :destroy, params: { id: @post.id }
+        }.to change(@user.posts, :count).by(-1)
+      end
+    end
+
+    context '認可されていないユーザーとして' do
+      before do
+        @user = FactoryBot.create(:user)
+        other_user = FactoryBot.create(:user, :testuser1)
+        @post = FactoryBot.create(:post, user: other_user)
+      end
+
+      it '投稿を削除できないこと' do
+        sign_in @user
+        expect {
+          delete :destroy, params: { id: @post.id }
+        }.to_not change(Post, :count)
+      end
+    end
+
+  end
 end
