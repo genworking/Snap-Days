@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Registrations", type: :feature do
   describe 'ユーザーがプロフィール情報を更新する' do
-    scenario '認可されたユーザーであれば、更新できること' do
+    scenario '認可されたユーザーであれば、プロフィール編集ページで更新できること' do
       @user = FactoryBot.create(:user)
 
       visit new_user_session_path
@@ -18,7 +18,7 @@ RSpec.feature "Registrations", type: :feature do
       expect(@user.reload.username).to eq "New_name"
     end
 
-    scenario '認可されていないユーザーであれば、サインイン画面にリダイレクトすること' do
+    scenario '認可されていないユーザーであれば、サインイン画面に遷移すること' do
       visit edit_user_registration_path
 
       expect(page).to have_content "アカウント登録もしくはサインインしてください"
