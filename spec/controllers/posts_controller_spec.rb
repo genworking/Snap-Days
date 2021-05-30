@@ -63,7 +63,12 @@ RSpec.describe Post::PostsController, type: :controller do
           delete :destroy, params: { id: @post.id }
         }.to_not change(Post, :count)
       end
-    end
 
+      it "トップ画面にリダイレクトすること" do
+        sign_in @user
+        delete :destroy, params: { id: @post.id }
+        expect(response).to redirect_to root_path
+      end
+    end
   end
 end
