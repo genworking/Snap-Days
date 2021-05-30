@@ -6,16 +6,15 @@ RSpec.feature "Posts", type: :feature do
       user = FactoryBot.create(:user)
 
       visit new_user_session_path
-      fill_in "メールアドレス", with: user.email
-      fill_in "パスワード", with: user.password
-      click_button "ログインする"
+      fill_in "user[email]", with: user.email
+      fill_in "user[password]", with: user.password
+      click_button "commit"
 
       expect {
         visit new_post_path
-        find(".ff-btn").click
-        attach_file "input_file", "#{Rails.root}/spec/factories/images/2.jpeg"
-        fill_in "投稿コメント", with: "test_caption"
-        click_button "投稿する"
+        attach_file "post[photos_attributes][0][image]", "#{Rails.root}/spec/factories/images/2.jpeg"
+        fill_in "post[caption]", with: "test_caption"
+        click_button "commit"
 
         expect(page).to have_content "投稿が保存されました"
       }.to change(user.posts, :count).by(1)
