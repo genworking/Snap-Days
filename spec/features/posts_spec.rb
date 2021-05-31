@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Posts", type: :feature do
   describe 'ユーザーが新しい投稿を作成する' do
-    scenario '画像とキャプション入力があれば投稿を追加できること' do
+    scenario '画像とキャプション入力があれば、投稿を追加できること' do
       @user = FactoryBot.create(:user)
 
       visit new_user_session_path
@@ -20,7 +20,7 @@ RSpec.feature "Posts", type: :feature do
       }.to change(@user.posts, :count).by(1)
     end
 
-    scenario '画像入力が無ければ投稿を追加できないこと' do
+    scenario '画像入力が無ければ、投稿を追加できないこと' do
       @user = FactoryBot.create(:user)
 
       visit new_user_session_path

@@ -19,18 +19,37 @@ RSpec.describe Post::PostsController, type: :controller do
         expect(response).to have_http_status "200"
       end
     end
+  end
 
-    context "非認証済みユーザーとして" do
-      it "302レスポンスを返すこと" do
-        post_params = FactoryBot.attributes_for(:post)
-        post :create, params: { post: post_params }
-        expect(response).to have_http_status "302"
+  describe '#show' do
+    context '認可されたユーザーとして' do
+      before do
+        @user = FactoryBot.create(:user)
+        @post = FactoryBot.create(:post, user: @user)
       end
 
-      it "サインイン画面にリダイレクトすること" do
-        post_params = FactoryBot.attributes_for(:post)
-        post :create, params: { post: post_params }
-        expect(response).to redirect_to "/users/sign_in"
+      it '正常にレスポンスを返すこと' do
+        sign_in @user
+        get :show, params: { id: @post.id }
+        expect(response).to be_successful
+      end
+
+      it '200レスポンスを返すこと' do
+        sign_in @user
+        get :show, params: { id: @post.id }
+        expect(response).to have_http_status "200"
+      end
+    end
+
+    context '認可されていないユーザーとして' do
+      before do
+        @user = FactoryBot.create(:user)
+        @post = FactoryBot.create(:post, user: @user)
+      end
+      
+      it '302レスポンスを返すこと' do
+        get :show, params: { id: @post.id }
+        expect(response).to have_http_status "302"
       end
     end
   end
