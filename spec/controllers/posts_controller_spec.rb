@@ -22,12 +22,19 @@ RSpec.describe Post::PostsController, type: :controller do
   end
 
   describe '#show' do
-    context '認可されたユーザーとして' do
-      before do
-        @user = FactoryBot.create(:user)
-        @post = FactoryBot.create(:post, user: @user)
-      end
+    before do
+      @user = FactoryBot.create(:user)
+      @post = FactoryBot.create(:post, user: @user)
+    end
 
+    it 'html形式でレスポンスを返すこと' do
+      sign_in @user
+      get :show, format: :html,
+        params: { id: @post.id }
+      expect(response.content_type).to eq "text/html"
+    end
+
+    context '認可されたユーザーとして' do
       it '正常にレスポンスを返すこと' do
         sign_in @user
         get :show, params: { id: @post.id }
@@ -42,11 +49,6 @@ RSpec.describe Post::PostsController, type: :controller do
     end
 
     context '認可されていないユーザーとして' do
-      before do
-        @user = FactoryBot.create(:user)
-        @post = FactoryBot.create(:post, user: @user)
-      end
-      
       it '302レスポンスを返すこと' do
         get :show, params: { id: @post.id }
         expect(response).to have_http_status "302"
