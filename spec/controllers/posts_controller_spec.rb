@@ -30,7 +30,7 @@ RSpec.describe Post::PostsController, type: :controller do
     it 'html形式でレスポンスを返すこと' do
       sign_in @user
       get :show, format: :html,
-        params: { id: @post.id }
+                 params: { id: @post.id }
       expect(response.content_type).to eq "text/html"
     end
 
