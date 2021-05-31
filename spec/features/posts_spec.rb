@@ -32,7 +32,7 @@ RSpec.feature "Posts", type: :feature do
         visit new_post_path
         fill_in "post[caption]", with: "test_caption"
         click_button "commit"
-
+      
         expect(page).to have_content "画像が入力されていません"
       }.to_not change(@user.posts, :count)
     end
