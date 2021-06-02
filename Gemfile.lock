@@ -365,6 +365,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_storage_validations (= 0.8.2)
+  addressable
   bootsnap (>= 1.4.2)
   byebug
   capybara

@@ -49,6 +49,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
+  gem 'addressable'
 end
 
 group :production do
