@@ -21,8 +21,25 @@ RSpec.feature "Registrations", type: :feature do
     scenario '認可されていないユーザーであれば、サインイン画面に遷移すること' do
       visit edit_user_registration_path
 
-      expect(page).to have_content "アカウント登録もしくはサインインしてください"
+      expect(page).to have_content "アカウント登録もしくはログインしてください"
       expect(page).to have_selector "#sign_in_btn"
+    end
+  end
+
+  describe 'ユーザーがログアウトをする' do
+    scenario 'ログアウトアイコンをクリックすると、ログアウトができること' do
+      @user = FactoryBot.create(:user)
+
+      visit new_user_session_path
+      fill_in "user[email]", with: @user.email
+      fill_in "user[password]", with: @user.password
+      click_button "commit"
+
+      find("#logout-icon").click
+
+      expect(page).to have_content "アカウント登録もしくはログインしてください"
+      uri = URI.parse(current_url)
+      expect("#{uri.path}").to eq new_user_session_path
     end
   end
 end

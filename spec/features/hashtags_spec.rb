@@ -10,10 +10,10 @@ RSpec.feature "Hashtags", type: :feature do
       fill_in "user[password]", with: @user.password
       click_button "commit"
 
-      fill_in "search", with: @user.name.to_s
+      fill_in "search", with: @user.name
       find('#search-btn').click
 
-      expect(page).to have_content @user.name.to_s
+      expect(page).to have_content @user.name
     end
 
     scenario 'ユーザーネームを検索できること' do
@@ -24,10 +24,10 @@ RSpec.feature "Hashtags", type: :feature do
       fill_in "user[password]", with: @user.password
       click_button "commit"
 
-      fill_in "search", with: @user.username.to_s
+      fill_in "search", with: @user.username
       find('#search-btn').click
 
-      expect(page).to have_content @user.username.to_s
+      expect(page).to have_content @user.username
     end
 
     scenario 'ハッシュタグを検索できること' do
@@ -47,7 +47,7 @@ RSpec.feature "Hashtags", type: :feature do
       fill_in "search", with: @user.posts.first.hashword
       find('#search-btn').click
 
-      expect(page).to have_content @user.posts.first.hashword.to_s
+      expect(page).to have_content @user.posts.first.hashword
     end
   end
 end

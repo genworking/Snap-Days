@@ -48,7 +48,8 @@
         <!-- ログアウト -->
         <li>
           <% if user_signed_in? %>
-            <%= link_to "", destroy_user_session_path, class: "nav-link commonNavIcon logout-icon", method: :delete %>
+            <%= link_to "", destroy_user_session_path, class: "nav-link commonNavIcon logout-icon",
+                                                       id: "logout-icon", method: :delete %>
           <% end %>
         </li>
       </ul>
