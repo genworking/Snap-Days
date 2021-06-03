@@ -6,19 +6,15 @@ FactoryBot.define do
     password { 'dottle-nouveau-pavilion-tights-furze' }
   end
 
-  trait :testuser1 do
-    name { 'testuser1' }
-    username { 'testusername1' }
-    email { 'testuser1@example.com' }
+  trait :user2 do
+    name { 'Aaron2' }
+    username { 'Sumner2' }
+    email { 'tester2@example.com' }
   end
 
-  trait :testuser2 do
-    name { 'testuser2' }
-    username { 'testusername2' }
-    email { 'testuser2@example.com' }
-  end
-
-  trait :name_hoge do
-    name { 'hogehoge' }
+  trait :user3 do
+    name { 'Aaron3' }
+    username { 'Sumner3' }
+    email { 'tester3@example.com' }
   end
 end

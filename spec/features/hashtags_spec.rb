@@ -1,5 +1,4 @@
 require 'rails_helper'
-require 'addressable/uri'
 
 RSpec.feature "Hashtags", type: :feature do
   describe 'フォーム入力からの検索として' do
@@ -71,6 +70,8 @@ RSpec.feature "Hashtags", type: :feature do
       click_link @user.posts.first.hashword
 
       expect(page).to have_content @user.posts.first.hashword
+      uri = URI.parse(current_url)
+      expect(uri.path.to_s).to eq "/post/hashtag/test_hashword"
     end
   end
 end

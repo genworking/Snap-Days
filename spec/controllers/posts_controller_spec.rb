@@ -74,7 +74,7 @@ RSpec.describe Post::PostsController, type: :controller do
     context '認可されていないユーザーとして' do
       before do
         @user = FactoryBot.create(:user)
-        other_user = FactoryBot.create(:user, :testuser1)
+        other_user = FactoryBot.create(:user, :user2)
         @post = FactoryBot.create(:post, user: other_user)
       end
 

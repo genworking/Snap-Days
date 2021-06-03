@@ -38,8 +38,7 @@ RSpec.feature "Registrations", type: :feature do
       find("#logout-icon").click
 
       expect(page).to have_content "アカウント登録もしくはログインしてください"
-      uri = URI.parse(current_url)
-      expect(uri.path.to_s).to eq new_user_session_path
+      expect(current_path).to eq new_user_session_path
     end
   end
 end
